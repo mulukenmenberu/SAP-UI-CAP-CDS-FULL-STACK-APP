@@ -35,7 +35,18 @@ sap.ui.define([
                         }),  new Input({
                             value: "{mainModel>Planned_study_date}",
                             change: [this.onInputChange, this]
+                        }),
+                        new sap.m.Button({
+                            id: "editModeButton",
+                            visible: true,
+                            icon: "sap-icon://edit",
+                            tooltip: "Edit",
+                            press: this.onEditMode.bind(this), // Assuming onEditMode is a function you've defined
+                            layoutData: new sap.m.OverflowToolbarLayoutData({
+                                priority: sap.m.OverflowToolbarPriority.NeverOverflow
+                            })
                         })
+                 
                     ]
                 });
 
@@ -183,7 +194,20 @@ refreshModel: function (sModelName, sGroup){
                 }),
                 new sap.m.Text({
                     text: "{mainModel>Planned_study_date}"
+                }),
+                new sap.m.Button({
+                    id: "editModeSIngleButton",
+                    visible: true,
+                    icon: "sap-icon://edit",
+                    tooltip: "Edit",
+                    press: this.onEditMode.bind(this), // Assuming onEditMode is a function you've defined
+                    layoutData: new sap.m.OverflowToolbarLayoutData({
+                        priority: sap.m.OverflowToolbarPriority.NeverOverflow
+                    })
                 })
+                // new sap.m.Text({
+                //     text: "{mainModel>Planned_study_date}"
+                // })
             ]
         });
     },

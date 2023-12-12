@@ -102,6 +102,11 @@
                                         <Label text="Planned Study Date" />
                                     </header>
                                 </Column>
+                                      <Column>
+                                    <header>
+                                        <Label text="Action" />
+                                    </header>
+                                </Column>
                             </columns>
                         </Table>
                     </content>
