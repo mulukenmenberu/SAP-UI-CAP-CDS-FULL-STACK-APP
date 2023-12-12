@@ -64,16 +64,27 @@ sap.ui.define([
                 oEvent.getSource().getParent().close();
              },
              onCreate: function () {
-                var oSo = this.getView().byId("idSo").getValue();
+                var oSo = this.getView().byId("Student_db_id").getValue();
                 if (oSo !== "") {
                     const oList = this._oTable;
                         const oBinding = oList.getBinding("items");
                         const oContext = oBinding.create({
-                            "Student_db_id": this.byId("idSo").getValue(),
-                            "Full_name": this.byId("idCustName").getValue(),
-                            "Office": this.byId("idCustomer").getValue(),
-                            "Advisor": this.byId("idPo").getValue(),
-                            "Planned_study_date": this.byId("idInqNumber").getValue()      
+                        
+                            "Full_name": this.byId("Full_name").getValue(),
+                            "Gender": this.byId("Gender").getValue(),
+                            "Office": this.byId("Office").getValue(),
+                            "Advisor": 12,//this.byId("Advisor").getValue(),
+                            "Created_at": new Date(),
+                            "Planned_study_date": this.byId("Planned_study_date").getValue(),      
+                            
+
+                            // "Full_name": 'sfWFESEFRwf Doe',
+                            // "Gender": 'Female',
+                            // "Office": 'Office B',
+                            // "Advisor": 2, // Assuming the User_id exists in the Users entity
+                            // "Created_at": new Date(),
+                            // "Planned_study_date": new Date('2023-02-01T00:00:00.000Z'),
+
                         });
                         oContext.created()
                         .then(()=>{

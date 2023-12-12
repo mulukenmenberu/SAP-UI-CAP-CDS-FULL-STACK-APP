@@ -36,7 +36,7 @@
 
                                     </content>
                                     <dependents>
-                                        <Dialog id="OpenDialog" title="Create Sales Order">
+                                        <Dialog id="OpenDialog" title="Create New Student">
                                             <buttons>
                                                 <Button id="confirmCreate" text="Create" press=".onCreate" type="Emphasized" />
                                                 <Button id="cancelCreate" text="Cancel" press="onCancelDialog" type="Transparent" />
@@ -44,15 +44,19 @@
                                             <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
                                                 <form:content>
                                                     <Label text="Student DB ID" required="true" />
-                                                    <Input id="idSo" change="onNameChange" />
+                                                    <Input id="Student_db_id" change="onNameChange" />
                                                     <Label text="Full Name" />
-                                                    <Input id="idCustName" />
+                                                    <Input id="Full_name" />
                                                     <Label text="Office" />
-                                                    <Input id="idCustomer"  />
+                                                    <Input id="Office"  />
                                                     <Label text="Advisor" />
-                                                    <Input id="idPo"  />
+                                                    <Input id="Advisor"  />
+                                                    <Label text="Gender" />
+                                                    <Input id="Gender"  />
                                                     <Label text="Planned Study Date" />
-                                                    <Input id="idInqNumber"  />
+                                                    <!-- <Input type="date" id="Planned_study_date"  /> -->
+                                                    <DatePicker id="Planned_study_date" value="{/Planned_study_date}" />
+
                                                 </form:content>
                                             </form:SimpleForm>
                                         </Dialog>
