@@ -30,7 +30,7 @@ entity Students : managed {
   @title : 'Created AT'
   Created_at : DateTime;
   @title : 'Planned Study Date'
-  Planned_study_date : DateTime;
+  Planned_study_date : Date;
 }
 
 entity Student_communications : managed {

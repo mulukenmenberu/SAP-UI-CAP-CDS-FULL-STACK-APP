@@ -43,8 +43,8 @@
                                             </buttons>
                                             <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
                                                 <form:content>
-                                                    <Label text="Student DB ID" required="true" />
-                                                    <Input id="Student_db_id" change="onNameChange" />
+                                                    <!-- <Label text="Student DB ID" required="true" />
+                                                    <Input id="Student_db_id" change="onNameChange" /> -->
                                                     <Label text="Full Name" />
                                                     <Input id="Full_name" />
                                                     <Label text="Office" />

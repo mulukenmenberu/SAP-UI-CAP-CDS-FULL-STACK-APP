@@ -64,36 +64,38 @@ sap.ui.define([
                 oEvent.getSource().getParent().close();
              },
              onCreate: function () {
-                var oSo = this.getView().byId("Student_db_id").getValue();
+                var oSo = this.getView().byId("Full_name").getValue();
                 if (oSo !== "") {
                     const oList = this._oTable;
                         const oBinding = oList.getBinding("items");
+                        const plannedStudyDate = this.byId("Planned_study_date").getDateValue();
+                        let formattedDate = ""
+                        if (plannedStudyDate instanceof Date && !isNaN(plannedStudyDate)) {
+                             formattedDate = plannedStudyDate.toISOString().split('T')[0];
+                        }         
+                        
+                        try{
                         const oContext = oBinding.create({
                         
                             "Full_name": this.byId("Full_name").getValue(),
                             "Gender": this.byId("Gender").getValue(),
                             "Office": this.byId("Office").getValue(),
-                            "Advisor": 12,//this.byId("Advisor").getValue(),
+                            "Advisor": parseInt(this.byId("Advisor").getValue(), 10),//this.byId("Advisor").getValue(),
                             "Created_at": new Date(),
-                            "Planned_study_date": this.byId("Planned_study_date").getValue(),      
+                            "Planned_study_date": formattedDate,  
                             
-
-                            // "Full_name": 'sfWFESEFRwf Doe',
-                            // "Gender": 'Female',
-                            // "Office": 'Office B',
-                            // "Advisor": 2, // Assuming the User_id exists in the Users entity
-                            // "Created_at": new Date(),
-                            // "Planned_study_date": new Date('2023-02-01T00:00:00.000Z'),
-
                         });
                         oContext.created()
                         .then(()=>{
                                 // that._focusItem(oList, oContext);
                                 this.getView().byId("OpenDialog").close();
                         });
+                    }catch(e){
+                        this.getView().byId("OpenDialog").close();
+                    }
   
                 }else {
-                    MessageToast.show("So cannot be blank");
+                    MessageToast.show("Full Name cannot be blank");
                 }
     
             },
