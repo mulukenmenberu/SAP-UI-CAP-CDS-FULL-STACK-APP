@@ -21,10 +21,10 @@ sap.ui.define([
 
                 var oModel = new JSONModel({
                     Planned_study_date_edit: "",
-                    Office_edit: "test office",
-                    Advisor_edit: " just a test name",
-                    Gender_edit: "anoher testname",
-                    Full_name_edit:"test name",
+                    Office_edit: "",
+                    Advisor_edit: "",
+                    Gender_edit: "",
+                    Full_name_edit:"",
 
                 });
                 this.getView().setModel(oModel, "editModel");
@@ -83,7 +83,22 @@ sap.ui.define([
             onOpenAddDialog: function () {
                 this.getView().byId("OpenDialog").open();
              },
-             onOpenDetailDialog: function () {
+             onOpenDetailDialog: function (oEvent) {
+                var oSelectedRow = oEvent.getSource().getBindingContext("mainModel").getObject();
+
+                // Create a new JSONModel with the values from the selected row
+                var oModel = new JSONModel({
+                    Planned_study_date_edit: oSelectedRow.Planned_study_date,
+                    Office_edit: oSelectedRow.Office,
+                    Advisor_edit: oSelectedRow.Advisor,
+                    Gender_edit: oSelectedRow.Gender,
+                    Full_name_edit: oSelectedRow.Full_name,
+                });
+            
+                // Set the model for the dialog
+                this.getView().setModel(oModel, "editModel");
+
+
                 this.getView().byId("studentDetailModal").open();
              },
              onCancelDialog: function (oEvent) {
@@ -107,6 +122,42 @@ sap.ui.define([
                             "Gender": this.byId("Gender").getValue(),
                             "Office": this.byId("Office").getValue(),
                             "Advisor": parseInt(this.byId("Advisor").getValue(), 10),//this.byId("Advisor").getValue(),
+                            "Created_at": new Date(),
+                            "Planned_study_date": formattedDate,  
+                            
+                        });
+                        oContext.created()
+                        .then(()=>{
+                                // that._focusItem(oList, oContext);
+                                this.getView().byId("OpenDialog").close();
+                        });
+                    }catch(e){
+                        this.getView().byId("OpenDialog").close();
+                    }
+  
+                }else {
+                    MessageToast.show("Full Name cannot be blank");
+                }
+    
+            },
+            onUpdate: function () {
+                var oSo = this.getView().byId("Full_name_edit").getValue();
+                if (oSo !== "") {
+                    const oList = this._oTable;
+                        const oBinding = oList.getBinding("items");
+                        const plannedStudyDate = this.byId("Planned_study_date_edit").getDateValue();
+                        let formattedDate = ""
+                        if (plannedStudyDate instanceof Date && !isNaN(plannedStudyDate)) {
+                             formattedDate = plannedStudyDate.toISOString().split('T')[0];
+                        }         
+                        
+                        try{
+                        const oContext = oBinding.create({
+                        
+                            "Full_name": this.byId("Full_name_edit").getValue(),
+                            "Gender": this.byId("Gender_edit").getValue(),
+                            "Office": this.byId("Office_edit").getValue(),
+                            "Advisor": parseInt(this.byId("Advisor_edit").getValue(), 10),//this.byId("Advisor").getValue(),
                             "Created_at": new Date(),
                             "Planned_study_date": formattedDate,  
                             
