@@ -2,13 +2,14 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageToast",
     "sap/m/ColumnListItem",
-    "sap/m/Input"
+    "sap/m/Input",
+    "sap/ui/model/json/JSONModel"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
 
-    function (Controller, MessageToast, ColumnListItem,Input) {
+    function (Controller, MessageToast, ColumnListItem,Input, JSONModel) {
         "use strict";
 
         return Controller.extend("project1.controller.Home", {
@@ -18,6 +19,15 @@ sap.ui.define([
                 this._createReadOnlyTemplates();
                 this.rebindTable(this.oReadOnlyTemplate, "Navigation");
 
+                var oModel = new JSONModel({
+                    Planned_study_date_edit: "",
+                    Office_edit: "test office",
+                    Advisor_edit: " just a test name",
+                    Gender_edit: "anoher testname",
+                    Full_name_edit:"test name",
+
+                });
+                this.getView().setModel(oModel, "editModel");
 
                 
                 this.oEditableTemplate = new ColumnListItem({

@@ -64,7 +64,7 @@
 
         <!-- STUDENT DETAIL MODAL  -->
         <dependents>
-                                        <Dialog id="studentDetailModal" title="Student Details -">
+                                        <Dialog id="studentDetailModal" title="Student Details -" binding="{editModel>/}">
                                             <buttons>
                                                 <Button id="confirmCreateDetail" text="Create" press=".onCreate" type="Emphasized" />
                                                 <Button id="cancelCreateDetail" text="Cancel" press="onCancelDialog" type="Transparent" />
@@ -74,16 +74,17 @@
                                                     <!-- <Label text="Student DB ID" required="true" />
                                                     <Input id="Student_db_id" change="onNameChange" /> -->
                                                     <Label text="Full Name" />
-                                                    <Input id="Full_namee" />
+                                                    <Input id="Full_name_edit" value="{editModel>/Full_name_edit}"/>
                                                     <Label text="Office" />
-                                                    <Input id="Officee"  />
+                                                    <Input id="Office_edit"  value="{editModel>/Office_edit}" />
                                                     <Label text="Advisor" />
-                                                    <Input id="Advisoer"  />
+                                                    <Input id="Advisor_edit"   value="{editModel>/Advisor_edit}"/>
                                                     <Label text="Gender" />
-                                                    <Input id="Gendere"  />
+                                                    <Input id="Gender_edit"   value="{editModel>/Gender_edit}"/>
                                                     <Label text="Planned Study Date" />
                                                     <!-- <Input type="date" id="Planned_study_date"  /> -->
-                                                    <DatePicker id="Planned_study_datee" value="{/Planned_study_date}" />
+                                                    <DatePicker id="Planned_study_date_edit" value="editModel>{/Planned_study_date_edit}" />
+
 
                                                 </form:content>
                                             </form:SimpleForm>
