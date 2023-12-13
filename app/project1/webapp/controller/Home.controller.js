@@ -137,6 +137,10 @@ sap.ui.define([
                         this.getView().byId("OpenDialog").close();
                     }
   
+
+                    this.getView().byId("OpenDialog").close();
+                    MessageToast.show("Student registered successfulyl");
+
                 }else {
                     MessageToast.show("Full Name cannot be blank");
                 }
