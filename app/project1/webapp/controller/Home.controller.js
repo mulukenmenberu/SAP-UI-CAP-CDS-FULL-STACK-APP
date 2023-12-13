@@ -18,6 +18,8 @@ sap.ui.define([
                 this._createReadOnlyTemplates();
                 this.rebindTable(this.oReadOnlyTemplate, "Navigation");
 
+
+                
                 this.oEditableTemplate = new ColumnListItem({
                     cells: [
                         new Input({
@@ -41,7 +43,7 @@ sap.ui.define([
                             visible: true,
                             icon: "sap-icon://edit",
                             tooltip: "Edit",
-                            press: this.onEditMode.bind(this), // Assuming onEditMode is a function you've defined
+                            press: this.onOpenDetailDialog.bind(this), // Assuming onEditMode is a function you've defined
                             layoutData: new sap.m.OverflowToolbarLayoutData({
                                 priority: sap.m.OverflowToolbarPriority.NeverOverflow
                             })
@@ -70,6 +72,9 @@ sap.ui.define([
               },
             onOpenAddDialog: function () {
                 this.getView().byId("OpenDialog").open();
+             },
+             onOpenDetailDialog: function () {
+                this.getView().byId("studentDetailModal").open();
              },
              onCancelDialog: function (oEvent) {
                 oEvent.getSource().getParent().close();
@@ -200,7 +205,7 @@ refreshModel: function (sModelName, sGroup){
                     visible: true,
                     icon: "sap-icon://edit",
                     tooltip: "Edit",
-                    press: this.onEditMode.bind(this), // Assuming onEditMode is a function you've defined
+                    press: this.onOpenDetailDialog.bind(this), // Assuming onEditMode is a function you've defined
                     layoutData: new sap.m.OverflowToolbarLayoutData({
                         priority: sap.m.OverflowToolbarPriority.NeverOverflow
                     })

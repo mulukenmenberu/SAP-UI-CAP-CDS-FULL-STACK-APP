@@ -62,6 +62,34 @@
                                         </Dialog>
                                     </dependents>
 
+        <!-- STUDENT DETAIL MODAL  -->
+        <dependents>
+                                        <Dialog id="studentDetailModal" title="Student Details -">
+                                            <buttons>
+                                                <Button id="confirmCreateDetail" text="Create" press=".onCreate" type="Emphasized" />
+                                                <Button id="cancelCreateDetail" text="Cancel" press="onCancelDialog" type="Transparent" />
+                                            </buttons>
+                                            <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+                                                <form:content>
+                                                    <!-- <Label text="Student DB ID" required="true" />
+                                                    <Input id="Student_db_id" change="onNameChange" /> -->
+                                                    <Label text="Full Name" />
+                                                    <Input id="Full_namee" />
+                                                    <Label text="Office" />
+                                                    <Input id="Officee"  />
+                                                    <Label text="Advisor" />
+                                                    <Input id="Advisoer"  />
+                                                    <Label text="Gender" />
+                                                    <Input id="Gendere"  />
+                                                    <Label text="Planned Study Date" />
+                                                    <!-- <Input type="date" id="Planned_study_date"  /> -->
+                                                    <DatePicker id="Planned_study_datee" value="{/Planned_study_date}" />
+
+                                                </form:content>
+                                            </form:SimpleForm>
+                                        </Dialog>
+                                    </dependents>
+
                                 </OverflowToolbar>
                             </headerToolbar>
                             <items>
