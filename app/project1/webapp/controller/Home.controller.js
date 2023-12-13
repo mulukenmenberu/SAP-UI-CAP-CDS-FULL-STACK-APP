@@ -142,6 +142,23 @@ sap.ui.define([
                 }
     
             },
+            onSuccessfulPatch: function () {
+                // Assuming "mainModel" is your main model instance
+                var mainModel = this.getView().getModel("mainModel");
+              
+                // Assuming "editModel" is your edit model instance
+                var editModel = this.getView().getModel("editModel");
+              
+                // Retrieve the updated data from the editModel
+                var updatedData = editModel.getProperty("/ID_edit");
+              
+                // Update the main model with the updated data
+                mainModel.setProperty("mainModel>/Students", updatedData);
+              
+                // Refresh the bindings to update the UI
+                mainModel.refresh(); 
+              },
+              
             onUpdate: function () {
                 var oSo = this.getView().byId("Full_name_edit").getValue();
                 if (oSo !== "") {
@@ -193,8 +210,8 @@ sap.ui.define([
                                     console.error('Error updating student:', error);
                                 });
                                 this.getView().byId("studentDetailModal").close();
-                                MessageToast.show("Student Info Updated");
-                                
+                                MessageToast.show("Student Info Updated, refresh the page to get the changes");
+                                // onSuccessfulPatch()
 
                         // const oContext = oBinding.create({
                         
