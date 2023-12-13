@@ -3,7 +3,7 @@ namespace cap_tutorial;
 
 
 entity Users : managed {
-  key User_id : Integer;
+  key ID : Integer;
   Full_name : String;
   Email : String;
   Office : String;
@@ -18,7 +18,7 @@ entity Users : managed {
 
 entity Students : managed {
   @title : 'DB ID'
-  key Student_db_id : Integer;
+  key ID : Integer;
   @title : 'Full NAme'
   Full_name : String;
   @title : 'Gender'
@@ -26,7 +26,7 @@ entity Students : managed {
   @title : 'Office'
   Office : String;
   @title : 'Advisor'
-  Advisor : Integer;//Association to Users;
+  Advisor : Association to Users;
   @title : 'Created AT'
   Created_at : DateTime;
   @title : 'Planned Study Date'
@@ -35,8 +35,8 @@ entity Students : managed {
 
 entity Student_communications : managed {
   key Id : Integer;
-  Student_db_id : Association to Students;
-  User_id : Association to Users;
+  Student : Association to Students;
+  User : Association to Users;
   Message : String; 
   Created_date : DateTime;
   Updated_date : DateTime;
@@ -44,15 +44,15 @@ entity Student_communications : managed {
 }
 
 entity Schools : managed {
-  key School_id : Integer;
+  key ID : Integer;
   School_name : String;
   Country : String;
   Creatd_at : DateTime; 
 }
 
 entity School_courses : managed {
-  key Course_id : Integer;
-  School_id : Association to Schools;
+  key ID : Integer;
+  School : Association to Schools;
   Course_name : String;
   Status : Integer;
   Created_at : DateTime;
@@ -60,10 +60,10 @@ entity School_courses : managed {
 }
 
 entity Student_applications : managed {
-  key Application_id : Integer;
-  Student_db_id : Association to Students;
+  key ID : Integer;
+  Student : Association to Students;
   Course_id : Association to School_courses;
-  Inserted_by : Association to Users;
+  User : Association to Users;
   Start_date : DateTime;
   Note : String;
   Created_at : DateTime;

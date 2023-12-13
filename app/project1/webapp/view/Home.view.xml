@@ -44,13 +44,13 @@
                                             <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
                                                 <form:content>
                                                     <!-- <Label text="Student DB ID" required="true" />
-                                                    <Input id="Student_db_id" change="onNameChange" /> -->
+                                                    <Input id="ID" change="onNameChange" /> -->
                                                     <Label text="Full Name" />
                                                     <Input id="Full_name" />
                                                     <Label text="Office" />
                                                     <Input id="Office"  />
                                                     <Label text="Advisor" />
-                                                    <Input id="Advisor"  />
+                                                    <Input id="Advisor_ID"  />
                                                     <Label text="Gender" />
                                                     <Input id="Gender"  />
                                                     <Label text="Planned Study Date" />
@@ -72,7 +72,8 @@
                                             <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
                                                 <form:content>
                                                     <!-- <Label text="Student DB ID" required="true" />
-                                                    <Input id="Student_db_id" change="onNameChange" /> -->
+                                                    <Input id="ID" change="onNameChange" /> -->
+                                                    <Input id="ID_edit" visible="false"   value="{editModel>/ID_edit}"/> 
                                                     <Label text="Full Name" />
                                                     <Input id="Full_name_edit" value="{editModel>/Full_name_edit}"/>
                                                     <Label text="Office" />
@@ -96,10 +97,10 @@
                             <items>
                                 <ColumnListItem type="Active" id="item0">
                                     <cells>
-                                  <Text id="id1" text="{mainModel>Student_db_id}"/>
+                                  <Text id="id1" text="{mainModel>ID}"/>
                                 <Text id="id2" text="{mainModel>Full_name}"/>
                                 <Text id="id3" text="{mainModel>Office}"/>
-                                <Text id="id4" text="{mainModel>Advisor}"/>
+                                <Text id="id4" text="{mainModel>Advisor_ID}"/>
                                 <Text id="id5" text="{mainModel>Planned_study_date}"/>
                                         <Button id="id6" icon="sap-icon://edit" press="onSelect" />
                                     </cells>

@@ -25,6 +25,7 @@ sap.ui.define([
                     Advisor_edit: "",
                     Gender_edit: "",
                     Full_name_edit:"",
+                    ID_edit:"",
 
                 });
                 this.getView().setModel(oModel, "editModel");
@@ -33,7 +34,7 @@ sap.ui.define([
                 this.oEditableTemplate = new ColumnListItem({
                     cells: [
                         new Input({
-                            value: "{mainModel>Student_db_id}",
+                            value: "{mainModel>ID}",
                             change: [this.onInputChange, this]
                         }), new Input({
                             value: "{mainModel>Full_name}",
@@ -42,7 +43,7 @@ sap.ui.define([
                             value: "{mainModel>Office}",
                             change: [this.onInputChange, this]
                         }), new Input({
-                            value: "{mainModel>Advisor}",
+                            value: "{mainModel>Advisor_ID}",
                             change: [this.onInputChange, this]
                         }),  new Input({
                             value: "{mainModel>Planned_study_date}",
@@ -90,9 +91,10 @@ sap.ui.define([
                 var oModel = new JSONModel({
                     Planned_study_date_edit: oSelectedRow.Planned_study_date,
                     Office_edit: oSelectedRow.Office,
-                    Advisor_edit: oSelectedRow.Advisor,
+                    Advisor_edit: oSelectedRow.Advisor_ID,
                     Gender_edit: oSelectedRow.Gender,
                     Full_name_edit: oSelectedRow.Full_name,
+                    ID_edit: oSelectedRow.ID,
                 });
             
                 // Set the model for the dialog
@@ -121,7 +123,7 @@ sap.ui.define([
                             "Full_name": this.byId("Full_name").getValue(),
                             "Gender": this.byId("Gender").getValue(),
                             "Office": this.byId("Office").getValue(),
-                            "Advisor": parseInt(this.byId("Advisor").getValue(), 10),//this.byId("Advisor").getValue(),
+                            "Advisor_ID": parseInt(this.byId("Advisor_ID").getValue(), 10),//this.byId("Advisor_ID").getValue(),
                             "Created_at": new Date(),
                             "Planned_study_date": formattedDate,  
                             
@@ -152,21 +154,63 @@ sap.ui.define([
                         }         
                         
                         try{
-                        const oContext = oBinding.create({
-                        
-                            "Full_name": this.byId("Full_name_edit").getValue(),
-                            "Gender": this.byId("Gender_edit").getValue(),
-                            "Office": this.byId("Office_edit").getValue(),
-                            "Advisor": parseInt(this.byId("Advisor_edit").getValue(), 10),//this.byId("Advisor").getValue(),
-                            "Created_at": new Date(),
-                            "Planned_study_date": formattedDate,  
+                            const endpoint = "https://port4004-workspaces-ws-wml98.us10.trial.applicationstudio.cloud.sap/StudentServices/Students";
+
+                            // Assuming you have the updateData object defined as mentioned in your question
+                            const updateData = {
+                                "Full_name": this.byId("Full_name_edit").getValue(),
+                                "Gender": this.byId("Gender_edit").getValue(),
+                                "Office": this.byId("Office_edit").getValue(),
+                                "Advisor_ID": parseInt(this.byId("Advisor_edit").getValue(), 10),
+                          
+                            };
                             
-                        });
-                        oContext.created()
-                        .then(()=>{
-                                // that._focusItem(oList, oContext);
-                                this.getView().byId("OpenDialog").close();
-                        });
+                            // You may want to replace 'yourStudentID' with the actual ID of the student you want to update
+                            const studentID = parseInt(this.byId("ID_edit").getValue(), 10)
+                            
+                            // Construct the full URL with the student ID
+                            const fullURL = `${endpoint}/${studentID}`;
+                            
+                            // Send the PATCH request
+                            fetch(fullURL, {
+                                method: 'PATCH',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(updateData),
+                            })
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error(`HTTP error! Status: ${response.status}`);
+                                    }
+                                    return response.json();
+                                })
+                                .then(data => {
+                                    // Handle the response data as needed
+                                    console.log('Update successful:', data);
+                                })
+                                .catch(error => {
+                                    console.error('Error updating student:', error);
+                                });
+                                this.getView().byId("studentDetailModal").close();
+                                MessageToast.show("Student Info Updated");
+                                
+
+                        // const oContext = oBinding.create({
+                        
+                        //     "Full_name": this.byId("Full_name_edit").getValue(),
+                        //     "Gender": this.byId("Gender_edit").getValue(),
+                        //     "Office": this.byId("Office_edit").getValue(),
+                        //     "Advisor_ID": parseInt(this.byId("Advisor_edit").getValue(), 10),//this.byId("Advisor_ID").getValue(),
+                        //     "Created_at": new Date(),
+                        //     "Planned_study_date": formattedDate,  
+                            
+                        // });
+                        // oContext.created()
+                        // .then(()=>{
+                        //         // that._focusItem(oList, oContext);
+                        //         this.getView().byId("OpenDialog").close();
+                        // });
                     }catch(e){
                         this.getView().byId("OpenDialog").close();
                     }
@@ -188,7 +232,7 @@ sap.ui.define([
 
             var oSelected = this.byId("table0").getSelectedItem();
             if(oSelected){
-                var oSalesOrder = oSelected.getBindingContext("mainModel").getObject().Student_db_id;
+                var oSalesOrder = oSelected.getBindingContext("mainModel").getObject().ID;
             
                 oSelected.getBindingContext("mainModel").delete("$auto").then(function () {
                     MessageToast.show(oSalesOrder + " SuccessFully Deleted");
@@ -247,7 +291,7 @@ refreshModel: function (sModelName, sGroup){
             this.oReadOnlyTemplate = new sap.m.ColumnListItem({
             cells: [
                 new sap.m.Text({
-                    text: "{mainModel>Student_db_id}"
+                    text: "{mainModel>ID}"
                 }),
                 new sap.m.Text({
                     text: "{mainModel>Full_name}"
@@ -256,7 +300,7 @@ refreshModel: function (sModelName, sGroup){
                     text: "{mainModel>Office}"
                 }),
                 new sap.m.Text({
-                    text: "{mainModel>Advisor}"
+                    text: "{mainModel>Advisor_ID}"
                 }),
                 new sap.m.Text({
                     text: "{mainModel>Planned_study_date}"
