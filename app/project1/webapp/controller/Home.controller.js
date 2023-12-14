@@ -106,7 +106,11 @@ sap.ui.define([
                 this.byId("navContainer").back();
               },
             onOpenAddDialog: function () {
-                this.getView().byId("OpenDialog").open();
+                var oDialog = this.getView().byId("OpenDialog");
+                oDialog.setContentWidth("100%");
+                oDialog.setContentHeight("100%");
+                oDialog.open();
+                // this.getView().byId("OpenDialog").open();
              },
              onOpenDetailDialog: function (oEvent) {
                 var oSelectedRow = oEvent.getSource().getBindingContext("mainModel").getObject();
@@ -124,6 +128,10 @@ sap.ui.define([
                 // Set the model for the dialog
                 this.getView().setModel(oModel, "editModel");
 
+
+                var oDialog = this.getView().byId("studentDetailModal");
+                oDialog.setContentWidth("100%");
+                oDialog.setContentHeight("100%");
 
                 this.getView().byId("studentDetailModal").open();
              },
