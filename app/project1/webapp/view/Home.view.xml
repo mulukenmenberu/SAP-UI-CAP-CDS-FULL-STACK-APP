@@ -1,6 +1,7 @@
 <mvc:View controllerName="project1.controller.Home"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns:form="sap.ui.layout.form"
+     xmlns:core="sap.ui.core"
     xmlns="sap.m">
     <!-- <Page id="page" title="{i18n>title}">
         <content />
@@ -50,7 +51,15 @@
                                                     <Label text="Office" />
                                                     <Input id="Office"  />
                                                     <Label text="Advisor" />
-                                                    <Input id="Advisor_ID"  />
+                                                    <ComboBox
+id="Advisor_ID" 
+    items="{
+      path: 'userModel>/value',
+      sorter: { path: 'Full_name' }
+    }">
+    <core:Item key="{userModel>ID}" text="{userModel>Full_name}" />
+</ComboBox>
+                                                    <!-- <Input id="Advisor_ID"  /> -->
                                                     <Label text="Gender" />
                                                     <Input id="Gender"  />
                                                     <Label text="Planned Study Date" />
@@ -79,7 +88,16 @@
                                                     <Label text="Office" />
                                                     <Input id="Office_edit"  value="{editModel>/Office_edit}" />
                                                     <Label text="Advisor" />
-                                                    <Input id="Advisor_edit"   value="{editModel>/Advisor_edit}"/>
+<ComboBox
+id="Advisor_edit" 
+    items="{
+      path: 'userModel>/value',
+      sorter: { path: 'Full_name' }
+    }">
+    <core:Item key="{userModel>ID}" text="{userModel>Full_name}" />
+</ComboBox>
+
+                                                    <!-- <Input id="Advisor_edit"   value="{editModel>/Advisor_edit}"/> -->
                                                     <Label text="Gender" />
                                                     <Input id="Gender_edit"   value="{editModel>/Gender_edit}"/>
                                                     <Label text="Planned Study Date" />

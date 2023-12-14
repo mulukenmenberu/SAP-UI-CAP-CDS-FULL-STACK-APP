@@ -19,6 +19,30 @@ sap.ui.define([
                 this._createReadOnlyTemplates();
                 this.rebindTable(this.oReadOnlyTemplate, "Navigation");
 
+                fetch("https://port4004-workspaces-ws-wml98.us10.trial.applicationstudio.cloud.sap/odata/v4/users/Users")
+                .then(response => response.json())
+                .then(data => {
+                    // Create a JSONModel and set the data to the model
+                    var oModel = new JSONModel(data);
+                    console.log(data,"=======", oModel)
+                    this.getView().setModel(oModel, "userModel");
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+
+
+                // var oModel = new JSONModel({
+                //     Users: [
+                //         { UserId: "1", UserName: "User1" },
+                //         { UserId: "2", UserName: "User2" },
+                //         // Add more sample data as needed
+                //     ]
+                // });
+    
+                // // Set the model to the view
+                // this.getView().setModel(oModel, "userModel");
+
                 var oModel = new JSONModel({
                     Planned_study_date_edit: "",
                     Office_edit: "",
@@ -167,7 +191,7 @@ sap.ui.define([
                 var oSo = this.getView().byId("Full_name_edit").getValue();
                 if (oSo !== "") {
                     const oList = this._oTable;
-                        const oBinding = oList.getBinding("items");
+                        // const oBinding = oList.getBinding("items");
                         const plannedStudyDate = this.byId("Planned_study_date_edit").getDateValue();
                         let formattedDate = ""
                         if (plannedStudyDate instanceof Date && !isNaN(plannedStudyDate)) {
