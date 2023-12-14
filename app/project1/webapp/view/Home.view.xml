@@ -88,32 +88,55 @@ id="Advisor_ID"
         class="sapUiResponsiveMargin">
         <items>
             <!-- First Tab -->
-            <IconTabFilter
-                id="tab1"
-                text="General">
-                <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
-                    <form:content>
-                        <Input id="ID_edit" visible="false" value="{editModel>/ID_edit}" />
-                        <Label text="Full Name" />
-                        <Input id="Full_name_edit" value="{editModel>/Full_name_edit}" />
-                        <Label text="Office" />
-                        <Input id="Office_edit" value="{editModel>/Office_edit}" />
-                        <Label text="Advisor" />
-                        <ComboBox
-                            id="Advisor_edit"
-                            items="{
-                              path: 'userModel>/value',
-                              sorter: { path: 'Full_name' }
-                            }">
-                            <core:Item key="{userModel>ID}" text="{userModel>Full_name}" />
-                        </ComboBox>
-                        <Label text="Gender" />
-                        <Input id="Gender_edit" value="{editModel>/Gender_edit}" />
-                        <Label text="Planned Study Date" />
-                        <DatePicker id="Planned_study_date_edit" value="{editModel>/Planned_study_date_edit}" />
-                    </form:content>
-                </form:SimpleForm>
-            </IconTabFilter>
+       <IconTabFilter
+    id="tab1"
+    text="General">
+    <form:SimpleForm
+        editable="true"
+        layout="ResponsiveGridLayout"
+        labelSpanXL="4"
+        labelSpanL="4"
+        labelSpanM="4"
+        labelSpanS="12"
+        adjustLabelSpan="false"
+        emptySpanXL="2"
+        emptySpanL="2"
+        emptySpanM="2"
+        emptySpanS="0"
+        columnsXL="2"
+        columnsL="2"
+        columnsM="1"
+        singleContainerFullSize="false">
+        <form:content>
+            <!-- Column 1 -->
+            <VBox>
+                <Label text="Full Name" />
+                <Input id="Full_name_edit" value="{editModel>/Full_name_edit}" />
+                <Label text="Advisor" />
+                <ComboBox
+                    id="Advisor_edit"
+                    items="{
+                        path: 'userModel>/value',
+                        sorter: { path: 'Full_name' }
+                    }">
+                    <core:Item key="{userModel>ID}" text="{userModel>Full_name}" />
+                </ComboBox>
+            </VBox>
+
+            <!-- Column 2 -->
+            <VBox>
+                <Label text="Office" />
+                <Input id="Office_edit" value="{editModel>/Office_edit}" />
+                <Label text="Gender" />
+                <Input id="Gender_edit" value="{editModel>/Gender_edit}" />
+                <Label text="Planned Study Date" />
+                <DatePicker id="Planned_study_date_edit" value="{editModel>/Planned_study_date_edit}" />
+            </VBox>
+        </form:content>
+    </form:SimpleForm>
+</IconTabFilter>
+
+
 
             <IconTabFilter
                 id="tab2"
