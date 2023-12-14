@@ -75,6 +75,7 @@ id="Advisor_ID"
         <dependents>
                                         <Dialog id="studentDetailModal" title="Student Details -" binding="{editModel>/}">
                                             <buttons>
+                                               <Button id="confirmDeleteDetail" text="Delete" press=".onDeleteStudent" class="redButton" />
                                                 <Button id="confirmCreateDetail" text="Create" press=".onUpdate" type="Emphasized" />
                                                 <Button id="cancelCreateDetail" text="Cancel" press="onCancelDialog" type="Transparent" />
                                             </buttons>

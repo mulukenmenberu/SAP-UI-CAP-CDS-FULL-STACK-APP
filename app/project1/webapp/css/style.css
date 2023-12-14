@@ -12,3 +12,8 @@
 
 	max-width: 15rem;
 }
+.redButton {
+    background-color: red;
+    color: white; /* Text color */
+    /* Add any other styling you need */
+}

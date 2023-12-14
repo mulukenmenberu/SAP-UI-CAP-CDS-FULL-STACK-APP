@@ -265,6 +265,42 @@ sap.ui.define([
                 }
     
             },
+            onDeleteStudent: async function () {
+                try {
+                    const endpoint = "https://port4004-workspaces-ws-wml98.us10.trial.applicationstudio.cloud.sap/StudentServices/Students";
+            
+                    // You may want to replace 'yourStudentID' with the actual ID of the student you want to delete
+                    const studentID = parseInt(this.byId("ID_edit").getValue(), 10);
+            
+                    // Construct the full URL with the student ID
+                    const fullURL = `${endpoint}/${studentID}`;
+            
+                    // Send the DELETE request
+                    const response = await fetch(fullURL, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                    });
+            
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+            
+                    // Handle the response data as needed
+                    console.log('Delete successful');
+                    
+                    // Close the dialog and show a success message
+                    this.getView().byId("studentDetailModal").close();
+                    MessageToast.show("Student Deleted, refresh the page to get the changes");
+            
+                } catch (error) {
+                    console.error('Error deleting student:', error);
+                    // Handle the error as needed
+                }
+            },
+            
+
             onEditMode: function(){
                 this.byId("editModeButton").setVisible(false);
                 this.byId("saveButton").setVisible(true);
