@@ -59,7 +59,10 @@
 				showNavButton="true"
 				navButtonPress=".onPressDetailBack">
 				<Label text="This is Detail Page3" />
-				<Input/>
+				 <VBox class="sapUiTinyMargin">
+						<mvc:XMLView viewName="project1.view.Table"/>
+				 </VBox>
+				<!-- <Input/>
 				<Label text="Label 2" />
 				<Input/>
 				<Label text="Label 3" />
@@ -67,7 +70,8 @@
 				<Label text="Label 4" />
 				<Input/>
 				<Label text="Label 5" />
-				<Input/>
+				<Input/> -->
+					
 			</Page>
 
 		</detailPages>
