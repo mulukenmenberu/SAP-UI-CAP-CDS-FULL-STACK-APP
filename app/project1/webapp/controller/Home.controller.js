@@ -253,16 +253,17 @@ sap.ui.define([
                                 "Full_name": this.byId("Full_name_edit").getValue(),
                                 "Gender": this.byId("Gender_edit").getValue(),
                                 "Office": this.byId("Office_edit").getValue(),
-                                "Advisor_ID": parseInt(this.byId("Advisor_edit").getValue(), 10),
+                                "Advisor_ID": parseInt(this.byId("Advisor_edit").getSelectedKey(), 10),
                           
                             };
-                            
+                          
+                         
                             // You may want to replace 'yourStudentID' with the actual ID of the student you want to update
                             const studentID = parseInt(this.byId("ID_edit").getValue(), 10)
                             
                             // Construct the full URL with the student ID
                             const fullURL = `${endpoint}/${studentID}`;
-                            
+                            console.log("asasAs", parseInt(this.byId("Advisor_edit").getSelectedKey(), 10))
                             // Send the PATCH request
                             fetch(fullURL, {
                                 method: 'PATCH',

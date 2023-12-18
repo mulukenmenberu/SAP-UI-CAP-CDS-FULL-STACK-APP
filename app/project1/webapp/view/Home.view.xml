@@ -111,6 +111,7 @@ id="Advisor_ID"
             <!-- Column 1 -->
             <VBox>
                 <Label text="Full Name" />
+                <Input id="ID_edit" visible="false" value="{editModel>/ID_edit}" />
                 <Input id="Full_name_edit" value="{editModel>/Full_name_edit}" />
                 <Label text="Advisor" />
                 <ComboBox
