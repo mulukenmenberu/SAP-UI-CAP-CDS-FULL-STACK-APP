@@ -16,7 +16,7 @@
                                 <OverflowToolbar>
                                     <content>
                                         <ToolbarSpacer />
-                                        <SearchField id="searchField" width="20%" placeholder="search" search=".onSearch" />
+                                        <SearchField id="searchField" width="20%" placeholder="search" search=".onSearch" liveChange=".onLiveSearch" />
                                         <Button id="createButton" icon="sap-icon://add" tooltip="Create" visible="true" press="onOpenAddDialog">
                                             <layoutData>
                                                 <OverflowToolbarLayoutData priority="NeverOverflow" />

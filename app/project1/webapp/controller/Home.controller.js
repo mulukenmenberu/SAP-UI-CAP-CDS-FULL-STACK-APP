@@ -88,9 +88,48 @@ sap.ui.define([
                 });
 
             },
-            onSearch: function () {
-                MessageToast.show("Search functionality will be implemented here.");
-              },
+            onSearch: function (oEvent) {
+                var oTable = this.getView().byId("table0");
+                var oBinding = oTable.getBinding("items");
+                var sQuery = oEvent.getParameter("query");
+                // alert('fuhairfhr')
+                if (sQuery) {
+                    var oFilter = new sap.ui.model.Filter({
+                        filters: [
+                            new sap.ui.model.Filter("Full_name", sap.ui.model.FilterOperator.Contains, sQuery),
+                            // Add more filters based on your needs
+                        ],
+                        and: false
+                    });
+            
+                    oBinding.filter([oFilter]);
+                } else {
+                    // If the search field is empty, remove the filter
+                    oBinding.filter([]);
+                }
+            },
+            
+            onLiveSearch: function (oEvent) {
+                var oTable = this.getView().byId("table0");
+                var oBinding = oTable.getBinding("items");
+                var sValue = oEvent.getParameter("value");
+       
+                if (sValue) {
+                    var oFilter = new sap.ui.model.Filter({
+                        filters: [
+                            new sap.ui.model.Filter("Full_name", sap.ui.model.FilterOperator.Contains, sValue),
+                            // Add more filters based on your needs
+                        ],
+                        and: false
+                    });
+            
+                    oBinding.filter([oFilter]);
+                } else {
+                    // If the search field is empty, remove the filter
+                    oBinding.filter([]);
+                }
+            },
+            
           
               onLogout: function () {
                 this.getOwnerComponent().getRouter().navTo("RouteLogin"); // not working 
