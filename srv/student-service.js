@@ -1,4 +1,6 @@
 const cds = require('@sap/cds');
+const { sendEmail } = require('./utils/emailHelper');
+
 
 module.exports = async function () {
   const db = await cds.connect.to('db');
@@ -122,6 +124,9 @@ module.exports = async function () {
 
   // Handle READ operation
   this.on('READ', 'Students', async (req) => {
+
+    sendEmail() 
+
     const result = await SELECT.from(Students);
     return result;
   });
