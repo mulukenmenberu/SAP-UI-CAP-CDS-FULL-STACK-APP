@@ -228,7 +228,7 @@ sap.ui.define([
                 var updatedData = editModel.getProperty("/ID_edit");
               
                 // Update the main model with the updated data
-                mainModel.setProperty("mainModel>/Students", updatedData);
+                mainModel.setProperty("mainModel>/StudentWithAdvisor", updatedData);
               
                 // Refresh the bindings to update the UI
                 mainModel.refresh(); 
@@ -289,21 +289,7 @@ sap.ui.define([
                                 MessageToast.show("Student Info Updated, refresh the page to get the changes");
                                 // onSuccessfulPatch()
 
-                        // const oContext = oBinding.create({
-                        
-                        //     "Full_name": this.byId("Full_name_edit").getValue(),
-                        //     "Gender": this.byId("Gender_edit").getValue(),
-                        //     "Office": this.byId("Office_edit").getValue(),
-                        //     "Advisor_ID": parseInt(this.byId("Advisor_edit").getValue(), 10),//this.byId("Advisor_ID").getValue(),
-                        //     "Created_at": new Date(),
-                        //     "Planned_study_date": formattedDate,  
-                            
-                        // });
-                        // oContext.created()
-                        // .then(()=>{
-                        //         // that._focusItem(oList, oContext);
-                        //         this.getView().byId("OpenDialog").close();
-                        // });
+            
                     }catch(e){
                         this.getView().byId("OpenDialog").close();
                     }
@@ -375,7 +361,7 @@ sap.ui.define([
         },
         rebindTable: function(oTemplate, sKeyboardMode) {
             this._oTable.bindItems({
-                path: "mainModel>/Students",
+                path: "mainModel>/StudentWithAdvisor",
                 template: oTemplate,
                 templateShareable: true
             }).setKeyboardMode(sKeyboardMode);
@@ -429,7 +415,7 @@ refreshModel: function (sModelName, sGroup){
                     text: "{mainModel>Office}"
                 }),
                 new sap.m.Text({
-                    text: "{mainModel>Advisor_ID}"
+                    text: "{mainModel>AdvisorName}"
                 }),
                 new sap.m.Text({
                     text: "{mainModel>Planned_study_date}"
