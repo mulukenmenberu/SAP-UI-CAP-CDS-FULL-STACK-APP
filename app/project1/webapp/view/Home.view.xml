@@ -14,7 +14,7 @@
                         <Table items="{mainModel>/StudentServices}" id="table0" mode="SingleSelectLeft" selectionChange="onSelect">
                             <headerToolbar>
                                 <OverflowToolbar>
-                                    <content>
+                                    <content> 
                                         <ToolbarSpacer />
                                         <SearchField id="searchField" width="20%" placeholder="search" search=".onSearch" liveChange=".onLiveSearch" />
                                         <Button id="createButton" icon="sap-icon://add" tooltip="Create" visible="true" press="onOpenAddDialog">

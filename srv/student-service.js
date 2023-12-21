@@ -26,7 +26,7 @@ module.exports = async function () {
         Planned_study_date: new Date('2023-02-01T00:00:00.000Z'),
       },
       {
-        Full_name: 'Jane Doe',
+        Full_name: 'sdfasdfasdf',
         Gender: 'Female',
         Office: 'Office B',
         // Advisor: 2, // Assuming the User_id exists in the Users entity
@@ -34,7 +34,7 @@ module.exports = async function () {
         Planned_study_date: new Date('2023-02-01T00:00:00.000Z'),
       },
       {
-        Full_name: 'Jane Doe',
+        Full_name: 'Getnet',
         Gender: 'Female',
         Office: 'Office B',
         // Advisor: 2, // Assuming the User_id exists in the Users entity
@@ -42,7 +42,7 @@ module.exports = async function () {
         Planned_study_date: new Date('2023-02-01T00:00:00.000Z'),
       },
       {
-        Full_name: 'Jane Doe',
+        Full_name: 'Getachew',
         Gender: 'Female',
         Office: 'Office B',
         // Advisor: 2, // Assuming the User_id exists in the Users entity

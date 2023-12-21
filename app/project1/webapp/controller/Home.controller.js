@@ -19,6 +19,8 @@ sap.ui.define([
                 this._createReadOnlyTemplates();
                 this.rebindTable(this.oReadOnlyTemplate, "Navigation");
 
+          
+                
                 fetch("https://port4004-workspaces-ws-wml98.us10.trial.applicationstudio.cloud.sap/odata/v4/users/Users")
                 .then(response => response.json())
                 .then(data => {
@@ -101,7 +103,7 @@ sap.ui.define([
                         ],
                         and: false
                     });
-            
+       
                     oBinding.filter([oFilter]);
                 } else {
                     // If the search field is empty, remove the filter
@@ -112,18 +114,17 @@ sap.ui.define([
             onLiveSearch: function (oEvent) {
                 var oTable = this.getView().byId("table0");
                 var oBinding = oTable.getBinding("items");
-                var sValue = oEvent.getParameter("value");
-       
-                if (sValue) {
+                var sQuery = oEvent.getParameter("newValue");
+                if (sQuery) {
                     var oFilter = new sap.ui.model.Filter({
                         filters: [
-                            new sap.ui.model.Filter("Full_name", sap.ui.model.FilterOperator.Contains, sValue),
-                            // Add more filters based on your needs
+                            new sap.ui.model.Filter("Full_name", sap.ui.model.FilterOperator.Contains, sQuery),
                         ],
                         and: false
                     });
-            
                     oBinding.filter([oFilter]);
+                    console.log(oBinding)
+
                 } else {
                     // If the search field is empty, remove the filter
                     oBinding.filter([]);
