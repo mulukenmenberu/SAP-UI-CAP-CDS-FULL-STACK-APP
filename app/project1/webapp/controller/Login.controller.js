@@ -15,16 +15,42 @@ sap.ui.define([
             onLoginClick: function(){
                 var username = this.getView().byId('username').getValue();
                 var pwd = this.getView().byId('pwd').getValue();
-                if(username=='admin' && pwd =='admin'){
-                    // document.write('mskfhnaeuihf') // redirect to home view
-                    this.getOwnerComponent().getRouter().navTo("dashboard");
 
-                }else{
-                    // alert('ndkjeahf')
-                    MessageToast.show('Invalid credentials');
-
-                }
-            }
+                this._sendLoginRequest(username, pwd);
+           
+            },
+            _sendLoginRequest: function (username, password) {
+                // Construct the request body
+                var requestBody = {
+                    input: {
+                        username: username,
+                        password: password
+                    }
+                };
+    
+                // Make the POST request using fetch API
+                fetch("https://port4004-workspaces-ws-wml98.us10.trial.applicationstudio.cloud.sap/rest/root/Login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(requestBody),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Handle the response data
+                    console.log(data);
+                    if(data.user && data.user.Account_status ==1){
+                        MessageToast.show('Logged in sucecssfully');
+                        this.getOwnerComponent().getRouter().navTo("dashboard");
+                    }else{
+                        MessageToast.show('Invalid credentials');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            },
        
 
         });
