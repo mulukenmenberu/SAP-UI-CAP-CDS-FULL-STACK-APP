@@ -1,5 +1,12 @@
 const cds = require('@sap/cds');
 
+
+const { decodeJWT } = require('./utils/tokenHandler');
+
+
+
+
+
 module.exports = async function () {
   const db = await cds.connect.to('db');
   const { Users } = db.entities;
@@ -47,6 +54,11 @@ module.exports = async function () {
 
   // Handle READ operation
   this.on('READ', 'Users', async (req) => {
+    const token = req.headers.authorization
+    const decoded = decodeJWT(token)
+    if(!token || !decoded){
+      return {"error":"invalid token supplied"}
+    }
     const result = await SELECT.from(Users);
     return result;
   });

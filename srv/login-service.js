@@ -1,22 +1,7 @@
 const cds = require("@sap/cds");
-const jwt = require('jsonwebtoken');
-const secretKey = 'testTokenSecret'; 
 
+const { generateJWT } = require('./utils/tokenHandler');
 
-const generateJWT = (userData) => {
-    const token = jwt.sign(userData, secretKey, { expiresIn: '1h' }); 
-    return token;
-  };
-  
-  // Function to decode JWT
-  const decodeJWT = (token) => {
-    try {
-      const decoded = jwt.verify(token, secretKey);
-      return decoded;
-    } catch (error) {
-      return null; // Token is invalid or expired
-    }
-  };
 
 
 module.exports = cds.service.impl(async function (srv) {

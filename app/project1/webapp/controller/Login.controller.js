@@ -42,6 +42,8 @@ sap.ui.define([
                     console.log(data);
                     if(data.user && data.user.Account_status ==1){
                         MessageToast.show('Logged in sucecssfully');
+                        const token = data.user.token
+                        sessionStorage.setItem('token', token)
                         this.getOwnerComponent().getRouter().navTo("dashboard");
                     }else{
                         MessageToast.show('Invalid credentials');

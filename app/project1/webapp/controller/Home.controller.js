@@ -19,9 +19,15 @@ sap.ui.define([
                 this._createReadOnlyTemplates();
                 this.rebindTable(this.oReadOnlyTemplate, "Navigation");
 
-          
+                const token = sessionStorage.getItem('token')
+                if(token){
+                fetch("https://port4004-workspaces-ws-wml98.us10.trial.applicationstudio.cloud.sap/odata/v4/users/Users", {
+                    headers: {
+                      'Authorization': `Bearer ${token}`,
+                      'Content-Type': 'application/json',
+                    },
+                  })
                 
-                fetch("https://port4004-workspaces-ws-wml98.us10.trial.applicationstudio.cloud.sap/odata/v4/users/Users")
                 .then(response => response.json())
                 .then(data => {
                     // Create a JSONModel and set the data to the model
@@ -33,7 +39,7 @@ sap.ui.define([
                     console.error('Error fetching data:', error);
                 });
 
-
+            }
                 // var oModel = new JSONModel({
                 //     Users: [
                 //         { UserId: "1", UserName: "User1" },
