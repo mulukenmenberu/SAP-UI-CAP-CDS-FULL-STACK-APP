@@ -1,7 +1,6 @@
 const cds = require('@sap/cds');
 const { sendEmail } = require('./utils/emailHelper');
 const { decodeJWT } = require('./utils/tokenHandler');
-const { decode } = require('jsonwebtoken');
 
 
 module.exports = async function () {
@@ -136,10 +135,11 @@ module.exports = async function () {
   this.on('READ', 'StudentWithAdvisor', async (req) => {
 
     const token = req.headers.authorization
+
     const decoded = decodeJWT(token)
     if(!token || !decoded){
-      console.log(token,'---',req.headers.authorization)
-      // return {"error":"invalid token supplied"}
+      console.log(decoded)
+      return {"success":"false","message":"token expired or invalid"}
     }
 
     const result = await cds
@@ -149,7 +149,7 @@ module.exports = async function () {
         'Full_name',
         'Gender',
         'Office',
-        'Advisor.Full_name as AdvisorName', // Alias for the associated Advisor's Full_name
+        'Advisor.Full_name as AdvisorName', 
         'Created_at',
         'Planned_study_date'
       ])

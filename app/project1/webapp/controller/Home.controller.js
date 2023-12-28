@@ -66,19 +66,19 @@ sap.ui.define([
                 this.oEditableTemplate = new ColumnListItem({
                     cells: [
                         new Input({
-                            value: "{mainModel>ID}",
+                            value: "{customModel>ID}",
                             change: [this.onInputChange, this]
                         }), new Input({
-                            value: "{mainModel>Full_name}",
+                            value: "{customModel>Full_name}",
                             change: [this.onInputChange, this]
                         }), new Input({
-                            value: "{mainModel>Office}",
+                            value: "{customModel>Office}",
                             change: [this.onInputChange, this]
                         }), new Input({
-                            value: "{mainModel>Advisor_ID}",
+                            value: "{customModel>Advisor_ID}",
                             change: [this.onInputChange, this]
                         }),  new Input({
-                            value: "{mainModel>Planned_study_date}",
+                            value: "{customModel>Planned_study_date}",
                             change: [this.onInputChange, this]
                         }),
                         new sap.m.Button({
@@ -159,7 +159,7 @@ sap.ui.define([
                 // this.getView().byId("OpenDialog").open();
              },
              onOpenDetailDialog: function (oEvent) {
-                var oSelectedRow = oEvent.getSource().getBindingContext("mainModel").getObject();
+                var oSelectedRow = oEvent.getSource().getBindingContext("customModel").getObject();
 
                 // Create a new JSONModel with the values from the selected row
                 var oModel = new JSONModel({
@@ -225,8 +225,7 @@ sap.ui.define([
     
             },
             onSuccessfulPatch: function () {
-                // Assuming "mainModel" is your main model instance
-                var mainModel = this.getView().getModel("mainModel");
+                var customModel = this.getView().getModel("customModel");
               
                 // Assuming "editModel" is your edit model instance
                 var editModel = this.getView().getModel("editModel");
@@ -235,10 +234,10 @@ sap.ui.define([
                 var updatedData = editModel.getProperty("/ID_edit");
               
                 // Update the main model with the updated data
-                mainModel.setProperty("mainModel>/StudentWithAdvisor", updatedData);
+                customModel.setProperty("customModel>/StudentWithAdvisor", updatedData);
               
                 // Refresh the bindings to update the UI
-                mainModel.refresh(); 
+                customModel.refresh(); 
               },
               
             onUpdate: function () {
@@ -354,9 +353,9 @@ sap.ui.define([
 
             var oSelected = this.byId("table0").getSelectedItem();
             if(oSelected){
-                var oSalesOrder = oSelected.getBindingContext("mainModel").getObject().ID;
+                var oSalesOrder = oSelected.getBindingContext("customModel").getObject().ID;
             
-                oSelected.getBindingContext("mainModel").delete("$auto").then(function () {
+                oSelected.getBindingContext("customModel").delete("$auto").then(function () {
                     MessageToast.show(oSalesOrder + " SuccessFully Deleted");
                 }.bind(this), function (oError) {
                     MessageToast.show("Deletion Error: ",oError);
@@ -367,14 +366,39 @@ sap.ui.define([
             
         },
         rebindTable: function(oTemplate, sKeyboardMode) {
-            this._oTable.bindItems({
-                path: "mainModel>/StudentWithAdvisor",
-                template: oTemplate,
-                templateShareable: true
-            }).setKeyboardMode(sKeyboardMode);
+           
+            const token = sessionStorage.getItem('token')
+            if(token){
+            fetch("https://port4004-workspaces-ws-wml98.us10.trial.applicationstudio.cloud.sap/StudentServices/StudentWithAdvisor", {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Create a JSONModel and set the data to the model
+                var oModel = new JSONModel(data);
+        
+                // Set the model on the table
+                this._oTable.setModel(oModel, "customModel");
+                console.log('Table Model:', this._oTable.getModel("customModel")); // Check if the model is set on the table
+        
+                // Bind items using the newly set model
+                this._oTable.bindItems({
+                    path: "customModel>/value",
+                    template: oTemplate,
+                    templateShareable: true
+                }).setKeyboardMode(sKeyboardMode);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+        }
         },
+        
         onInputChange: function(){
-            this.refreshModel("mainModel");
+            this.refreshModel("customModel");
 
         },
         
@@ -387,7 +411,7 @@ refreshModel: function (sModelName, sGroup){
         },
         makeChangesAndSubmit: function (resolve, reject, sModelName,sGroup){
             const that = this;
-            sModelName = "mainModel";
+            sModelName = "customModel";
             sGroup = "$auto";
             if (that.getView().getModel(sModelName).hasPendingChanges(sGroup)) {
                 that.getView().getModel(sModelName).submitBatch(sGroup).then(oSuccess =>{
@@ -413,19 +437,19 @@ refreshModel: function (sModelName, sGroup){
             this.oReadOnlyTemplate = new sap.m.ColumnListItem({
             cells: [
                 new sap.m.Text({
-                    text: "{mainModel>ID}"
+                    text: "{customModel>ID}"
                 }),
                 new sap.m.Text({
-                    text: "{mainModel>Full_name}"
+                    text: "{customModel>Full_name}"
                 }),
                 new sap.m.Text({
-                    text: "{mainModel>Office}"
+                    text: "{customModel>Office}"
                 }),
                 new sap.m.Text({
-                    text: "{mainModel>AdvisorName}"
+                    text: "{customModel>AdvisorName}"
                 }),
                 new sap.m.Text({
-                    text: "{mainModel>Planned_study_date}"
+                    text: "{customModel>Planned_study_date}"
                 }),
                 new sap.m.Button({
                     id: "editModeSIngleButton",
@@ -437,9 +461,7 @@ refreshModel: function (sModelName, sGroup){
                         priority: sap.m.OverflowToolbarPriority.NeverOverflow
                     })
                 })
-                // new sap.m.Text({
-                //     text: "{mainModel>Planned_study_date}"
-                // })
+    
             ]
         });
     },

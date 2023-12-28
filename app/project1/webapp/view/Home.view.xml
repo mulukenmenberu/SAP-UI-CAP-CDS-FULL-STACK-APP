@@ -11,7 +11,7 @@
             <pages>
                 <Page id="page" title="{i18n>title}">
                     <content>
-                        <Table items="{mainModel>/StudentServices}" id="table0" mode="SingleSelectLeft" selectionChange="onSelect">
+                        <Table items="{customModel>/value}" id="table0" mode="SingleSelectLeft" selectionChange="onSelect">
                             <headerToolbar>
                                 <OverflowToolbar>
                                     <content> 
