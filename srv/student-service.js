@@ -1,5 +1,7 @@
 const cds = require('@sap/cds');
 const { sendEmail } = require('./utils/emailHelper');
+const { decodeJWT } = require('./utils/tokenHandler');
+const { decode } = require('jsonwebtoken');
 
 
 module.exports = async function () {
@@ -130,6 +132,36 @@ module.exports = async function () {
     const result = await SELECT.from(Students);
     return result;
   });
+
+  this.on('READ', 'StudentWithAdvisor', async (req) => {
+
+    const token = req.headers.authorization
+    const decoded = decodeJWT(token)
+    if(!token || !decoded){
+      console.log(token,'---',req.headers.authorization)
+      // return {"error":"invalid token supplied"}
+    }
+
+    const result = await cds
+    .run(
+      SELECT.from(Students).columns([
+        'ID',
+        'Full_name',
+        'Gender',
+        'Office',
+        'Advisor.Full_name as AdvisorName', // Alias for the associated Advisor's Full_name
+        'Created_at',
+        'Planned_study_date'
+      ])
+    )
+    .then((result) => result);
+
+  return result;
+
+
+
+  });
+
 
 
   this.on('createStudent', 'Students', async (data) => {
