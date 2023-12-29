@@ -33,6 +33,13 @@ entity Students : managed {
   Planned_study_date : Date;
 }
 
+entity Otp_Code : managed {
+  key Id : Integer;
+  User : String;
+  Code : String; 
+  is_used : String;
+
+}
 entity Student_communications : managed {
   key Id : Integer;
   Student : Association to Students;

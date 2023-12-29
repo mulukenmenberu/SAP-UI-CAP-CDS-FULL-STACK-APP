@@ -46,6 +46,17 @@
 
               <Panel id="otpPanel" headerText="Verify OTP" width="500px" height="300px" visible="false">
               <VBox class="sapUiSmallMargin">
+
+                         <Input
+                         visible="false"
+                  type="Email"
+                  value="{/email}"
+                  width="100%"
+                  required="true"
+                  id="User" />
+
+                    <Link text="" press="" />
+
                 <Input
                   placeholder="One Type Password"
                   type="Text"
@@ -61,7 +72,7 @@
                 <Button
                   text="Verify"
                   type="Emphasized"
-                  press="onLoginClick"
+                  press="onVerifyOtpClick"
                   width="100%" />
 
 

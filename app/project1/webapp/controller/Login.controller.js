@@ -43,7 +43,7 @@ sap.ui.define([
                     // Handle the response data
                     console.log(data);
                     if(data.user && data.user.Account_status ==1){
-                        MessageToast.show('Logged in sucecssfully');
+                        MessageToast.show('Please verify OTP');
                         const token = data.user.token
                         sessionStorage.setItem('token', token)
 
@@ -56,6 +56,9 @@ sap.ui.define([
                                var otpPanel = this.getView().byId("otpPanel");
                                otpPanel.setVisible(true);
 
+                               var emailInput = otpPanel.byId("User");
+                               emailInput.setValue(username);
+
 
                         // this.getOwnerComponent().getRouter().navTo("dashboard");
                     }else{
@@ -67,7 +70,46 @@ sap.ui.define([
                 });
             },
        
+            onVerifyOtpClick: function(){
+                var User = this.getView().byId('username').getValue();
+                var Code = this.getView().byId('otpcode').getValue();
 
+                this._sendOtpVerificationRequest(User, Code);
+           
+            },
+            _sendOtpVerificationRequest: function (User, Code) {
+                // Construct the request body
+                var requestBody = {
+                    input: {
+                        User: User,
+                        Code: Code
+                    }
+                };
+    
+                // Make the POST request using fetch API
+                fetch("https://port4004-workspaces-ws-wml98.us10.trial.applicationstudio.cloud.sap/rest/otp/checkOTP", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(requestBody),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Handle the response data
+                    console.log(data);
+                    if(data.user && data.user[0].is_used =='N'){
+                        MessageToast.show('Logged in sucecssfully');
+                        this.getOwnerComponent().getRouter().navTo("dashboard");
+                    }else{
+                        MessageToast.show('Invalid credentials');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            },
+       
         });
     });
 

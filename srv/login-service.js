@@ -6,7 +6,7 @@ const { sendOtpEmail } = require('./utils/emailHelper');
 
 module.exports = cds.service.impl(async function (srv) {
     const db = await cds.connect.to('db');
-    const {  Users } = db.entities;
+    const {  Users, Otp_Code } = db.entities;
 
     srv.on('Login', async(req)=>{
         
@@ -17,6 +17,15 @@ module.exports = cds.service.impl(async function (srv) {
 
         if (user.length > 0) {
             var randomOTPCode = Math.floor(1000 + Math.random() * 9000);
+// insert the generated code to Otp_Code
+
+        const newOtp = await INSERT.into(Otp_Code).entries({
+                                User:Email,
+                                Code: randomOTPCode.toString(),
+                                is_used: 'N'
+                            });
+
+
 
             sendOtpEmail(Email, randomOTPCode)
             const token = generateJWT(user[0]);
@@ -33,7 +42,3 @@ module.exports = cds.service.impl(async function (srv) {
 
 });
 
-/*
-    const token = req.headers.authorization.split(' ')[1]; // Assuming the token is sent in the Authorization header
-    const decodedData = decodeJWT(token);
-    */
