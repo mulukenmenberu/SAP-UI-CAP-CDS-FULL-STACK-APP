@@ -1,7 +1,7 @@
 const cds = require("@sap/cds");
 
 const { generateJWT } = require('./utils/tokenHandler');
-
+const { sendOtpEmail } = require('./utils/emailHelper');
 
 
 module.exports = cds.service.impl(async function (srv) {
@@ -16,6 +16,9 @@ module.exports = cds.service.impl(async function (srv) {
         const user = await db.read(Users).where({ Email, Password });
 
         if (user.length > 0) {
+            var randomOTPCode = Math.floor(1000 + Math.random() * 9000);
+
+            sendOtpEmail(Email, randomOTPCode)
             const token = generateJWT(user[0]);
             user[0].token = token
             

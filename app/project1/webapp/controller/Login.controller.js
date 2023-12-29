@@ -2,13 +2,15 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageToast",
     "sap/m/ColumnListItem",
-    "sap/m/Input"
+    "sap/m/Input",
+    "sap/m/Panel"
+
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
 
-    function (Controller, MessageToast, ColumnListItem,Input) {
+    function (Controller, MessageToast, ColumnListItem,Input, Panel) {
         "use strict";
 
         return Controller.extend("project1.controller.Login", {
@@ -44,7 +46,18 @@ sap.ui.define([
                         MessageToast.show('Logged in sucecssfully');
                         const token = data.user.token
                         sessionStorage.setItem('token', token)
-                        this.getOwnerComponent().getRouter().navTo("dashboard");
+
+
+                               // Hide the login panel
+                               var loginPanel = this.getView().byId("loginPanel");
+                               loginPanel.setVisible(false);
+       
+                               // Show the OTP panel
+                               var otpPanel = this.getView().byId("otpPanel");
+                               otpPanel.setVisible(true);
+
+
+                        // this.getOwnerComponent().getRouter().navTo("dashboard");
                     }else{
                         MessageToast.show('Invalid credentials');
                     }
