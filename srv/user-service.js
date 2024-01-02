@@ -27,7 +27,7 @@ module.exports = async function () {
       },
       {
         Full_name: "Jane Doe",
-        Email: "gtforever@example.com",
+        Email: "molabsc@gmail.com",
         Office: "Branch Office",
         Role: "User",
         Password: "encrypted_password_2", // Placeholder for encrypted password
