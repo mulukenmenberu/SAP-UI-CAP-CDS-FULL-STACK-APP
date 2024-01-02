@@ -16,7 +16,7 @@ module.exports = async function () {
     const demoData = [
       {
         Full_name: "John Doe",
-        Email: "molabsc@gmail.com",
+        Email: "gtforever2009@gmail.com",
         Office: "Headquarters",
         Role: "Admin",
         Password: "encrypted_password_1", // Placeholder for encrypted password
@@ -27,7 +27,7 @@ module.exports = async function () {
       },
       {
         Full_name: "Jane Doe",
-        Email: "jane.doe@example.com",
+        Email: "gtforever@example.com",
         Office: "Branch Office",
         Role: "User",
         Password: "encrypted_password_2", // Placeholder for encrypted password

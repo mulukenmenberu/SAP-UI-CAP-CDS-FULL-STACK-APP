@@ -3,7 +3,6 @@
   xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
   xmlns:form="sap.ui.layout.form"
   xmlns="sap.m">
-
   <App>
     <pages>
       <Page title="Login">
@@ -19,11 +18,7 @@
                   required="true"
                   id="username"
                   liveChange=".onInputChange" />
-
                     <Link text="" press="" />
-  
-
-
                 <Input
                   placeholder="Password"
                   type="Password"
@@ -32,8 +27,6 @@
                   required="true"
                   id="pwd"
                   liveChange=".onInputChange" />
-
-
                 <Link text="" press="" />
                 <Button
                   text="Login"
@@ -43,10 +36,8 @@
                 <Link text="Forgot Password?" press=".onForgotPasswordPress" />
               </VBox>
             </Panel>
-
               <Panel id="otpPanel" headerText="Verify OTP" width="500px" height="300px" visible="false">
               <VBox class="sapUiSmallMargin">
-
                          <Input
                          visible="false"
                   type="Email"
@@ -54,9 +45,7 @@
                   width="100%"
                   required="true"
                   id="User" />
-
                     <Link text="" press="" />
-
                 <Input
                   placeholder="One Type Password"
                   type="Text"
@@ -65,17 +54,12 @@
                   required="true"
                   id="otpcode"
                   liveChange=".onInputChange" />
-
                   <Link text="" press="" />
-  
-
                 <Button
                   text="Verify"
                   type="Emphasized"
                   press="onVerifyOtpClick"
                   width="100%" />
-
-
               </VBox>
             </Panel>
           </VBox>

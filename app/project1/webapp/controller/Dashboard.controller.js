@@ -41,7 +41,7 @@ sap.ui.define([
 
           },
           onSearch: function () {
-              MessageToast.show("Search functionality will be implemented here.");
+              MessageToast.show("Search functionality will be implemented heree.");
             },
         
             onLogout: function () {

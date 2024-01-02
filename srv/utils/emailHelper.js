@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 
 async function sendEmail(){
     
-    const to = "molabsc@gmail.com"
+    const to = "gtforever2009@gmail.com"
     const subject = "just another test"
     const text = "another test content"
 
@@ -33,9 +33,9 @@ async function sendEmail(){
       console.error('Error sending email: ', error);
     }
 }
-async function sendOtpEmail(reciever="molabsc@gmail.com", otp){
+async function sendOtpEmail(reciever="gtforever2009@gmail.com", otp){
     
-  const to = "molabsc@gmail.com"
+  const to = "gtforever2009@gmail.com"
   const subject = "Yout OTP Code"
   const text = `Your One time code is ${otp}`
 
