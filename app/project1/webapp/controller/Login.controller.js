@@ -31,7 +31,7 @@ sap.ui.define([
                 };
     
                 // Make the POST request using fetch API
-                fetch("http://localhost:4004/rest/root/Login", {
+                fetch("https://port4004-workspaces-ws-wml98.us10.trial.applicationstudio.cloud.sap/rest/root/Login", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -88,7 +88,7 @@ sap.ui.define([
                 };
     
                 // Make the POST request using fetch API
-                fetch("http://localhost:4004/rest/otp/checkOTP", {
+                fetch("https://port4004-workspaces-ws-wml98.us10.trial.applicationstudio.cloud.sap/rest/otp/checkOTP", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
