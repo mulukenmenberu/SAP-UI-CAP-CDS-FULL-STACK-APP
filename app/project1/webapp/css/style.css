@@ -20,3 +20,15 @@
 .fullmodal{
 	width:'100%';
 }
+
+.customShellBarWithMenu .sapMSBMenuBtn {
+    display: inline-block;
+}
+
+.customShellBarWithoutMenu .sapMSBMenuBtn {
+    display: none;
+}
+
+.customShellBar {
+    display: inline-block;
+}

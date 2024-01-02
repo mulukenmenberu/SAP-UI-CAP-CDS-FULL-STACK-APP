@@ -1,0 +1,24 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core"
+controllerName="project1.controller.ProductSwitcherDropdown">
+    <Popover
+        title="Product Switcher"
+        placement="Bottom"
+        contentWidth="auto"
+        contentHeight="auto"
+        showHeader="false"
+        initialFocus="list"
+        afterClose="onPopoverClose">
+        
+        <List
+            id="productSwitcherList"
+            mode="SingleSelectMaster"
+            selectionChange="onProductSwitcherItemSelect">
+            
+            <items>
+                <StandardListItem title="Profile" icon="sap-icon://account" press="profile"/>
+                <StandardListItem title="Logout" icon="sap-icon://log" press="avater" />
+                <StandardListItem title="Setting" icon="sap-icon://settings" press="settings" />
+            </items>
+        </List>
+    </Popover>
+</core:FragmentDefinition>

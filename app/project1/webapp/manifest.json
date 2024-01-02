@@ -132,6 +132,11 @@
           "target": ["item1Detail"]
         },
         {
+          "name": "Targetdash", 
+          "pattern": "Masterpage",
+          "target": ["Targetdash"]
+        },
+        {
           "pattern": "item2",
           "name": "item2",
           "target": ["item2Detail"]
@@ -144,6 +149,13 @@
           "clearControlAggregation": false,
           "viewId": "Login",
           "viewName": "Login"
+        },
+        "Targetdash": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Masterpage",
+          "viewName": "Masterpage"
         },
         "home": {
           "viewName": "Home",

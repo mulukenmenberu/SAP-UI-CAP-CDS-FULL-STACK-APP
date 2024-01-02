@@ -1,0 +1,9 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  controllerName="miniproject.controller.AdditionalPage">
+  <Page id="additionalPage" title="welcome to menu Page">
+    <!-- Your additional content goes here -->
+    <Text text="This is the additional page content"/>
+  </Page>
+</mvc:View>

@@ -6,7 +6,7 @@
     <!-- <Page id="page" title="{i18n>title}">
         <content />
     </Page> -->
-     <Shell id="shell">
+     <!-- <Shell id="shell"> -->
         <App id="app">
             <pages>
                 <Page id="page" title="{i18n>title}">
@@ -27,12 +27,14 @@
                                                 <OverflowToolbarLayoutData priority="NeverOverflow" />
                                             </layoutData>
                                         </Button>
+
                                         <Button id="saveButton" text="Save" type="Emphasized" visible="false" enabled="true" press="onSave" />
                                         <Button id="editModeButton" visible="true" icon="sap-icon://edit" tooltip="Edit" press="onEditMode">
                                             <layoutData>
                                                 <OverflowToolbarLayoutData priority="NeverOverflow" />
                                             </layoutData>
                                         </Button>
+
                                     </content>
                                     <dependents>
                                         <Dialog id="OpenDialog" title="Create New Student">
@@ -63,18 +65,21 @@ id="Advisor_ID"
                                                     <Label text="Planned Study Date" />
                                                     <!-- <Input type="date" id="Planned_study_date"  /> -->
                                                     <DatePicker id="Planned_study_date" value="{/Planned_study_date}" />
+
                                                 </form:content>
                                             </form:SimpleForm>
                                         </Dialog>
                                     </dependents>
+
         <!-- STUDENT DETAIL MODAL  -->
         <dependents>
-    <Dialog id="studentDetailModal" title="Student Details -" binding="{editModel>/}" class="fullmodal">
+                                      <Dialog id="studentDetailModal" title="Student Details -" binding="{editModel>/}" class="fullmodal">
     <buttons>
         <Button id="confirmDeleteDetail" text="Delete" press=".onDeleteStudent" class="redButton" />
         <Button id="confirmCreateDetail" text="Create" press=".onUpdate" type="Emphasized" />
         <Button id="cancelCreateDetail" text="Cancel" press="onCancelDialog" type="Transparent" />
     </buttons>
+
     <!-- Use IconTabBar to organize content into tabs -->
     <IconTabBar
         id="iconTabBar"
@@ -210,5 +215,5 @@ id="Advisor_ID"
                 </Page>
             </pages>
         </App>
-    </Shell>
+    <!-- </Shell> -->
 </mvc:View>

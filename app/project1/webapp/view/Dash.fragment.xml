@@ -1,0 +1,9 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  controllerName="miniproject.controller.Dash">
+  <Page id="dashboard" title="welcome to dashboard">
+    <!-- Your additional content goes here -->
+    <Text text="This is dashboard content"/>
+  </Page>
+</mvc:View>

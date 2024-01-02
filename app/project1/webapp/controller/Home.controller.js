@@ -15,13 +15,14 @@ sap.ui.define([
         return Controller.extend("project1.controller.Home", {
             
             onInit: function () {
+               
                 this._oTable = this.byId("table0");
                 this._createReadOnlyTemplates();
                 this.rebindTable(this.oReadOnlyTemplate, "Navigation");
 
                 const token = sessionStorage.getItem('token')
                 if(token){
-                fetch("https://port4004-workspaces-ws-wml98.us10.trial.applicationstudio.cloud.sap/odata/v4/users/Users", {
+                fetch("http://localhost:4004/odata/v4/users/Users", {
                     headers: {
                       'Authorization': `Bearer ${token}`,
                       'Content-Type': 'application/json',
@@ -252,7 +253,7 @@ sap.ui.define([
                         }         
                         
                         try{
-                            const endpoint = "https://port4004-workspaces-ws-wml98.us10.trial.applicationstudio.cloud.sap/StudentServices/Students";
+                            const endpoint = "http://localhost:4004/StudentServices/Students";
 
                             // Assuming you have the updateData object defined as mentioned in your question
                             const updateData = {
@@ -307,7 +308,7 @@ sap.ui.define([
             },
             onDeleteStudent: async function () {
                 try {
-                    const endpoint = "https://port4004-workspaces-ws-wml98.us10.trial.applicationstudio.cloud.sap/StudentServices/Students";
+                    const endpoint = "http://localhost:4004/StudentServices/Students";
             
                     // You may want to replace 'yourStudentID' with the actual ID of the student you want to delete
                     const studentID = parseInt(this.byId("ID_edit").getValue(), 10);
@@ -369,7 +370,7 @@ sap.ui.define([
            
             const token = sessionStorage.getItem('token')
             if(token){
-            fetch("https://port4004-workspaces-ws-wml98.us10.trial.applicationstudio.cloud.sap/StudentServices/StudentWithAdvisor", {
+            fetch("http://localhost:4004/StudentServices/StudentWithAdvisor", {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',

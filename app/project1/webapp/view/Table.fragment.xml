@@ -1,6 +1,7 @@
 <mvc:View controllerName="project1.controller.Table"
   xmlns:micro="sap.suite.ui.microchart"
 	xmlns="sap.suite.ui.microchart" xmlns:mvc="sap.ui.core.mvc" xmlns:m="sap.m" xmlns:table="sap.ui.table">
+	
 	<table:Table selectionMode="None" rows="{/Rows}">
 		<table:columns>
 			<table:Column>
