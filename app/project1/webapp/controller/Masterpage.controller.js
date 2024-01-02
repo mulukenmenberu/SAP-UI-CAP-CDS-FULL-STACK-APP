@@ -1,18 +1,23 @@
 sap.ui.define([
-	'sap/ui/Device',
 	'sap/ui/core/mvc/Controller',
 	'sap/ui/model/json/JSONModel',
-	'sap/m/Popover',
 	'sap/m/Button',
 	'sap/m/library',
     "sap/m/MessageBox",
     "sap/m/MessageToast",
     "sap/m/ColumnListItem",
     "sap/m/Input",
-    "sap/ui/core/Fragment",
+    "sap/ui/core/Fragment",    
+    'sap/ui/core/IconPool',
+    'sap/m/Link',
+    'sap/m/MessageItem',
+    'sap/m/MessageView',
+    'sap/m/Bar',
+    'sap/m/Title',
+    'sap/m/ResponsivePopover'
     
 
-], function ( Device, Controller, JSONModel, Popover, Button, mobileLibrary,MessageBox,MessageToast,ColumnListItem,Input,Fragment) {
+], function (Controller, JSONModel, Button, library,MessageBox,MessageToast,ColumnListItem,Input,Fragment,IconPool, Link, MessageItem, MessageView, Bar, Title,ResponsivePopover) {
 	"use strict";
 
 	var CController = Controller.extend("project1.controller.Masterpage", {
@@ -92,10 +97,114 @@ sap.ui.define([
 			this.oModel.loadData(sap.ui.require.toUrl("project1/model/model.json"), null, false);
 			this.getView().setModel(this.oModel);
 
+//message
 
+var that = this;
+var	oLink = new Link({
+  text: "Show more information",
+  href: "http://sap.com",
+  target: "_blank"
+});
+
+var oMessageTemplate = new MessageItem({
+  type: '{type}',
+  title: '{title}',
+  description: '{description}',
+  subtitle: '{subtitle}',
+  counter: '{counter}',
+  markupDescription: "{markupDescription}",
+  link: oLink
+});
+
+var aMockMessages = [{
+  type: 'Error',
+  title: 'Error message',
+  description: 'First Error message description. \n' +
+  'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',
+  subtitle: 'Example of subtitle',
+  counter: 1
+}, {
+  type: 'Warning',
+  title: 'Warning without description',
+  description: ''
+}, {
+  type: 'Success',
+  title: 'Success message',
+  description: 'First Success message description',
+  subtitle: 'Example of subtitle',
+  counter: 1
+}, {
+  type: 'Error',
+  title: 'Error message',
+  description: 'Second Error message description',
+  subtitle: 'Example of subtitle',
+  counter: 2
+}, {
+  type: 'Information',
+  title: 'Information message',
+  description: 'First Information message description',
+  subtitle: 'Example of subtitle',
+  counter: 1
+}];
+
+var oModel = new JSONModel(),
+  that = this;
+
+oModel.setData(aMockMessages);
+
+this.oMessageView = new MessageView({
+    showDetailsPageHeader: false,
+    itemSelect: function () {
+      oBackButton.setVisible(true);
+    },
+    items: {
+      path: "/",
+      template: oMessageTemplate
+    }
+  });
+var	oBackButton = new Button({
+    icon: IconPool.getIconURI("nav-back"),
+    visible: false,
+    press: function () {
+      that.oMessageView.navigateBack();
+      that._oPopover.focus();
+      this.setVisible(false);
+    }
+  });
+
+this.oMessageView.setModel(oModel);
+
+var oCloseButton =  new Button({
+    text: "Close",
+    press: function () {
+      that._oPopover.close();
+    }
+  }).addStyleClass("sapUiTinyMarginEnd"),
+  oPopoverBar = new Bar({
+    contentLeft: [oBackButton],
+    contentMiddle: [
+      new Title({text: "Messages"})
+    ]
+  });
+
+this._oPopover = new ResponsivePopover({
+  customHeader: oPopoverBar,
+  contentWidth: "20%",
+  contentHeight: "40%",
+  verticalScrolling: false,
+  modal: true,
+  content: [this.oMessageView],
+  endButton:oCloseButton
+});
      
 
 		},
+
+    handlePopoverPress: function (oEvent) {
+      this.oMessageView.navigateBack();
+      this._oPopover.openBy(oEvent.getSource());
+    },
+
     formatColor: function (value) {
       // Your condition for setting the color
       if (value === 1) {
@@ -186,9 +295,7 @@ sap.ui.define([
       // this.getView().byId("OpenDialog").open();
    },
 
-   natfication:function(){
-      alert('Sorry Currently no new Notfication')
-   },
+
 
   //  switch:function(){
   //     alert('switch buttun cliked')
@@ -594,6 +701,8 @@ switch: function () {
       console.error("Product switcher control not found.");
   }
 },
+
+
 
 
 
