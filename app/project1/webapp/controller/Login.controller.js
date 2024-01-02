@@ -43,8 +43,8 @@ sap.ui.define([
                     // Handle the response data
                     console.log(data);
                     if(data.user && data.user.Account_status ==1){
-                        // MessageToast.show('Please verify OTP');
-                        this.getOwnerComponent().getRouter().navTo("Targetdash"); //when i got otp varification from mulie i will change to the first coomt line and remove this
+                        MessageToast.show('Please verify OTP');
+                        // this.getOwnerComponent().getRouter().navTo("Targetdash"); //when i got otp varification from mulie i will change to the first coomt line and remove this
                         const token = data.user.token
                         sessionStorage.setItem('token', token)
 
@@ -101,7 +101,7 @@ sap.ui.define([
                     console.log(data);
                     if(data.user && data.user[0].is_used =='N'){
                         MessageToast.show('Logged in sucecssfully');
-                        this.getOwnerComponent().getRouter().navTo("dashboard");
+                        this.getOwnerComponent().getRouter().navTo("Targetdash");
                     }else{
                         MessageToast.show('Invalid credentials');
                     }
