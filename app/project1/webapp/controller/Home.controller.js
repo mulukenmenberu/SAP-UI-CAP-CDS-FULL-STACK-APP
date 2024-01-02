@@ -3,13 +3,14 @@ sap.ui.define([
     "sap/m/MessageToast",
     "sap/m/ColumnListItem",
     "sap/m/Input",
-    "sap/ui/model/json/JSONModel"
+    "sap/ui/model/json/JSONModel",
+    "project1/config/Config"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
 
-    function (Controller, MessageToast, ColumnListItem,Input, JSONModel) {
+    function (Controller, MessageToast, ColumnListItem,Input, JSONModel,Config) {
         "use strict";
 
         return Controller.extend("project1.controller.Home", {
@@ -22,7 +23,7 @@ sap.ui.define([
 
                 const token = sessionStorage.getItem('token')
                 if(token){
-                fetch("http://localhost:4004/odata/v4/users/Users", {
+                fetch(Config.baseUrl+"odata/v4/users/Users", {
                     headers: {
                       'Authorization': `Bearer ${token}`,
                       'Content-Type': 'application/json',
@@ -253,7 +254,7 @@ sap.ui.define([
                         }         
                         
                         try{
-                            const endpoint = "http://localhost:4004/StudentServices/Students";
+                            const endpoint = Config.baseUrl+"StudentServices/Students";
 
                             // Assuming you have the updateData object defined as mentioned in your question
                             const updateData = {
@@ -308,7 +309,7 @@ sap.ui.define([
             },
             onDeleteStudent: async function () {
                 try {
-                    const endpoint = "http://localhost:4004/StudentServices/Students";
+                    const endpoint = Config.baseUrl+"StudentServices/Students";
             
                     // You may want to replace 'yourStudentID' with the actual ID of the student you want to delete
                     const studentID = parseInt(this.byId("ID_edit").getValue(), 10);
@@ -370,7 +371,7 @@ sap.ui.define([
            
             const token = sessionStorage.getItem('token')
             if(token){
-            fetch("http://localhost:4004/StudentServices/StudentWithAdvisor", {
+            fetch(Config.baseUrl+"StudentServices/StudentWithAdvisor", {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',

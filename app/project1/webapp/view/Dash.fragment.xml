@@ -6,6 +6,10 @@
 	xmlns:f="sap.f"
 	xmlns:core="sap.ui.core"
 	xmlns:t="sap.tnt">
+	<App id="appdash">
+            <pages>
+                <Page id="pagedash" title="{i18n>title}">
+                    <content>
 	<ToggleButton
 		id="revealGrid"
 		text="Reveal Grid"
@@ -179,4 +183,8 @@
 			</f:GridListItem>
 		</f:GridList>
 	</Panel>
+	     </content>
+                </Page>
+            </pages>
+        </App>
 </mvc:View>

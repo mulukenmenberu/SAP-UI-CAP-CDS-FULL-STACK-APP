@@ -1,7 +1,17 @@
 <mvc:View controllerName="project1.controller.Table"
   xmlns:micro="sap.suite.ui.microchart"
-	xmlns="sap.suite.ui.microchart" xmlns:mvc="sap.ui.core.mvc" xmlns:m="sap.m" xmlns:table="sap.ui.table">
-	
+	xmlns="sap.suite.ui.microchart"
+	 xmlns:mvc="sap.ui.core.mvc"
+	  xmlns:m="sap.m"
+	   displayBlock="true"
+    xmlns:form="sap.ui.layout.form"
+     xmlns:core="sap.ui.core"
+  
+	   xmlns:table="sap.ui.table">
+	    <m:App id="apptable">
+            <m:pages>
+                <m:Page id="tableuser" title="{i18n>title}">
+                    <m:content>
 	<table:Table selectionMode="None" rows="{/Rows}">
 		<table:columns>
 			<table:Column>
@@ -56,4 +66,8 @@
 			</table:Column>
 		</table:columns>
 	</table:Table>
+	     </m:content>
+                </m:Page>
+            </m:pages>
+        </m:App>
 </mvc:View>

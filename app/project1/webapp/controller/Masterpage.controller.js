@@ -14,10 +14,11 @@ sap.ui.define([
     'sap/m/MessageView',
     'sap/m/Bar',
     'sap/m/Title',
-    'sap/m/ResponsivePopover'
+    'sap/m/ResponsivePopover',
+    "project1/config/Config"
     
 
-], function (Controller, JSONModel, Button, library,MessageBox,MessageToast,ColumnListItem,Input,Fragment,IconPool, Link, MessageItem, MessageView, Bar, Title,ResponsivePopover) {
+], function (Controller, JSONModel, Button, library,MessageBox,MessageToast,ColumnListItem,Input,Fragment,IconPool, Link, MessageItem, MessageView, Bar, Title,ResponsivePopover,Config) {
 	"use strict";
 
 	var CController = Controller.extend("project1.controller.Masterpage", {
@@ -29,7 +30,7 @@ sap.ui.define([
 
       const token = sessionStorage.getItem('token')
       if(token){
-      fetch("http://localhost:4004/odata/v4/users/Users", {
+      fetch(Config.baseUrl+"odata/v4/users/Users", {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json',
@@ -463,7 +464,7 @@ this._oPopover = new ResponsivePopover({
               }         
               
               try{
-                  const endpoint = "http://localhost:4004/StudentServices/Students";
+                  const endpoint = Config.baseUrl+"StudentServices/Students";
 
                   // Assuming you have the updateData object defined as mentioned in your question
                   const updateData = {
@@ -518,7 +519,7 @@ this._oPopover = new ResponsivePopover({
   },
   onDeleteStudent: async function () {
       try {
-          const endpoint = "http://localhost:4004/StudentServices/Students";
+          const endpoint = Config.baseUrl+"StudentServices/Students";
   
           // You may want to replace 'yourStudentID' with the actual ID of the student you want to delete
           const studentID = parseInt(this.byId("ID_edit").getValue(), 10);
@@ -580,7 +581,7 @@ rebindTable: function(oTemplate, sKeyboardMode) {
  
   const token = sessionStorage.getItem('token')
   if(token){
-  fetch("http://localhost:4004/StudentServices/StudentWithAdvisor", {
+  fetch(Config.baseUrl+"StudentServices/StudentWithAdvisor", {
       headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
