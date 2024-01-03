@@ -4,7 +4,7 @@
   xmlns:form="sap.ui.layout.form"
   xmlns="sap.m"
  xmlns:m="sap.m" xmlns:table="sap.ui.table">
-	
+	  <VBox alignItems="Center" justifyContent="Center"> 
 	<table:Table selectionMode="None" rows="{/Rows}">
 		<table:columns>
 			<table:Column  width="8rem">
@@ -26,6 +26,13 @@
 				</table:template>
 
 			</table:Column>
+					<table:Column  width="8rem">
+				<m:Label text="Intake"/>
+				<table:template>
+					<m:Label text="{Sales Manager}"/>
+				</table:template>
+
+			</table:Column>
 			<table:Column  width="8rem">
 				<m:Label text="App Type"/>
 				<table:template>
@@ -42,8 +49,8 @@
 			<table:Column width="16rem">
 				<m:Label text="Status"/>
 				<table:template>			
-				 <HBox>
-				<VBox class="crmStatusOk">
+				 <HBox >
+				<VBox class="crmStatusOk" >
 				<Text text="CS" class="overlayText"/>
 				</VBox>
 
@@ -51,16 +58,34 @@
 				<Text text="AP" class="overlayText"/>
 				</VBox>
 
-				<VBox class="crmStatusNotOk">
+				<VBox class="crmStatusOk">
 				<Text text="DC" class="overlayText"/>
 				</VBox>
 
-				<VBox class="crmStatusNotOk">
+				<VBox class="crmDefault">
 				<Text text="FC" class="overlayText"/>
+				</VBox>
+				<VBox class="crmDefault">
+					<Text text="LF" class="overlayText"/>
 				</VBox>
 			 </HBox>
 				</table:template>
 			</table:Column>
+			<table:Column  width="13rem">
+				<m:Label text="Action"/>
+				<table:template>
+						 <HBox>
+				<VBox>
+              <Button id="deleteButtonnnn" icon="sap-icon://delete" tooltip="Delete" />
+            </VBox>
+				       <VBox>
+              <Button id="fsdf" icon="sap-icon://edit" tooltip="Edit" />
+            </VBox>
+				 </HBox>
+				</table:template>
+			</table:Column>
+
 		</table:columns>
 	</table:Table>
+</VBox>
 </mvc:View>

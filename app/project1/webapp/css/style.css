@@ -46,15 +46,24 @@
 	margin: 5px;
 	position: relative;
   }
+  .crmDefault {
+	width: 25px;
+	height: 25px;
+	background-color: rgb(93, 93, 93);
+	margin: 5px;
+	position: relative;
+  }
   .overlayText {
 	position: absolute;
 	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	left: 20%;
+
 	color: white;
 	font-weight: bold;
 	font-size: 12px; /* Adjust the font size as needed */
 	width: 100%;
+	justify-content: center;
+	
 	text-align: center;
 	line-height: 25px; /* Adjust the line height to match the height of .hasApps */
 	white-space: nowrap; /* Prevent text from wrapping to a new line */
