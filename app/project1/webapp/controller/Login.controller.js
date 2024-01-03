@@ -3,14 +3,15 @@ sap.ui.define([
     "sap/m/MessageToast",
     "sap/m/ColumnListItem",
     "sap/m/Input",
-    "sap/m/Panel"
+    "sap/m/Panel",
+    "project1/config/Config"
 
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
 
-    function (Controller, MessageToast, ColumnListItem,Input, Panel) {
+    function (Controller, MessageToast, ColumnListItem,Input, Panel,Config) {
         "use strict";
 
         return Controller.extend("project1.controller.Login", {
@@ -31,7 +32,7 @@ sap.ui.define([
                 };
     
                 // Make the POST request using fetch API
-                fetch("http://localhost:4004/rest/root/Login", {
+                fetch(Config.baseUrl+"rest/root/Login", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -88,7 +89,7 @@ sap.ui.define([
                 };
     
                 // Make the POST request using fetch API
-                fetch("http://localhost:4004/rest/otp/checkOTP", {
+                fetch(Config.baseUrl+"rest/otp/checkOTP", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
