@@ -72,6 +72,19 @@
 		}
 	
 	],
+	"toprightmenu": [
+		{
+			"title": "profile",
+			"icon": "sap-icon://account",
+			"key": "profile"
+		},
+		{
+			"title": "Account Settings",
+			"icon": "sap-icon://action-settings",
+			"key": "setting"
+		}
+	
+	],
 	"Rows": [
 		{
 		  "Supplier": "1.",

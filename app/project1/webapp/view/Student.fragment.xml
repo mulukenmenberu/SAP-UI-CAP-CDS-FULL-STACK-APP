@@ -73,7 +73,7 @@ id="Advisor_ID"
 
         <!-- STUDENT DETAIL MODAL  -->
         <dependents>
-                                      <Dialog id="studentDetailModal" title="Student Details -" binding="{editModel>/}" class="fullmodal">
+    <Dialog id="studentDetailModal" title="Student Details -" binding="{editModel>/}" class="fullmodal">
     <buttons>
         <Button id="confirmDeleteDetail" text="Delete" press=".onDeleteStudent" class="redButton" />
         <Button id="confirmCreateDetail" text="Create" press=".onUpdate" type="Emphasized" />

@@ -321,11 +321,7 @@ this._oPopover = new ResponsivePopover({
             // Retrieve the selected value
             var sSelectedTitle = oSelectedItem.getTitle();
            
-            if(sSelectedTitle==='profile')
-            {
-              alert('profile button cilked')
-            }
-            else if(sSelectedTitle==='Logout')
+          if(sSelectedTitle==='Sign out')
             {
               this.avater(); 
 
@@ -355,7 +351,7 @@ this._oPopover = new ResponsivePopover({
     },
     
     logout: function(oRecord) {
-      alert("You are successfully logedout");
+      // alert("You are successfully logedout");
   
       localStorage.removeItem("isLoggedIn");
       
@@ -684,29 +680,32 @@ switch: function () {
   var oProductSwitcher = oView.byId("x"); // Replace with your actual ID
 
   if (oProductSwitcher) {
-      if (!this._oProductSwitcherPopover) {
+      if (!this._oNotificationSwitcherPopover) {
           Fragment.load({
               id: oView.getId(),
-              name: "project1.view.ProductSwitcherDropdown",
+              name: "project1.view.Notification",
               controller: this
           }).then(function (oPopover) {
-              this._oProductSwitcherPopover = oPopover;
-              oView.addDependent(this._oProductSwitcherPopover);
-              this._oProductSwitcherPopover.openBy(oProductSwitcher);
+              this._oNotificationSwitcherPopover = oPopover;
+              oView.addDependent(this._oNotificationSwitcherPopover);
+              this._oNotificationSwitcherPopover.openBy(oProductSwitcher);
           }.bind(this));
       } else {
-          this._oProductSwitcherPopover.openBy(oProductSwitcher);
+          this._oNotificationSwitcherPopover.openBy(oProductSwitcher);
       }
   } else {
       // Log an error or handle the case where the product switcher is not found
-      console.error("Product switcher control not found.");
+      console.error("Notfication switcher control not found.");
   }
 },
 
 
 
-
-
+// close pop up button
+onCloseButtonPress: function () {
+  var oPopover = this.getView().byId("closepop"); // Replace "yourPopoverId" with the actual ID of your Popover
+  oPopover.close();
+}
 
 
 

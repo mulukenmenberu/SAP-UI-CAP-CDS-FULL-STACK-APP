@@ -32,3 +32,11 @@
 .customShellBar {
     display: inline-block;
 }
+
+.invisibleButton .sapMBtnInner {
+    background: none;
+    border: none;
+    box-shadow: none;
+	color:red;
+    padding: 0;
+}

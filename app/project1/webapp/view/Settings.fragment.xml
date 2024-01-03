@@ -1,0 +1,9 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  controllerName="miniproject.controller.AdditionalPage">
+  <Page id="settings" title="welcome to settings Page">
+    <!-- Your additional content goes here -->
+    <Text text="This is the settings page content"/>
+  </Page>
+</mvc:View>

@@ -5,7 +5,7 @@
   	xmlns:core="sap.ui.core"
 	xmlns:tnt="sap.tnt"
     controllerName="project1.controller.Masterpage">
-	 <core:Fragment id="productSwitcherFragment" fragmentName="project1.view.ProductSwitcherDropdown" type="XML"/>
+	 <core:Fragment id="productSwitcherFragment" fragmentName="project1.view.Notification" type="XML"/>
 
 	<tnt:ToolPage id="toolPage">	
 	
@@ -67,11 +67,17 @@
 						<core:Fragment fragmentName="project1.view.Student" type="XML"/>
 				</ScrollContainer>
 					<ScrollContainer id="page2" horizontal="false" vertical="true" height="900%">
-						<!-- <Text text="This is the first page"/> -->
-                         <core:Fragment fragmentName="project1.view.Table" type="XML"/>
+					      <core:Fragment fragmentName="project1.view.Table" type="XML"/>
 					</ScrollContainer>					
 					<ScrollContainer id="root2" horizontal="false" vertical="true" height="100%">
 						  <core:Fragment fragmentName="project1.view.Dash" type="XML"/>
+					</ScrollContainer>	
+
+						<ScrollContainer id="profile" horizontal="false" vertical="true" height="900%">
+					      <core:Fragment fragmentName="project1.view.Profile" type="XML"/>
+					</ScrollContainer>					
+					<ScrollContainer id="setting" horizontal="false" vertical="true" height="100%">
+						  <core:Fragment fragmentName="project1.view.Settings" type="XML"/>
 					</ScrollContainer>					
 				</pages>
 			</NavContainer>
