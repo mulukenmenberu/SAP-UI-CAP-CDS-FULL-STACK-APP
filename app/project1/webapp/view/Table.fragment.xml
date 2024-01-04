@@ -49,7 +49,7 @@
 			<table:Column width="16rem">
 				<m:Label text="Status"/>
 				<table:template>			
-				 <HBox >
+				 <HBox class="vBoxContainer">
 				<VBox class="crmStatusOk" >
 				<Text text="CS" class="overlayText"/>
 				</VBox>
@@ -71,6 +71,8 @@
 			 </HBox>
 				</table:template>
 			</table:Column>
+
+
 			<table:Column  width="13rem">
 				<m:Label text="Action"/>
 				<table:template>

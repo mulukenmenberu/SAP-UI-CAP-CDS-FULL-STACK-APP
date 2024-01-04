@@ -38,12 +38,18 @@
 	background-color: green;
 	margin: 5px;
 	position: relative;
+	margin-right: 0 !important;
+	padding: 0 !important;
+
   }
   .crmStatusNotOk {
 	width: 25px;
 	height: 25px;
 	background-color: red;
 	margin: 5px;
+	margin-right: 0 !important;
+	padding: 0 !important;
+
 	position: relative;
   }
   .crmDefault {
@@ -51,6 +57,9 @@
 	height: 25px;
 	background-color: rgb(93, 93, 93);
 	margin: 5px;
+	margin-right: 0 !important;
+	padding: 0 !important;
+
 	position: relative;
   }
   .overlayText {
@@ -69,3 +78,10 @@
 	white-space: nowrap; /* Prevent text from wrapping to a new line */
   }
   
+  .vBoxContainer{
+	display: flex;
+	justify-content: flex-start;
+	margin-right: 0 !important;
+    padding: 0 !important;
+
+  }
