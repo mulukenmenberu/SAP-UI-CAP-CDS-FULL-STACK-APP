@@ -57,28 +57,26 @@
 					type="XML" />
 		</tnt:sideContent>
 		<tnt:mainContents>
-			<NavContainer id="pageContainer" initialPage="page1">
+			<NavContainer id="pageContainer" initialPage="dash">
 				 <pages> 
-              	<ScrollContainer id="root1" horizontal="false" vertical="true" height="100%">
-                <core:Fragment fragmentName="project1.view.AdditionalPage" type="XML"/>
+				 <ScrollContainer id="dash" horizontal="false" vertical="true" height="100%">
+						<!-- <core:Fragment fragmentName="project1.view.Settings" type="XML"/> -->
+				</ScrollContainer>	
+              	<ScrollContainer id="AdditionalPage" horizontal="false" vertical="true" height="100%">
+                <!-- <core:Fragment fragmentName="project1.view.AdditionalPage" type="XML"/> -->
                 </ScrollContainer>
-				<ScrollContainer id="page1" horizontal="false" vertical="true" height="900%">
-					<!-- <Text text="This is the first page"/> -->
-						<core:Fragment fragmentName="project1.view.Student" type="XML"/>
+				<ScrollContainer id="Student" horizontal="false" vertical="true" height="900%">
+				     	<!-- <core:Fragment fragmentName="project1.view.Student" type="XML"/> -->
 				</ScrollContainer>
-					<ScrollContainer id="page2" horizontal="false" vertical="true" height="900%">
-					      <core:Fragment fragmentName="project1.view.Table" type="XML"/>
-					</ScrollContainer>					
-					<ScrollContainer id="root2" horizontal="false" vertical="true" height="100%">
-						  <core:Fragment fragmentName="project1.view.Dash" type="XML"/>
-					</ScrollContainer>	
-
-						<ScrollContainer id="profile" horizontal="false" vertical="true" height="900%">
-					      <core:Fragment fragmentName="project1.view.Profile" type="XML"/>
-					</ScrollContainer>					
-					<ScrollContainer id="setting" horizontal="false" vertical="true" height="100%">
-						  <core:Fragment fragmentName="project1.view.Settings" type="XML"/>
-					</ScrollContainer>					
+				<ScrollContainer id="Table" horizontal="false" vertical="true" height="900%">
+						<core:Fragment fragmentName="project1.view.Table" type="XML"/>
+				</ScrollContainer>	
+				<ScrollContainer id="profile" horizontal="false" vertical="true" height="900%">
+						<!-- <core:Fragment fragmentName="project1.view.Profile" type="XML"/> -->
+				</ScrollContainer>					
+				<ScrollContainer id="setting" horizontal="false" vertical="true" height="100%">
+						<!-- <core:Fragment fragmentName="project1.view.Settings" type="XML"/> -->
+				</ScrollContainer>					
 				</pages>
 			</NavContainer>
 		</tnt:mainContents>

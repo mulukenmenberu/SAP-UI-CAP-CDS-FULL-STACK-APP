@@ -1,6 +1,10 @@
-<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" controllerName="project1.controller.AdditionalPage">
-
-   <App id="appsettings">
+<mvc:View
+ xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:form="sap.ui.layout.form"
+     xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+  controllerName="project1.controller.AdditionalPage">
+   <App id="app">
 <pages>
    <Page id="AdditionalPagesetting" title="gashu man">
       <content>
@@ -10,4 +14,5 @@
 </Page>
 </pages>
 </App>
-</core:FragmentDefinition>
+</mvc:View>
+

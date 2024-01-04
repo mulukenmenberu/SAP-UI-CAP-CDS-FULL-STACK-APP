@@ -1,0 +1,212 @@
+<mvc:View
+	controllerName="project1.controller.Dashpage"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:tnt="sap.tnt"
+
+
+	xmlns:f="sap.f"
+  	xmlns:core="sap.ui.core"
+
+	height="100%">
+	 <!-- <core:Fragment id="productSwitcherFragment" fragmentName="project1.view.Notification" type="XML"/> -->
+
+	<tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<tnt:ToolHeader>
+				<Button
+					id="sideNavigationToggleButton"
+					icon="sap-icon://menu2"
+					type="Transparent"
+					press=".onSideNavButtonPress">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" />
+					</layoutData>
+				</Button>
+				<!-- <ToolbarSpacer width="5px" /> -->
+				
+				<Image height="1.5rem"
+					   class="sapUiSmallMarginBegin"
+					   src="https://www.sap.com/dam/application/shared/logos/sap-logo-svg.svg" />
+				<Title level="H1" text="Product Name" wrapping="false" id="productName">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Disappear"/>
+					</layoutData>
+				</Title>
+				<!-- <Text text="Second Тitle" wrapping="false" id="secondTitle">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Disappear"/>
+					</layoutData>
+				</Text> -->
+					<Button text="File" type="Transparent">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low" />
+					</layoutData>
+				</Button>
+				<Button text="Edit" type="Transparent">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low" />
+					</layoutData>
+				</Button>
+				<Button text="View" type="Transparent">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low" />
+					</layoutData>
+				</Button>
+					<Button text="Tools" type="Transparent">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low" />
+					</layoutData>
+				</Button>
+				
+					
+				<tnt:ToolHeaderUtilitySeparator />
+				
+				<ToolbarSpacer>
+			
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px" />
+					</layoutData>
+				</ToolbarSpacer>
+				<ToolbarSpacer />
+				<SearchField width="16rem" id="searchField">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low" group="1"/>
+					</layoutData>
+				</SearchField>
+				<!-- <ToolbarSpacer id="spacer">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low" group="1"/>
+					</layoutData>
+				</ToolbarSpacer> -->
+				<Button visible="false" icon="sap-icon://search" type="Transparent" id="searchButton" tooltip="Search"/>
+				<!-- <OverflowToolbarButton icon="sap-icon://source-code" type="Transparent" tooltip="Action 1" text="Action 1">
+					<layoutData>
+						<OverflowToolbarLayoutData group="2"/>
+					</layoutData>
+				</OverflowToolbarButton> -->
+				<!-- <OverflowToolbarButton icon="sap-icon://card" type="Transparent" tooltip="Action 2" text="Action 2">
+					<layoutData>
+						<OverflowToolbarLayoutData group="2"/>
+					</layoutData>
+				</OverflowToolbarButton> -->
+				<!-- <ToolbarSeparator>
+					<layoutData>
+						<OverflowToolbarLayoutData group="2"/>
+					</layoutData>
+				</ToolbarSeparator>
+				<OverflowToolbarButton icon="sap-icon://action-settings" type="Transparent" text="Settings"/> -->
+		<Button icon="sap-icon://bell" text="5" type="Transparent" tooltip="Notification" press="handlePopoverPress" class="redTextButton">
+	<layoutData>
+		<OverflowToolbarLayoutData priority="NeverOverflow"/>
+	</layoutData>
+</Button>
+
+
+				<!-- <Button icon="{= 'sap-icon://bell' + (${notificationModel>/notificationCount} > 0 ? '-notification' : '') }" type="Transparent" tooltip="Notification" press="handlePopoverPress" customData="{notificationModel>/notificationCount}" /> -->
+<!-- <Button icon="{= 'sap-icon://bell' + (2 > 0 ? '-notification' : '') }" type="Transparent" tooltip="Notification" press="handlePopoverPress" /> -->
+
+				<tnt:ToolHeaderUtilitySeparator/>
+				<ToolbarSpacer width="1.125rem"/>
+				<!-- <Avatar src="test-resources/sap/tnt/images/Woman_avatar_01.png" displaySize="XS" press="switch" tooltip="Profile" ariaHasPopup="Menu" id="x"> -->
+				<Avatar src="test-resources/sap/tnt/images/Woman_avatar_01.png" displaySize="XS" press="handleUserNamePress" tooltip="Profile" ariaHasPopup="Menu" id="x">
+					<layoutData>				
+
+						<OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</layoutData>
+				</Avatar>
+				<!-- <Button text="Alan Smith" type="Transparent" press=".handleUserNamePress" ariaHasPopup="Menu">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" />
+					</layoutData>
+				</Button> -->
+				<ToolbarSpacer width="1.125rem"/>
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation
+				expanded="true"
+				selectedKey="{/selectedKey}"
+				itemSelect=".onItemSelect">
+				<tnt:NavigationList items="{path: '/navigation'}">
+					<tnt:NavigationListItem
+						text="{title}"
+						icon="{icon}"
+						enabled="{enabled}"
+						expanded="{expanded}"
+						items="{items}"
+						key="{key}">
+						<tnt:NavigationListItem
+							text="{title}"
+							key="{key}"
+							enabled="{enabled}" />
+					</tnt:NavigationListItem>
+				</tnt:NavigationList>
+				<tnt:fixedItem>
+					<tnt:NavigationList items="{path: '/fixedNavigation'}">
+						<tnt:NavigationListItem text="{title}" icon="{icon}" />
+					</tnt:NavigationList>
+				</tnt:fixedItem>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<NavContainer id="pageContainer" initialPage="Dash">
+				<pages>
+					<ScrollContainer
+						id="student"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<mvc:XMLView viewName="project1.view.Student"/>			
+						<!-- <core:Fragment fragmentName="project1.view.Student" type="XML"/> -->
+					</ScrollContainer>
+
+							<ScrollContainer
+						id="Dash"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<mvc:XMLView viewName="project1.view.Dash"/>			
+						<!-- <core:Fragment fragmentName="project1.view.Student" type="XML"/> -->
+					</ScrollContainer>
+					<ScrollContainer
+						id="page1"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<mvc:XMLView viewName="project1.view.AdditionalPage"/>	
+						<!-- <core:Fragment fragmentName="project1.view.AdditionalPage" type="XML"/> -->
+					</ScrollContainer>
+					<ScrollContainer
+						id="settings"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<mvc:XMLView viewName="project1.view.Settings"/>	
+						<!-- <core:Fragment fragmentName="project1.view.Settings" type="XML"/> -->
+					</ScrollContainer>
+					<ScrollContainer
+						id="user"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<mvc:XMLView viewName="project1.view.Table"/>	
+						<!-- <core:Fragment fragmentName="project1.view.Profile" type="XML"/> -->
+					</ScrollContainer>
+
+					<ScrollContainer id="profile" horizontal="false" vertical="true" height="900%">
+						<core:Fragment fragmentName="project1.view.Profile" type="XML"/>
+				</ScrollContainer>					
+				<ScrollContainer id="setting" horizontal="false" vertical="true" height="100%">
+						<core:Fragment fragmentName="project1.view.Settings" type="XML"/>
+				</ScrollContainer>	
+				</pages>
+			</NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+</mvc:View>

@@ -102,7 +102,7 @@ sap.ui.define([
                     console.log(data);
                     if(data.user && data.user[0].is_used =='N'){
                         MessageToast.show('Logged in sucecssfully');
-                        this.getOwnerComponent().getRouter().navTo("Targetdash");
+                        this.getOwnerComponent().getRouter().navTo("Dashpage");//Targetdash  dashboard Dashpage
                     }else{
                         MessageToast.show('Invalid credentials');
                     }

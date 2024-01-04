@@ -1,24 +1,24 @@
 {
-	"selectedKey": "page2",
+	"selectedKey": "Table",
 	"navigation": [
 		{
 			"title": "Dashboard",
 			"icon": "sap-icon://home",
-			"key": "root2"
+			"key": "Dash"
 		},
 		{
 			"title": "Main Menu",
 			"icon": "sap-icon://drop-down-list",
 			"expanded": true,
-			"key": "root1",
+			"key": "AdditionalPage",
 			"items": [
 				{
 					"title": "Student List",
-					"key": "page1"
+					"key": "Student"
 				},
 				{
 					"title": "User list",
-					"key": "page2"
+					"key": "Table"
 				}
 			]
 		},
@@ -27,7 +27,7 @@
 			"title": "Settings",
 			"icon": "sap-icon://action-settings",
 			"expanded": false,
-            "key": "root3",
+            "key": "Mainsetings",
 			"items": [
 				{
 					"title": "Setting 1 "
