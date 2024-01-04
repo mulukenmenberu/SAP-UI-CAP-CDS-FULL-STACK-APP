@@ -219,7 +219,7 @@ this._oPopover = new ResponsivePopover({
       }
     },
   press: function (oEvent) {
-      MessageToast.show("The comparison micro chart is pressed.");
+      MessageToast.show("demo toast");
   },
 		onItemSelect : function(oEvent) {
 			var item = oEvent.getParameter('item');

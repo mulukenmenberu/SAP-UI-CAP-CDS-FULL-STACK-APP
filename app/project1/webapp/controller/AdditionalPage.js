@@ -3,7 +3,7 @@ sap.ui.define([
   ], function (Controller) {
     "use strict";
   
-    return Controller.extend("miniproject.controller.AdditionalPage", {
+    return Controller.extend("project1.controller.AdditionalPage", {
       // Your controller logic for SubItem1 goes here
     });
   });

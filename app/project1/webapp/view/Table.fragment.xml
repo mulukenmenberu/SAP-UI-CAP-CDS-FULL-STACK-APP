@@ -81,7 +81,7 @@
               <Button id="deleteButtonnnn" icon="sap-icon://delete" tooltip="Delete" />
             </VBox>
 				       <VBox>
-              <Button id="fsdf" icon="sap-icon://edit" tooltip="Edit" />
+              <Button id="fsdf" icon="sap-icon://edit" tooltip="Edit" press="press"/>
             </VBox>
 				 </HBox>
 				</table:template>
