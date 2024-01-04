@@ -69,7 +69,7 @@
 					</layoutData>
 				</ToolbarSpacer>
 				<ToolbarSpacer />
-				<SearchField width="16rem" id="searchField">
+				<SearchField width="16rem" id="searchField" liveChange="onLiveSearch">
 					<layoutData>
 						<OverflowToolbarLayoutData priority="Low" group="1"/>
 					</layoutData>
@@ -79,7 +79,7 @@
 						<OverflowToolbarLayoutData priority="Low" group="1"/>
 					</layoutData>
 				</ToolbarSpacer> -->
-				<Button visible="false" icon="sap-icon://search" type="Transparent" id="searchButton" tooltip="Search"/>
+				<!-- <Button visible="true" icon="sap-icon://search" type="Transparent" id="searchButton" tooltip="Search"/> -->
 				<!-- <OverflowToolbarButton icon="sap-icon://source-code" type="Transparent" tooltip="Action 1" text="Action 1">
 					<layoutData>
 						<OverflowToolbarLayoutData group="2"/>
@@ -96,12 +96,18 @@
 					</layoutData>
 				</ToolbarSeparator>
 				<OverflowToolbarButton icon="sap-icon://action-settings" type="Transparent" text="Settings"/> -->
-		<Button icon="sap-icon://bell" text="5" type="Transparent" tooltip="Notification" press="handlePopoverPress" class="redTextButton">
+	 <!-- <Button icon="sap-icon://bell" text="5" type="Transparent" tooltip="Notification" press="handlePopoverPress" class="redTextButton">
 	<layoutData>
 		<OverflowToolbarLayoutData priority="NeverOverflow"/>
 	</layoutData>
-</Button>
+</Button> -->
 
+	<f:ShellBar title=""
+				id="yourParentControlId"			
+				showNotifications="true"
+				notificationsNumber="6"
+				notificationsPressed="handlePopoverPress">
+				</f:ShellBar>
 
 				<!-- <Button icon="{= 'sap-icon://bell' + (${notificationModel>/notificationCount} > 0 ? '-notification' : '') }" type="Transparent" tooltip="Notification" press="handlePopoverPress" customData="{notificationModel>/notificationCount}" /> -->
 <!-- <Button icon="{= 'sap-icon://bell' + (2 > 0 ? '-notification' : '') }" type="Transparent" tooltip="Notification" press="handlePopoverPress" /> -->

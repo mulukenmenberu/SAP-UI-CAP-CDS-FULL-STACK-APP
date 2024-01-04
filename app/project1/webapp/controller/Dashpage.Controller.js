@@ -152,6 +152,27 @@
 				placement: "Left",  // Set placement to Left
 			});
 		},
+		onLiveSearch: function (oEvent) {
+			alert('this is search')
+
+			var oTable = this.getView().byId("table0");
+			var oBinding = oTable.getBinding("items");
+			var sQuery = oEvent.getParameter("newValue");
+			if (sQuery) {
+				var oFilter = new sap.ui.model.Filter({
+					filters: [
+						new sap.ui.model.Filter("Full_name", sap.ui.model.FilterOperator.Contains, sQuery),
+					],
+					and: false
+				});
+				oBinding.filter([oFilter]);
+				console.log(oBinding)
+	  
+			} else {
+				// If the search field is empty, remove the filter
+				oBinding.filter([]);
+			}
+		},
 
 		handlePopoverPress: function (oEvent) {
 			this.oMessageView.navigateBack();
