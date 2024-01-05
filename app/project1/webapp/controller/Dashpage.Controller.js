@@ -242,14 +242,17 @@
 						type: ButtonType.Transparent,
 						key:'profile',
 						press: function () {
-							oProfileContainer.setVisible(true);
-							oPopover.close();
-						}
+							// Call your logout function here
+							this.profile(); // Adjust the function name as per your implementation
+						}.bind(this) // Ensure 'this' refers to the current controller
 					}),
 					new Button({
 						text: 'Help',
 						type: ButtonType.Transparent,
-						key:'settings'
+						press: function () {
+							// Call your logout function here
+							this.help(); // Adjust the function name as per your implementation
+						}.bind(this) // Ensure 'this' refers to the current controller
 					}),
 					new Button({
 						text: 'Logout',
@@ -339,7 +342,26 @@
 			} else {
 				oToggleButton.setTooltip('Small Size Navigation');
 			}
-		}
+		},
+		file:function(){
+         MessageToast.show('File Menu function will implement here')
+		},
+		edit:function(){
+			MessageToast.show('Edit Menu function will implement here')
+					},
+		view:function(){
+			MessageToast.show('View Menu function will implement here')
+					},
+		tool:function(){
+			MessageToast.show('Tools Menu function will implement here')
+					},
+
+		help:function(){
+			MessageToast.show('Help  function will implement here')
+					},
+		profile:function(){
+			MessageToast.show('Profile  function will implement here')
+					},
 
 	});
 });

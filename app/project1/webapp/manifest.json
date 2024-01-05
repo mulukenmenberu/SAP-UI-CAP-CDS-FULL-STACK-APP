@@ -139,7 +139,8 @@
         {
           "name": "Dashpage", 
           "pattern": "Dashpage",
-          "target": ["Dashpage"]
+          "target": ["Dashpage"],
+          "icon": "sap-icon://education" 
         },
         {
           "pattern": "item2",

@@ -27,8 +27,8 @@
 				
 				<Image height="1.5rem"
 					   class="sapUiSmallMarginBegin"
-					   src="https://www.sap.com/dam/application/shared/logos/sap-logo-svg.svg" />
-				<Title level="H1" text="Product Name" wrapping="false" id="productName">
+					   src="idp-logo.svg" />
+				<Title level="H1" text="" wrapping="false" id="productName">
 					<layoutData>
 						<OverflowToolbarLayoutData priority="Disappear"/>
 					</layoutData>
@@ -38,29 +38,29 @@
 						<OverflowToolbarLayoutData priority="Disappear"/>
 					</layoutData>
 				</Text> -->
-					<Button text="File" type="Transparent">
+					<Button text="File" type="Transparent" press="file">
 					<layoutData>
 						<OverflowToolbarLayoutData priority="Low" />
 					</layoutData>
 				</Button>
-				<Button text="Edit" type="Transparent">
+				<Button text="Edit" type="Transparent" press="edit">
 					<layoutData>
 						<OverflowToolbarLayoutData priority="Low" />
 					</layoutData>
 				</Button>
-				<Button text="View" type="Transparent">
+				<Button text="View" type="Transparent" press="view">
 					<layoutData>
 						<OverflowToolbarLayoutData priority="Low" />
 					</layoutData>
 				</Button>
-					<Button text="Tools" type="Transparent">
+					<Button text="Tools" type="Transparent" press="tool">
 					<layoutData>
 						<OverflowToolbarLayoutData priority="Low" />
 					</layoutData>
 				</Button>
 				
 					
-				<tnt:ToolHeaderUtilitySeparator />
+				<!-- <tnt:ToolHeaderUtilitySeparator /> -->
 				
 				<ToolbarSpacer>
 			
