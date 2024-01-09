@@ -42,8 +42,9 @@
 		PlacementType = library.PlacementType;
 
 	return Controller.extend("project1.controller.Dashpage", {
-
+		_themeHasBeenSet: false, // Add this flag
 		onInit: function () {
+			
 			var oModel = new JSONModel(sap.ui.require.toUrl("project1/model/data.json"));
 			this.getView().setModel(oModel);
 			this._setToggleButtonTooltip(!Device.system.desktop);
@@ -361,6 +362,13 @@
 					},
 		profile:function(){
 			MessageToast.show('Profile  function will implement here')
+					},
+
+
+					onChangeTheme: function(oEvent) {
+						// alert('helo')
+						var selectedTheme = oEvent.getParameter("selectedItem").getKey();
+						sap.ui.getCore().applyTheme(selectedTheme);
 					},
 
 	});

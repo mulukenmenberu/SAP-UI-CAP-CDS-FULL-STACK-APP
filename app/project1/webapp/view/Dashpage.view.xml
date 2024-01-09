@@ -27,8 +27,8 @@
 				
 				<Image height="1.5rem"
 					   class="sapUiSmallMarginBegin"
-					   src="idp-logo.svg" />
-				<Title level="H1" text="" wrapping="false" id="productName">
+					   src="IEL.AX.svg" />
+				<Title level="H1" text="idp" wrapping="false" id="productName">
 					<layoutData>
 						<OverflowToolbarLayoutData priority="Disappear"/>
 					</layoutData>
@@ -68,12 +68,14 @@
 						<OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px" />
 					</layoutData>
 				</ToolbarSpacer>
+				
 				<ToolbarSpacer />
 				<SearchField width="16rem" id="searchField" liveChange="onLiveSearch">
 					<layoutData>
 						<OverflowToolbarLayoutData priority="Low" group="1"/>
 					</layoutData>
 				</SearchField>
+				
 				<!-- <ToolbarSpacer id="spacer">
 					<layoutData>
 						<OverflowToolbarLayoutData priority="Low" group="1"/>
@@ -101,6 +103,24 @@
 		<OverflowToolbarLayoutData priority="NeverOverflow"/>
 	</layoutData>
 </Button> -->
+<Select id="themeDropdown" change="onChangeTheme">
+    <core:Item key="sap_fiori_3" text="Select Theme:"/>
+	<core:Item key="sap_bluecrystal" text="Blue Crystal"/>
+    <core:Item key="sap_hcb" text="High Contrast Black"/>
+	<core:Item key="sap_belize" text="Belize"/>
+    <core:Item key="sap_belize_plus" text="Belize Deep"/>
+	 <core:Item key="sap_belize_hcb" text="High Contrast Black"/>
+    <core:Item key="sap_belize_hcw" text="High Contrast White"/>   
+	 <core:Item key="sap_fiori_3" text="Quartz Light"/>
+    <core:Item key="sap_fiori_3_dark" text="Quartz Dark"/>
+    <core:Item key="sap_fiori_3_hcb" text="High Contrast Black"/>
+	 <core:Item key="sap_fiori_3_hcw" text="High Contrast White"/>
+    <core:Item key="sap_horizon" text="Morning Horizon"/>
+    <core:Item key="sap_horizon_dark" text="Evening Horizon"/>
+	 <core:Item key="sap_horizon_hcb" text="High Contrast Black"/>
+	  <core:Item key="sap_horizon_hcw" text="High Contrast White"/>    
+    <!-- Add more theme options as needed -->
+</Select>
 
 	<f:ShellBar title=""
 				id="yourParentControlId"			
@@ -113,6 +133,7 @@
 <!-- <Button icon="{= 'sap-icon://bell' + (2 > 0 ? '-notification' : '') }" type="Transparent" tooltip="Notification" press="handlePopoverPress" /> -->
 
 				<tnt:ToolHeaderUtilitySeparator/>
+				
 				<ToolbarSpacer width="1.125rem"/>
 				<!-- <Avatar src="test-resources/sap/tnt/images/Woman_avatar_01.png" displaySize="XS" press="switch" tooltip="Profile" ariaHasPopup="Menu" id="x"> -->
 				<Avatar src="test-resources/sap/tnt/images/Woman_avatar_01.png" displaySize="XS" press="handleUserNamePress" tooltip="Profile" ariaHasPopup="Menu" id="x">
@@ -127,6 +148,7 @@
 					</layoutData>
 				</Button> -->
 				<ToolbarSpacer width="1.125rem"/>
+				
 			</tnt:ToolHeader>
 		</tnt:header>
 		<tnt:sideContent>

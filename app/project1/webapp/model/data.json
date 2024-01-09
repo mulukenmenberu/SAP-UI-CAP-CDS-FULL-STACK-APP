@@ -1,6 +1,16 @@
 {
 	"selectedKey": "Dash",
 	"navigation": [
+        {
+			"title": "Home",
+			"icon": "sap-icon://home",
+			"key": "Dash"
+		},
+        {
+			"title": "Calendar",
+			"icon": "sap-icon://calendar",
+			"key": "setting"
+		},
 		{
 			"title": "Main menu",
 			"icon": "sap-icon://employee",
@@ -18,140 +28,94 @@
 			]
 		},
 		{
-			"title": "Settings",
-			"icon": "sap-icon://building",
-			"key": "settings"
-		},
-		{
-			"title": "Root Item",
-			"icon": "sap-icon://card",
+			"title": "Prospect",
+			"icon": "sap-icon://leads",
 			"expanded": false,
 			"items": [
 				{
-					"title": "Child Item"
+					"title": "Leads"
 				},
 				{
-					"title": "Child Item"
-				},
-				{
-					"title": "Child Item"
-				},
-				{
-					"title": "Child Item"
+					"title": "Opportunities"
 				}
 				
 			
 			]
 		},
 		{
-			"title": "Root Item",
-			"icon": "sap-icon://action",
+			"title": "Customers",
+			"icon": "sap-icon://customer-and-contacts",
 			"expanded": false,
 			"items": [
 				{
-					"title": "Child Item 1"
+					"title": "Accounts"
 				},
 				{
-					"title": "Child Item 2"
+					"title": "Contacts"
 				},
 				{
-					"title": "Child Item 3"
+					"title": "Individual Customers"
 				}
 			]
 		},
 		{
-			"title": "Root Item",
-			"icon": "sap-icon://action-settings",
+			"title": "Event",
+			"icon": "sap-icon://sound",
 			"expanded": false,
 			"items": [
 				{
-					"title": "Child Item 1"
+					"title": "Events"
 				},
 				{
-					"title": "Child Item 2"
-				},
-				{
-					"title": "Child Item 3"
+					"title": "Leads"
 				}
 			]
 		},
 		{
-			"title": "Root Item",
-			"icon": "sap-icon://activate",
-			"expanded": false,
-			"items": [
-				{
-					"title": "Child Item 1"
-				},
-				{
-					"title": "Child Item 2"
-				},
-				{
-					"title": "Child Item 3"
-				}
-			]
-		},
-		{
-			"title": "Root Item",
+			"title": "Activities",
 			"icon": "sap-icon://activities",
 			"expanded": false,
 			"items": [
 				{
-					"title": "Child Item 1"
+					"title": "Appointments"
 				},
 				{
-					"title": "Child Item 2"
+					"title": "E-Mails"
 				},
 				{
-					"title": "Child Item 3"
+					"title": "Phone Calls"
+				},
+                {
+					"title": "Tasks"
+				},
+                {
+					"title": "Chats"
 				}
 			]
 		},
 		{
-			"title": "Root Item",
-			"icon": "sap-icon://add",
+			"title": "Analysis",
+			"icon": "sap-icon://customer-view",
 			"expanded": false,
 			"items": [
 				{
-					"title": "Child Item 1"
+					"title": "Dashboard"
 				},
 				{
-					"title": "Child Item 2"
-				},
-				{
-					"title": "Child Item 3"
+					"title": "Reports"
 				}
 			]
 		},
 		{
-			"title": "Root Item",
-			"icon": "sap-icon://arobase",
+			"title": "Service",
+			"icon": "sap-icon://official-service",
 			"expanded": false,
 			"items": [
 				{
-					"title": "Child Item 1"
+					"title": "Tickets"
 				},
 				{
-					"title": "Child Item 2"
-				},
-				{
-					"title": "Child Item 3"
-				}
-			]
-		},
-		{
-			"title": "Root Item",
-			"icon": "sap-icon://attachment",
-			"expanded": false,
-			"items": [
-				{
-					"title": "Child Item 1"
-				},
-				{
-					"title": "Child Item 2"
-				},
-				{
-					"title": "Child Item 3"
+					"title": "Templates"
 				}
 			]
 		}
@@ -172,16 +136,35 @@
 	],
 	"fixedNavigation": [
 		{
-			"title": "Fixed Menu 1",
+			"title": "Team Calendar",
+			"icon": "sap-icon://appointment"
+		},
+		{
+			"title": "Feed",
+			"icon": "sap-icon://feed"
+		},
+		{
+			"title": "Employees",
 			"icon": "sap-icon://employee"
 		},
-		{
-			"title": "Fixed Menu 2",
-			"icon": "sap-icon://building"
-		},
-		{
-			"title": "Fixed Menu 3",
-			"icon": "sap-icon://card"
+        {
+			"title": "Products",
+			"icon": "sap-icon://product"
+		}
+        ,
+        {
+			"title": "Course Catalogue",
+			"icon": "sap-icon://course-book"
+		}
+        ,
+        {
+			"title": "Student Pipeline Management (SPM)",
+			"icon": "sap-icon://pipeline-analysis"
+		}
+        ,
+        {
+			"title": "Document Library",
+			"icon": "sap-icon://documents"
 		}
 	],
 	"headerItems": [
