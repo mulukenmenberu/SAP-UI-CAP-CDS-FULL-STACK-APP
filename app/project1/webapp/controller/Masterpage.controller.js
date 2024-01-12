@@ -407,7 +407,39 @@ this._oPopover = new ResponsivePopover({
                    formattedDate = plannedStudyDate.toISOString().split('T')[0];
               }         
               
+
               try{
+                const token = sessionStorage.getItem('token')
+                const Data = {
+              
+                  "Full_name": this.byId("Full_name").getValue(),
+                  "Gender": this.byId("Gender").getValue(),
+                  "Office": this.byId("Office").getValue(),
+                  "Advisor_ID": parseInt(this.byId("Advisor_ID").getValue(), 10),//this.byId("Advisor_ID").getValue(),
+                  "Created_at": new Date(),
+                  "Planned_study_date": formattedDate,  
+                  
+              }
+console.log(Data)
+                fetch(Config.baseUrl+"StudentServices/Students", {
+                  method: 'POST',
+                  headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(Data),
+                })
+              
+              .then(response => response.json())
+              .then(data => {
+
+              })
+              .catch(error => {
+                  console.error('Error fetching data:', error);
+              });
+
+/*
+              
               const oContext = oBinding.create({
               
                   "Full_name": this.byId("Full_name").getValue(),
@@ -423,6 +455,7 @@ this._oPopover = new ResponsivePopover({
                       // that._focusItem(oList, oContext);
                       this.getView().byId("OpenDialog").close();
               });
+              */
           }catch(e){
               this.getView().byId("OpenDialog").close();
           }
