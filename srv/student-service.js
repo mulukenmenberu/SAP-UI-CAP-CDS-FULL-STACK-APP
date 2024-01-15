@@ -139,7 +139,7 @@ module.exports = async function () {
     const decoded = decodeJWT(token)
     if(!token || !decoded){
       console.log(decoded)
-      return {"success":"false","message":"token expired or invalid"}
+      // return {"success":"false","message":"token expired or invalid"}
     }
 
     const result = await cds

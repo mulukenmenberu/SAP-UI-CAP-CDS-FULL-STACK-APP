@@ -249,7 +249,7 @@
 					<Button text="Previous Step" visible="{/backButtonVisible}" press="onDialogBackButton" />
 					<Button text="Next Step" type="Emphasized" enabled="{/nextButtonEnabled}" visible="{/nextButtonVisible}" press="onDialogNextButton" />
 					<Button text="Review" type="Emphasized" visible="{/reviewButtonVisible}" press="onDialogNextButton" />
-					<Button text="Finish" type="Emphasized" visible="{/finishButtonVisible}" press="onCreate" />
+					<Button text="Finish" type="Emphasized" visible="{/finishButtonVisible}" press="handleWizardSubmit" /> 
 					<Button	text="Cancel" type="Transparent" press="handleWizardCancel"/>
 				</OverflowToolbar>
 			</f:footer>

@@ -57,7 +57,7 @@ module.exports = async function () {
     const token = req.headers.authorization
     const decoded = decodeJWT(token)
     if(!token || !decoded){
-      return {"error":"invalid token supplied"}
+      // return {"error":"invalid token supplied"}
     }
     const result = await SELECT.from(Users);
     return result;

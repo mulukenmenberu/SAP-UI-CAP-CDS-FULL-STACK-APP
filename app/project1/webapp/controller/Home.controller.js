@@ -454,7 +454,7 @@ refreshModel: function (sModelName, sGroup){
                     text: "{customModel>Planned_study_date}"
                 }),
                 new sap.m.Button({
-                    id: "editModeSIngleButtonx",
+                    id: "editModeSIngleButton",
                     visible: true,
                     icon: "sap-icon://edit",
                     tooltip: "Edit",
