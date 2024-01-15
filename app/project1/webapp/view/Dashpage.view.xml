@@ -217,6 +217,15 @@
 						<mvc:XMLView viewName="project1.view.Settings"/>	
 						<!-- <core:Fragment fragmentName="project1.view.Settings" type="XML"/> -->
 					</ScrollContainer>
+						<ScrollContainer
+						id="Register"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<mvc:XMLView viewName="project1.view.Users"/>	
+						<!-- <core:Fragment fragmentName="project1.view.Profile" type="XML"/> -->
+					</ScrollContainer>
 					<ScrollContainer
 						id="user"
 						horizontal="false"

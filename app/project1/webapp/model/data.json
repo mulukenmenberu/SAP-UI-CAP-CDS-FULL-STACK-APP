@@ -18,13 +18,19 @@
 			"key": "Dash",
 			"items": [
 				{
-					"title": "Student",
+					"title": "view Leads",
 					"key": "student"
 				},
 				{
 					"title": "User",
 					"key": "user"
 				}
+				,
+				{
+					"title": "Register Leads",
+					"key": "Register"
+				}
+				
 			]
 		},
 		{

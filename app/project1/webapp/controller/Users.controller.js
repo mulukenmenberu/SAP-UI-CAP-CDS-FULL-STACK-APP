@@ -4,43 +4,66 @@ sap.ui.define([
     "sap/m/ColumnListItem",
     "sap/m/Input",
     "sap/ui/model/json/JSONModel",
-    "project1/config/Config"
+    "project1/config/Config",
+
+	"sap/m/MessageBox",
+	"sap/ui/core/Fragment",
+	"sap/ui/core/library"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
 
-    function (Controller, MessageToast, ColumnListItem,Input, JSONModel,Config) {
+    function (Controller, MessageToast, ColumnListItem,Input, JSONModel,Config,MessageBox,Fragment,CoreLibrary) {
         "use strict";
 
-        return Controller.extend("project1.controller.Home", {
+        var ValueState = CoreLibrary.ValueState,
+		oData = {
+			full_nameNameState: ValueState.Error,
+			officenameState: ValueState.Error,
+			studentType: "leads",
+			reviewButton: false,
+			backButtonVisible: false,
+			availabilityType: "In store",
+			productVAT: false,
+			measurement: "",
+			Advisor_ID: "N/A",
+			productDescription: "N/A",
+			size: "N/A",
+			productPrice: "N/A",
+			manufacturingDate: "N/A",
+			Gender: ""
+		};
+
+        return Controller.extend("project1.controller.Users", {
             
             onInit: function () {
+             
                
-                this._oTable = this.byId("table0");
+                this._oTable = this.byId("studentsTables");
                 this._createReadOnlyTemplates();
                 this.rebindTable(this.oReadOnlyTemplate, "Navigation");
 
                 const token = sessionStorage.getItem('token')
                 if(token){
-                fetch(Config.baseUrl+"odata/v4/users/Users", {
-                    headers: {
-                      'Authorization': `Bearer ${token}`,
-                      'Content-Type': 'application/json',
-                    },
-                  })
-                
-                .then(response => response.json())
-                .then(data => {
-                    // Create a JSONModel and set the data to the model
-                    var oModel = new JSONModel(data);
-                    console.log(data,"=======", oModel)
-                    this.getView().setModel(oModel, "userModel");
-                })
-                .catch(error => {
-                    console.error('Error fetching data:', error);
-                });
-
+                    fetch(Config.baseUrl+"odata/v4/users/Users", {
+                        headers: {
+                          'Authorization': `Bearer ${token}`,
+                          'Content-Type': 'application/json',
+                        },
+                      })
+                    
+                    .then(response => response.json())
+                    .then(data => {
+                        // Create a JSONModel and set the data to the model
+                        var oModel = new JSONModel(data);
+                        console.log(data,"=======", oModel)
+                        this.getView().setModel(oModel, "userModel");
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                    });
+    
             }
                 // var oModel = new JSONModel({
                 //     Users: [
@@ -84,7 +107,7 @@ sap.ui.define([
                             change: [this.onInputChange, this]
                         }),
                         new sap.m.Button({
-                            id: "editModeButton",
+                            id: "editModeButt",
                             visible: true,
                             icon: "sap-icon://edit",
                             tooltip: "Edit",
@@ -99,7 +122,7 @@ sap.ui.define([
 
             },
             onSearch: function (oEvent) {
-                var oTable = this.getView().byId("table0");
+                var oTable = this.getView().byId("studentsTables");
                 var oBinding = oTable.getBinding("items");
                 var sQuery = oEvent.getParameter("query");
                 // alert('fuhairfhr')
@@ -120,7 +143,8 @@ sap.ui.define([
             },
             
             onLiveSearch: function (oEvent) {
-                var oTable = this.getView().byId("table0");
+               
+                var oTable = this.getView().byId("studentsTables");
                 var oBinding = oTable.getBinding("items");
                 var sQuery = oEvent.getParameter("newValue");
                 if (sQuery) {
@@ -186,46 +210,84 @@ sap.ui.define([
              onCancelDialog: function (oEvent) {
                 oEvent.getSource().getParent().close();
              },
-             onCreate: function () {
-                var oSo = this.getView().byId("Full_name").getValue();
-                if (oSo !== "") {
-                    const oList = this._oTable;
-                        const oBinding = oList.getBinding("items");
-                        const plannedStudyDate = this.byId("Planned_study_date").getDateValue();
-                        let formattedDate = ""
-                        if (plannedStudyDate instanceof Date && !isNaN(plannedStudyDate)) {
-                             formattedDate = plannedStudyDate.toISOString().split('T')[0];
-                        }         
-                        
-                        try{
-                        const oContext = oBinding.create({
-                        
-                            "Full_name": this.byId("Full_name").getValue(),
-                            "Gender": this.byId("Gender").getValue(),
-                            "Office": this.byId("Office").getValue(),
-                            "Advisor_ID": parseInt(this.byId("Advisor_ID").getValue(), 10),//this.byId("Advisor_ID").getValue(),
-                            "Created_at": new Date(),
-                            "Planned_study_date": formattedDate,  
-                            
-                        });
-                        oContext.created()
-                        .then(()=>{
-                                // that._focusItem(oList, oContext);
-                                this.getView().byId("OpenDialog").close();
-                        });
-                    }catch(e){
-                        this.getView().byId("OpenDialog").close();
+
+           onCreate: function () {
+            const idInput = this.byId("ID");
+            if (idInput) {
+                const idValue = idInput.getValue();
+                // rest of your code...
+            } else {
+                console.error("Element with 'ID' not found.");
+            }
+
+            const idInputad = this.byId("ID");
+            if (idInputad) {
+                const idValued = idInputad.getValue();
+                // rest of your code...
+            } else {
+                console.error("Element with ID 'ID' not found.");
+            }
+
+    var oSo = this.getView().byId("Full_name").getValue();
+    const plannedStudyDate = new Date();  // Replace this with your actual date value
+const formattedDate = plannedStudyDate.toISOString().split('T')[0];
+
+    if (oSo !== "") {
+        try {
+            const endpoint = Config.baseUrl + "StudentServices/Students";
+
+            // Assuming you have the createData object defined
+            const createData = {
+                "ID": parseInt(this.byId("ID").getValue(), 10), 
+                "Full_name": this.byId("Full_name").getValue(),
+                "Gender": this.byId("Gender").getValue(),
+                "Office": this.byId("Office").getValue(),
+                "Advisor_ID":1, 
+                "Created_at": new Date(),
+                "Planned_study_date": formattedDate,
+            };
+
+            // Send the POST request
+            fetch(endpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(createData),
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
                     }
-  
+                    return response.json();
+                })
+                .then(data => {
+                    // Handle the response data as needed
+                    console.log('Create successful:', data);
+                    MessageToast.show("Student registered successfully");
+                    this.getView().byId("wizardDialog").close();
+                })
+                .catch(error => {
+                    console.error('Error creating student:', error);
 
-                    this.getView().byId("OpenDialog").close();
-                    MessageToast.show("Student registered successfulyl");
+                    // Log specific details of the error, if available
+                    this.getView().byId("wizardDialog").close();
+                });
+        } catch (e) {
+            // Handle any specific error if needed
+            MessageToast.show("Error in registration: " + e.message);
+                    this.getView().byId("wizardDialog").close();
+        }
+    } else {
+        MessageToast.show("Full Name cannot be blank");
+    }
+},
 
-                }else {
-                    MessageToast.show("Full Name cannot be blank");
-                }
-    
-            },
+            
+            
+            
+            
+            
             onSuccessfulPatch: function () {
                 var customModel = this.getView().getModel("customModel");
               
@@ -344,7 +406,7 @@ sap.ui.define([
             
 
             onEditMode: function(){
-                this.byId("editModeButton").setVisible(false);
+                this.byId("editModeButt").setVisible(false);
                 this.byId("saveButton").setVisible(true);
                 this.byId("deleteButton").setVisible(true);
                 this.rebindTable(this.oEditableTemplate, "Edit");
@@ -353,7 +415,7 @@ sap.ui.define([
            },
            onDelete: function(){
 
-            var oSelected = this.byId("table0").getSelectedItem();
+            var oSelected = this.byId("studentsTables").getSelectedItem();
             if(oSelected){
                 var oSalesOrder = oSelected.getBindingContext("customModel").getObject().ID;
             
@@ -404,7 +466,7 @@ sap.ui.define([
 
         },
         
-refreshModel: function (sModelName, sGroup){
+        refreshModel: function (sModelName, sGroup){
             return new Promise((resolve,reject)=>{
                 this.makeChangesAndSubmit.call(this,resolve,reject,
                 sModelName,sGroup);
@@ -429,7 +491,7 @@ refreshModel: function (sModelName, sGroup){
             }
         },
         onSave: function(){
-            this.getView().byId("editModeButton").setVisible(true);
+            this.getView().byId("editModeButt").setVisible(true);
             this.getView().byId("saveButton").setVisible(false);
             this._oTable.setMode(sap.m.ListMode.None);
             this.rebindTable(this.oReadOnlyTemplate, "Navigation");
@@ -454,7 +516,7 @@ refreshModel: function (sModelName, sGroup){
                     text: "{customModel>Planned_study_date}"
                 }),
                 new sap.m.Button({
-                    id: "editModeSIngleButtonx",
+                    id: "editModeSIngleButtonnn",
                     visible: true,
                     icon: "sap-icon://edit",
                     tooltip: "Edit",
@@ -467,5 +529,260 @@ refreshModel: function (sModelName, sGroup){
             ]
         });
     },
+
+    handleOpenDialog: function () {
+
+        
+        var oView = this.getView();
+
+        // create Dialog
+        if (!this._pDialog) {
+            this._pDialog = Fragment.load({
+                id: oView.getId(),
+                name: "project1.view.WizardSingleStep",
+                controller: this
+            }).then(function(oDialog) {
+                oDialog.attachAfterOpen(this.onDialogAfterOpen, this);
+                oView.addDependent(oDialog);
+                oDialog.bindElement("/ProductCollection/0");
+                return oDialog;
+            }.bind(this));
+        }
+        this._pDialog.then(function(oDialog){
+            oDialog.open();
         });
-    });
+        fetch(Config.baseUrl+"odata/v4/users/Users", {
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            },
+          })
+        
+        .then(response => response.json())
+        .then(data => {
+            // Create a JSONModel and set the data to the model
+            var oModel = new JSONModel(data);
+            console.log(data,"=======", oModel)
+            this.getView().setModel(oModel, "userModel");
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+
+
+
+    },
+
+    onDialogAfterOpen: function () {
+        this._oWizard = this.byId("CreateStudentWizard");
+        this._iSelectedStepIndex = 0;
+        this._oSelectedStep = this._oWizard.getSteps()[this._iSelectedStepIndex];
+
+        this.handleButtonsVisibility();
+    },
+
+    handleButtonsVisibility: function () {
+        var oModel = this.getView().getModel();
+        switch (this._iSelectedStepIndex){
+            case 0:
+                oModel.setProperty("/nextButtonVisible", true);
+                oModel.setProperty("/nextButtonEnabled", true);
+                oModel.setProperty("/backButtonVisible", false);
+                oModel.setProperty("/reviewButtonVisible", false);
+                oModel.setProperty("/finishButtonVisible", false);
+                break;
+            case 1:
+                oModel.setProperty("/backButtonVisible", true);
+                oModel.setProperty("/nextButtonVisible", true);
+                oModel.setProperty("/reviewButtonVisible", false);
+                oModel.setProperty("/finishButtonVisible", false);
+                break;
+            case 2:
+                oModel.setProperty("/nextButtonVisible", true);
+                oModel.setProperty("/backButtonVisible", true);
+                oModel.setProperty("/reviewButtonVisible", false);
+                oModel.setProperty("/finishButtonVisible", false);
+                break;
+            case 3:
+                oModel.setProperty("/nextButtonVisible", false);
+                oModel.setProperty("/backButtonVisible", true);
+                oModel.setProperty("/reviewButtonVisible", true);
+                oModel.setProperty("/finishButtonVisible", false);
+                break;
+            case 4:
+                oModel.setProperty("/nextButtonVisible", false);
+                oModel.setProperty("/finishButtonVisible", true);
+                oModel.setProperty("/backButtonVisible", false);
+                oModel.setProperty("/reviewButtonVisible", false);
+                break;
+            default: break;
+        }
+
+    },
+
+    handleNavigationChange: function (oEvent) {
+        this._oSelectedStep = oEvent.getParameter("step");
+        this._iSelectedStepIndex = this._oWizard.getSteps().indexOf(this._oSelectedStep);
+        this.handleButtonsVisibility();
+    },
+
+    setProductType: function (oEvent) {
+        var sProductType = oEvent.getSource().getTitle();
+        this.getView().getModel().setProperty("/studentType", sProductType);
+        this.byId("ProductStepChosenType").setText("Chosen product type: " + sProductType);
+        this._oWizard.validateStep(this.byId("studentTypeStep"));
+    },
+
+    setProductTypeFromSegmented: function (oEvent) {
+        var sProductType = oEvent.getParameters().item.getText();
+        this.getView().getModel().setProperty("/studentType", sProductType);
+        this._oWizard.validateStep(this.byId("studentTypeStep"));
+    },
+
+    additionalInfoValidation: function () {
+        var oModel = this.getView().getModel(),
+            sName = this.byId("Full_name").getValue(),
+            iWeight = parseInt(this.byId("Office").getValue());
+
+        this.handleButtonsVisibility();
+
+        if (isNaN(iWeight)) {
+            this._oWizard.setCurrentStep(this.byId("studentInfoStep"));
+            oModel.setProperty("/officenameState", ValueState.Error);
+        } else {
+            oModel.setProperty("/officenameState", ValueState.None);
+        }
+
+        if (sName.length < 6) {
+            this._oWizard.setCurrentStep(this.byId("studentInfoStep"));
+            oModel.setProperty("/full_nameNameState", ValueState.Error);
+        } else {
+            oModel.setProperty("/full_nameNameState", ValueState.None);
+        }
+
+        if (sName.length < 6 || isNaN(iWeight)) {
+            this._oWizard.invalidateStep(this.byId("studentInfoStep"));
+            oModel.setProperty("/nextButtonEnabled", false);
+            oModel.setProperty("/finishButtonVisible", false);
+        } else {
+            this._oWizard.validateStep(this.byId("studentInfoStep"));
+            oModel.setProperty("/nextButtonEnabled", true);
+        }
+    },
+
+    optionalStepActivation: function () {
+        // MessageToast.show(
+        //     'This event is fired on activate of Step3.'
+        // );
+    },
+    optionalStepCompletion: function () {
+        MessageToast.show(
+            'This event is fired on complete of Step3. You can use it to gather the information, and lock the input data.'
+        );
+    },
+
+    editStepOne: function () {
+        this._handleNavigationToStep(0);
+    },
+
+    editStepTwo: function () {
+        this._handleNavigationToStep(1);
+    },
+
+    editStepThree: function () {
+        this._handleNavigationToStep(2);
+    },
+
+    editStepFour: function () {
+        this._handleNavigationToStep(3);
+    },
+
+    _handleNavigationToStep: function (iStepNumber) {
+        this._pDialog.then(function(oDialog){
+            oDialog.open();
+            this._oWizard.goToStep(this._oWizard.getSteps()[iStepNumber], true);
+        }.bind(this));
+    },
+
+    _handleMessageBoxOpen: function (sMessage, sMessageBoxType) {
+        MessageBox[sMessageBoxType](sMessage, {
+            actions: [MessageBox.Action.YES, MessageBox.Action.NO],
+            onClose: function (oAction) {
+                if (oAction === MessageBox.Action.YES) {
+                    this._oWizard.discardProgress(this._oWizard.getSteps()[0]);
+                    this.byId("wizardDialog").close();
+                    // this.getView().getModel().setData(Object.assign({}, oData));
+                }
+            }.bind(this)
+        });
+    },
+
+    onDialogNextButton: function () {
+        this._iSelectedStepIndex = this._oWizard.getSteps().indexOf(this._oSelectedStep);
+        var oNextStep = this._oWizard.getSteps()[this._iSelectedStepIndex + 1];
+
+        if (this._oSelectedStep && !this._oSelectedStep.bLast) {
+            this._oWizard.goToStep(oNextStep, true);
+        } else {
+            this._oWizard.nextStep();
+        }
+
+        this._iSelectedStepIndex++;
+        this._oSelectedStep = oNextStep;
+
+        this.handleButtonsVisibility();
+    },
+
+    onDialogBackButton: function () {
+        this._iSelectedStepIndex = this._oWizard.getSteps().indexOf(this._oSelectedStep);
+        var oPreviousStep = this._oWizard.getSteps()[this._iSelectedStepIndex - 1];
+
+        if (this._oSelectedStep) {
+            this._oWizard.goToStep(oPreviousStep, true);
+        } else {
+            this._oWizard.previousStep();
+        }
+
+        this._iSelectedStepIndex--;
+        this._oSelectedStep = oPreviousStep;
+
+        this.handleButtonsVisibility();
+    },
+
+    handleWizardCancel: function () {
+        
+        this._handleMessageBoxOpen("Are you sure you want to cancel your report?", "warning");
+    },
+
+    handleWizardSubmit: function () {
+        this._handleMessageBoxOpen("Are you sure you want to submit your report?", "confirm");
+    },
+
+    productWeighStateFormatter: function (oVal) {
+        return isNaN(oVal) ? ValueState.Error : ValueState.None;
+    },
+
+    discardProgress: function () {
+       
+        var oModel = this.getView().getModel();
+        this._oWizard.discardProgress(this.byId("studentTypeStep"));
+
+        var clearContent = function (aContent) {
+            for (var i = 0; i < aContent.length; i++) {
+                if (aContent[i].setValue) {
+                    aContent[i].setValue("");
+                }
+
+                if (aContent[i].getContent) {
+                    clearContent(aContent[i].getContent());
+                }
+            }
+        };
+
+        oModel.setProperty("/officenameState", ValueState.Error);
+        oModel.setProperty("/full_nameNameState", ValueState.Error);
+        clearContent(this._oWizard.getSteps());
+    },
+
+});
+});
