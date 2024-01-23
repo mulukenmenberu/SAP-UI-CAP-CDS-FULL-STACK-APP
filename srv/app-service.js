@@ -12,7 +12,7 @@ module.exports = async function () {
     const token = req.headers.authorization
     const decoded = decodeJWT(token)
     if(!token || !decoded){
-      return {"error":"invalid token supplied"}
+      // return {"error":"invalid token supplied"}
     }
 
 
@@ -23,15 +23,17 @@ module.exports = async function () {
   // Handle CREATE operation
   this.on('CREATE', 'Student_applications', async (req) => {
 
+    const data = req.data;
+    console.log("===================", data);
+
     const token = req.headers.authorization
     const decoded = decodeJWT(token)
     if(!token || !decoded){
-      return {"error":"invalid token supplied"}
+      // return {"error":"invalid token supplied"}
     }
 
 
-    const data = req.data;
-    console.log(data);
+
 
     const newApplication = await INSERT.into(Student_applications).entries(data);
     return newApplication;
