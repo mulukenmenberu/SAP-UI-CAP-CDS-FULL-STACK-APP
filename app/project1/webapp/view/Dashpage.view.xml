@@ -199,6 +199,15 @@
 						<mvc:XMLView viewName="project1.view.Dash"/>			
 						<!-- <core:Fragment fragmentName="project1.view.Student" type="XML"/> -->
 					</ScrollContainer>
+								<ScrollContainer
+						id="leads"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<mvc:XMLView viewName="project1.view.Application"/>			
+						<!-- <core:Fragment fragmentName="project1.view.Student" type="XML"/> -->
+					</ScrollContainer>
 					<ScrollContainer
 						id="page1"
 						horizontal="false"

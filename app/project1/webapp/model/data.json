@@ -39,7 +39,8 @@
 			"expanded": false,
 			"items": [
 				{
-					"title": "Leads"
+					"title": "Leads",
+					"key":"leads"
 				},
 				{
 					"title": "Opportunities"
