@@ -41,6 +41,46 @@ sap.ui.define([
                     console.error('Error fetching data:', error);
                 });
 
+                /************FETCH COURSE LIST ******************** */
+                fetch(Config.baseUrl+"odata/v4/school-course/School_courses", {
+                    headers: {
+                      'Authorization': `Bearer ${token}`,
+                      'Content-Type': 'application/json',
+                    },
+                  })
+                
+                .then(response => response.json())
+                .then(data => {
+                    // Create a JSONModel and set the data to the model
+                    var oModel = new JSONModel(data);
+                    console.log(data,"=======", oModel)
+                    this.getView().setModel(oModel, "courseList");
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+
+                // student application datasource
+
+                fetch(Config.baseUrl+"StudentAppServices/StudentWithApps", {
+                    headers: {
+                      'Authorization': `Bearer ${token}`,
+                      'Content-Type': 'application/json',
+                    },
+                  })
+                
+                .then(response => response.json())
+                .then(data => {
+                    // Create a JSONModel and set the data to the model
+                    var oModel = new JSONModel(data);
+                    console.log(data,"=======", oModel)
+                    this.getView().setModel(oModel, "Student_applications");
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+
+                /**************************** */
             }
                 // var oModel = new JSONModel({
                 //     Users: [
@@ -468,5 +508,113 @@ refreshModel: function (sModelName, sGroup){
             ]
         });
     },
+
+    // test modal
+
+    onOpenAddDialog_app: function () {
+        // alert('helo')
+        var oDialog = this.getView().byId("OpenDialog_app");
+        oDialog.setContentWidth("50%");
+        oDialog.setContentHeight("50%");
+        oDialog.open();
+        // this.getView().byId("OpenDialog").open();
+     },
+     onCancelDialog_app: function (oEvent) {
+        oEvent.getSource().getParent().close();
+     },
+     onCreate_app:function(oEvent){
+        
+        try{
+        const that = this;  // Preserve the reference to the controller context
+
+        // Use Promise to wait for the elements to be rendered
+        const waitForRendering = new Promise(function(resolve) {
+            // Check if the elements are already rendered
+            if (that.byId("ID_edit2") && that.byId("Final_choice")) {
+                resolve();
+            } else {
+                // Attach an event handler to wait for the elements to be created
+                that.getView().attachAfterRendering(function() {
+                    resolve();
+                });
+            }
+        });
+    
+        // Wait for rendering to complete before accessing the elements
+        waitForRendering.then(function() {
+            // Access the elements after rendering
+            const studentID = parseInt(that.byId("ID_edit2").getValue(), 10);
+            const Course_id =  1;//parseInt(this.byId("Course_id").getSelectedKey(), 10);
+            const User = 10;
+            const Start_date = that.byId("Start_date").getValue();
+            const Note = that.byId("Note").getValue();
+            const finalChoice = that.byId("Final_choice").getValue();
+            const Is_deferred = that.byId("Is_deferred").getValue();
+            const Application_status = that.byId("Application_status").getValue();
+    
+            console.log("Student ID:", studentID);
+            console.log("Final Choice:", finalChoice);
+    
+            // Rest of your code...
+            const endpoint = Config.baseUrl+"odata/v4/apps/Student_applications";
+
+            // Assuming you have the updateData object defined as mentioned in your question
+            const updateData = {
+                "Student_ID": studentID,
+                "Course_ID": Course_id,
+                "User_ID": User,
+                "Start_date": "2023-01-01T00:00:00Z",
+                "Note": Note,
+                "Final_choice": finalChoice,
+                "Is_deferred": Is_deferred,
+                "Application_status": Application_status,
+          
+            };
+            const updateData2 = {
+                "Student_ID": 10,
+                "Course_ID": 1,
+                "User_ID": 1,
+                "Start_date": "2023-01-01T00:00:00Z",
+                "Note": "Note",
+                "Final_choice": "finalCASDCFhoice",
+                "Is_deferred": "Is_deferred",
+                "Application_status": "Application_status",
+          
+            };
+            const fullURL = endpoint;
+               const token = sessionStorage.getItem('token')
+                if(token){
+            fetch(fullURL, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updateData),
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Handle the response data as needed
+                    console.log('Update successful:', data);
+                })
+                .catch(error => {
+                    console.error('Error updating data:', error);
+                });
+                // this.getView().byId("OpenDialog_app").close();
+                MessageToast.show("Application added, refresh the page to get the changes");
+                // onSuccessfulPatch()
+            }
+        });
+
+    }catch(e){
+        MessageToast.show("Something went wrong ... pleache try again");
+    }
+     
+     },
         });
     });

@@ -178,7 +178,7 @@
 			</tnt:SideNavigation>
 		</tnt:sideContent>
 		<tnt:mainContents>
-			<NavContainer id="pageContainer" initialPage="Dash">
+			<NavContainer id="pageContainer" initialPage="test">
 				<pages>
 					<ScrollContainer
 						id="student"
@@ -200,7 +200,7 @@
 						<!-- <core:Fragment fragmentName="project1.view.Student" type="XML"/> -->
 					</ScrollContainer>
 								<ScrollContainer
-						id="leads"
+						id="test"
 						horizontal="false"
 						vertical="true"
 						height="100%"

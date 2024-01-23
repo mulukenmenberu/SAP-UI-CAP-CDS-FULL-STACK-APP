@@ -1,5 +1,5 @@
 {
-	"selectedKey": "Dash",
+	"selectedKey": "test",
 	"navigation": [
         {
 			"title": "Home",
@@ -29,6 +29,11 @@
 				{
 					"title": "Register Leads",
 					"key": "Register"
+				}
+				,
+				{
+					"title": "Test",
+					"key": "test"
 				}
 				
 			]

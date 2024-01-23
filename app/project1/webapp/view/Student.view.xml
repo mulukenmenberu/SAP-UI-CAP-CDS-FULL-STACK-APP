@@ -36,6 +36,52 @@
                                         </Button>
 
                                     </content>
+
+                                        <dependents>
+                                        <Dialog id="OpenDialog_app" title="Create New Application">
+                                            <buttons>
+                                                <Button id="confirmCreate_app" text="Create" press=".onCreate_app" type="Emphasized" />
+                                                <Button id="cancelCreate_app" text="Cancel" press="onCancelDialog_app" type="Transparent" />
+                                            </buttons>
+                                            <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+                                                <form:content>
+                                                <!-- <Input id="student_ID_App" value="{editModel>/Full_name_edit}" /> -->
+                                                  <Input id="ID_edit2" visible="true" value="{editModel>/ID_edit}" />
+                                                  
+                                                    <!-- <Label text="Student DB ID" required="true" />
+                                                    <Input id="ID" change="onNameChange" /> -->
+                                                     
+                                                    <Label text="Course Name" />
+                                                    <!-- <Input id="Course_id" /> -->
+
+                                                                                                        <ComboBox
+id="Course_id" 
+    items="{
+      path: 'courseList>/value',
+      sorter: { path: 'Course_name' }
+    }">
+    <core:Item key="{courseList>ID}" text="{courseList>Course_name}" />
+</ComboBox>
+
+
+                                                    <Label text="Start_date" />
+                                                    <!-- <Input id="Start_date"  /> -->
+                                                    <DatePicker id="Start_date" value="" />
+
+
+                                                    <Label text="Note" />
+                                                 
+                                                    <Input id="Note"  />
+                                                    <Label text="Final_choice" />
+                                                    <Input id="Final_choice"  />
+                                                    <Label text="Is_deferred" /> 
+                                                    <Input  id="Is_deferred"  />
+                                                 <!-- <Label text="Application_status" /> -->
+                                                    <Input  id="Application_status"  value="1" visible="false"/>
+                                                </form:content>
+                                            </form:SimpleForm>
+                                        </Dialog>
+                                    </dependents> 
                                     <dependents>
                                         <Dialog id="OpenDialog" title="Create New Student">
                                             <buttons>
@@ -122,7 +168,7 @@ id="Advisor_ID"
                     }">
                     <core:Item key="{userModel>ID}" text="{userModel>Full_name}" />
                 </ComboBox>
-            </VBox>
+                    </VBox>
 
             <!-- Column 2 -->
             <VBox>
@@ -141,8 +187,47 @@ id="Advisor_ID"
                 text="Applications">
                 <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
                     <form:content>
-                         <Label text="Full Name" />
-                        <Input id="Full_name_editdasd" value="{editModel>/Full_name_edit}" />
+                        <Button id="createButton_app" icon="sap-icon://add" tooltip="Create" visible="true" press="onOpenAddDialog_app"/>
+     
+                         <!-- <Label text="Full Name" /> -->
+                        <!-- <Input id="student_ID_App" value="{editModel>/Full_name_edit}" /> -->
+                      <Table id="studentsTables" items="{Student_applications>/value}" >
+        <headerToolbar>
+         <OverflowToolbar>
+                 <content> 
+                      <ToolbarSpacer />
+                        
+                     </content>   
+                    </OverflowToolbar>    
+                    </headerToolbar>                                               
+          <columns>
+            <Column>
+              <Text text="ID" />
+            </Column>
+            <Column>
+              <Text text="Course ID" />
+            </Column>
+    
+            <Column>
+              <Text text="User ID" />
+            </Column>              
+          
+            <!-- Add more columns based on your entity properties -->
+          </columns>
+          <items>
+            <!-- <ColumnListItem> -->
+
+            <ColumnListItem type="Active" id="item">
+              <cells>
+                <Text text="{Student_applications>ID}" />
+                <Text text="{Student_applications>Course_ID}" />
+                <Text text="{Student_applications>User_ID}" />                
+              </cells>
+            </ColumnListItem>
+            
+          </items>
+        </Table>       
+
                     </form:content>
                 </form:SimpleForm>
             </IconTabFilter>

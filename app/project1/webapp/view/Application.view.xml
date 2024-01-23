@@ -17,7 +17,7 @@
                     </OverflowToolbar>    
                     </headerToolbar>     
                                        <dependents>
-                                        <Dialog id="OpenDialog" title="Create New Student">
+                                        <Dialog id="OpenDialog" title="Create New Application">
                                             <buttons>
                                                 <Button id="confirmCreate" text="Create" press=".onCreate" type="Emphasized" />
                                                 <Button id="cancelCreate" text="Cancel" press="onCancelDialog" type="Transparent" />
@@ -26,6 +26,15 @@
                                                 <form:content>
                                                     <!-- <Label text="Student DB ID" required="true" />
                                                     <Input id="ID" change="onNameChange" /> -->
+                                                                                  <Label text="student_ID" />
+                                                    <ComboBox
+                                                    id="student_ID" 
+                                                        items="{
+                                                        path: 'mainService>/Students',
+                                                        sorter: { path: 'ID' }
+                                                        }">
+                                                        <core:Item key="{mainService>ID}" text="{mainService>Full_name}" />
+                                                    </ComboBox>
                                                     <Label text="Course_id" />
                                                     <Input id="Course_id" />
                                                     <Label text="Start_date" />
@@ -37,7 +46,8 @@
                                                     <Input id="Final_choice"  />
                                                     <Label text="Is_deferred" />
                                                     <Input  id="Is_deferred"  />
-                                               
+                                                 <Label text="Application_status" />
+                                                    <Input  id="Application_status"  />
                                                 </form:content>
                                             </form:SimpleForm>
                                         </Dialog>
@@ -58,14 +68,17 @@
               <Column>
                   <Label text="Is_deferred" />
           </Column>
+             <Column>
+                  <Label text="Application_status" />
+          </Column>
            <Column>
               <header>
-                  <Label text="update" />
+                  <Label text="Update" />
               </header>
           </Column>
            <Column>
               <header>
-                  <Label text="delete" />
+                  <Label text="" />
               </header>
           </Column>
             <!-- Add more columns based on your entity properties -->
@@ -80,10 +93,9 @@
                 <Text text="{Student_applications>Note}" />
                 <Text text="{Student_applications>Final_choice}" />
                 <Text text="{Student_applications>Is_deferred}" />
-                <Button id="id6" icon="sap-icon://edit" press="onUpdate" />
-                <Button id="id7" icon="sap-icon://delete" press="onDelete" />
-                <!-- Add more cells based on your entity properties -->
-              </cells>
+                 <Text text="{Student_applications>Application_status}" />
+                <Button id="id6" icon="sap-icon://edit" press="onUpdate" /> <Button id="id7" icon="sap-icon://delete" tooltip="Delete" press="onDelete" />
+             </cells>
             </ColumnListItem>
             
           </items>

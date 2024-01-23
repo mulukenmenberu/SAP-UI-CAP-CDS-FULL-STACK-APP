@@ -69,7 +69,7 @@ entity School_courses : managed {
 entity Student_applications : managed {
   key ID : Integer;
   Student : Association to Students;
-  Course_id : Association to School_courses;
+  Course : Association to School_courses;
   User : Association to Users;
   Start_date : DateTime;
   Note : String;

@@ -22,8 +22,8 @@ sap.ui.define(
          onCancelDialog: function (oEvent) {
             oEvent.getSource().getParent().close();
          },
-         onSelect:function(){
-         alert("select")
+         onLiveSearch:function(){
+         alert("search cliked")
          },
          onUpdate:function(){
             alert("edit")
