@@ -570,17 +570,17 @@ refreshModel: function (sModelName, sGroup){
                 "Application_status": Application_status,
           
             };
-            const updateData2 = {
-                "Student_ID": 10,
-                "Course_ID": 1,
-                "User_ID": 1,
-                "Start_date": "2023-01-01T00:00:00Z",
-                "Note": "Note",
-                "Final_choice": "finalCASDCFhoice",
-                "Is_deferred": "Is_deferred",
-                "Application_status": "Application_status",
+            // const updateData2 = {
+            //     "Student_ID": 10,
+            //     "Course_ID": 1,
+            //     "User_ID": 1,
+            //     "Start_date": "2023-01-01T00:00:00Z",
+            //     "Note": "Note",
+            //     "Final_choice": "finalCASDCFhoice",
+            //     "Is_deferred": "Is_deferred",
+            //     "Application_status": "Application_status",
           
-            };
+            // };
             const fullURL = endpoint;
                const token = sessionStorage.getItem('token')
                 if(token){
@@ -605,7 +605,7 @@ refreshModel: function (sModelName, sGroup){
                 .catch(error => {
                     console.error('Error updating data:', error);
                 });
-                // this.getView().byId("OpenDialog_app").close();
+                this.getView().byId("OpenDialog_app").close();
                 MessageToast.show("Application added, refresh the page to get the changes");
                 // onSuccessfulPatch()
             }
@@ -616,5 +616,8 @@ refreshModel: function (sModelName, sGroup){
     }
      
      },
+     onLiveSearch_app:function(){
+        alert("search clicked");
+     }
         });
     });
