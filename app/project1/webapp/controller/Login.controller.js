@@ -4,14 +4,14 @@ sap.ui.define([
     "sap/m/ColumnListItem",
     "sap/m/Input",
     "sap/m/Panel",
-    "project1/config/Config" 
+    "project1/config/Config"
 
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
 
-    function (Controller, MessageToast, ColumnListItem,Input, Panel, Config) {
+    function (Controller, MessageToast, ColumnListItem,Input, Panel,Config) {
         "use strict";
 
         return Controller.extend("project1.controller.Login", {
@@ -102,7 +102,7 @@ sap.ui.define([
                     console.log(data);
                     if(data.user && data.user[0].is_used =='N'){
                         MessageToast.show('Logged in sucecssfully');
-                        this.getOwnerComponent().getRouter().navTo("Targetdash");
+                        this.getOwnerComponent().getRouter().navTo("Dashpage");//Targetdash  dashboard Dashpage
                     }else{
                         MessageToast.show('Invalid credentials');
                     }
@@ -114,4 +114,3 @@ sap.ui.define([
        
         });
     });
-
