@@ -1,93 +1,73 @@
 <mvc:View controllerName="project1.controller.Table"
-  xmlns:core="sap.ui.core"
-  xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-  xmlns:form="sap.ui.layout.form"
-  xmlns="sap.m"
- xmlns:m="sap.m" xmlns:table="sap.ui.table">
-	  <VBox alignItems="Center" justifyContent="Center"> 
+  xmlns:micro="sap.suite.ui.microchart"
+	xmlns="sap.suite.ui.microchart"
+	 xmlns:mvc="sap.ui.core.mvc"
+	  xmlns:m="sap.m"
+	   displayBlock="true"
+    xmlns:form="sap.ui.layout.form"
+     xmlns:core="sap.ui.core"
+  
+	   xmlns:table="sap.ui.table">
+	    <m:App id="apptable">
+            <m:pages>
+                <m:Page id="tableuser" title="{i18n>title}">
+                    <m:content>
 	<table:Table selectionMode="None" rows="{/Rows}">
 		<table:columns>
-			<table:Column  width="8rem">
+			<table:Column>
 				<m:Label text="Student DB ID"/>
 				<table:template>
 					<m:Label text="{Supplier}"/>
 				</table:template>
 			</table:Column>
-			<table:Column  width="10rem">
+			<table:Column>
 				<m:Label text="Full Name"/>
 				<table:template>
 					<m:Label text="{Supplier ID}"/>
 				</table:template>
 			</table:Column>
-			<table:Column  width="8rem">
+			<table:Column>
 				<m:Label text="Member Date"/>
 				<table:template>
 					<m:Label text="{Sales Manager}"/>
 				</table:template>
 
 			</table:Column>
-					<table:Column  width="8rem">
-				<m:Label text="Intake"/>
-				<table:template>
-					<m:Label text="{Sales Manager}"/>
-				</table:template>
-
-			</table:Column>
-			<table:Column  width="8rem">
+			<table:Column>
 				<m:Label text="App Type"/>
 				<table:template>
 					<m:Label text="{Product ID}"/>
 				</table:template>
 			</table:Column>
-			<table:Column  width="8rem">
+			<table:Column>
 				<m:Label text="Count"/>
 				<table:template>
 					<m:Label text="{Unit Price}"/>
 				</table:template>
 			</table:Column>
-
-			<table:Column width="16rem">
+			<table:Column>
+				<m:Label text="Message"/>
+				<table:template>
+					<m:Label text="{Period}"/>
+				</table:template>
+			</table:Column>
+			<table:Column width="6rem">
 				<m:Label text="Status"/>
 				<table:template>			
-				 <HBox class="vBoxContainer">
-				<VBox class="crmStatusOk" >
-				<Text text="CS" class="overlayText"/>
-				</VBox>
-
-				<VBox class="crmStatusOk">
-				<Text text="AP" class="overlayText"/>
-				</VBox>
-
-				<VBox class="crmStatusOk">
-				<Text text="DC" class="overlayText"/>
-				</VBox>
-
-				<VBox class="crmDefault">
-				<Text text="FC" class="overlayText"/>
-				</VBox>
-				<VBox class="crmDefault">
-					<Text text="LF" class="overlayText"/>
-				</VBox>
-			 </HBox>
+                     <micro:StackedBarMicroChart size="Responsive"  press="press" precision="0">
+                        <micro:bars>                        
+                            <micro:StackedBarMicroChartBar valueColor="Good" value="30"/>
+                            <micro:StackedBarMicroChartBar valueColor="Error" value="30"/>
+                            <micro:StackedBarMicroChartBar valueColor="Neutral" value="30"/>
+                            <micro:StackedBarMicroChartBar valueColor="Critical" value="30"/>
+                        </micro:bars>
+                    </micro:StackedBarMicroChart>
 				</table:template>
 			</table:Column>
-
-
-			<table:Column  width="13rem">
-				<m:Label text="Action"/>
-				<table:template>
-						 <HBox>
-				<VBox>
-              <Button id="deleteButtonnnn" icon="sap-icon://delete" tooltip="Delete" />
-            </VBox>
-				       <VBox>
-              <Button id="fsdf" icon="sap-icon://edit" tooltip="Edit" press="press"/>
-            </VBox>
-				 </HBox>
-				</table:template>
-			</table:Column>
-
 		</table:columns>
 	</table:Table>
-</VBox>
+	     </m:content>
+                </m:Page>
+            </m:pages>
+        </m:App>
 </mvc:View>
