@@ -14,7 +14,7 @@
 		{
 			"title": "Main menu",
 			"icon": "sap-icon://employee",
-			"expanded": true,
+			"expanded": false,
 			"key": "Dash",
 			"items": [
 				{

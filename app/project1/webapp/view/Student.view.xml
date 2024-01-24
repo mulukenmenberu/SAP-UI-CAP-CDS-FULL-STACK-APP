@@ -70,8 +70,14 @@ id="Course_id"
 
 
                                                     <Label text="Note" />
-                                                 
-                                                    <Input id="Note"  />
+                                                     <TextArea
+                                                        id="Note"
+                                                        value="{/Note}" 
+                                                        rows="4"
+                                                        width="100%" 
+                                                        placeholder="Enter your text here" 
+                                                        liveChange="onTextAreaLiveChange" 
+                                                        />
                                                     <Label text="Final_choice" />
                                                     <Input id="Final_choice"  />
                                                     <Label text="Is_deferred" /> 

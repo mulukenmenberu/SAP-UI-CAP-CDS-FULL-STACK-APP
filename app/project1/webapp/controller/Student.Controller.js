@@ -227,6 +227,8 @@ sap.ui.define([
              onCancelDialog: function (oEvent) {
                 oEvent.getSource().getParent().close();
              },
+
+             
              onCreate: function () {
                 var oSo = this.getView().byId("Full_name").getValue();
                 if (oSo !== "") {
@@ -238,26 +240,77 @@ sap.ui.define([
                              formattedDate = plannedStudyDate.toISOString().split('T')[0];
                         }         
                         
-                        try{
-                        const oContext = oBinding.create({
+                    //     try{
+                    //     const oContext = oBinding.create({
                         
-                            "Full_name": this.byId("Full_name").getValue(),
-                            "Gender": this.byId("Gender").getValue(),
-                            "Office": this.byId("Office").getValue(),
-                            "Advisor_ID": parseInt(this.byId("Advisor_ID").getValue(), 10),//this.byId("Advisor_ID").getValue(),
-                            "Created_at": new Date(),
-                            "Planned_study_date": formattedDate,  
+                    //         "Full_name": this.byId("Full_name").getValue(),
+                    //         "Gender": this.byId("Gender").getValue(),
+                    //         "Office": this.byId("Office").getValue(),
+                    //         "Advisor_ID": parseInt(this.byId("Advisor_ID").getValue(), 10),//this.byId("Advisor_ID").getValue(),
+                    //         "Created_at": new Date(),
+                    //         "Planned_study_date": formattedDate,  
                             
-                        });
-                        oContext.created()
-                        .then(()=>{
-                                // that._focusItem(oList, oContext);
-                                this.getView().byId("OpenDialog").close();
-                        });
-                    }catch(e){
-                        this.getView().byId("OpenDialog").close();
-                    }
-  
+                    //     });
+                    //     oContext.created()
+                    //     .then(()=>{
+                    //             // that._focusItem(oList, oContext);
+                    //             this.getView().byId("OpenDialog").close();
+                    //     });
+                    // }catch(e){
+                    //     this.getView().byId("OpenDialog").close();
+                    // }
+      // Rest of your code...
+      const endpoint = Config.baseUrl+"StudentServices/Students";
+
+      // Assuming you have the updateData object defined as mentioned in your question
+      const updateData = {
+        "Full_name": this.byId("Full_name").getValue(),
+        "Gender": this.byId("Gender").getValue(),
+        "Office": this.byId("Office").getValue(),
+        "Advisor_ID": parseInt(this.byId("Advisor_ID").getValue(), 10),//this.byId("Advisor_ID").getValue(),
+        "Created_at": new Date(),
+        "Planned_study_date": formattedDate,  
+    
+      };
+      // const updateData2 = {
+      //     "Student_ID": 10,
+      //     "Course_ID": 1,
+      //     "User_ID": 1,
+      //     "Start_date": "2023-01-01T00:00:00Z",
+      //     "Note": "Note",
+      //     "Final_choice": "finalCASDCFhoice",
+      //     "Is_deferred": "Is_deferred",
+      //     "Application_status": "Application_status",
+    
+      // };
+      const fullURL = endpoint;
+         const token = sessionStorage.getItem('token')
+          if(token){
+      fetch(fullURL, {
+          method: 'POST',
+          headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(updateData),
+      })
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error(`HTTP error! Status: ${response.status}`);
+              }
+              return response.json();
+          })
+          .then(data => {
+              // Handle the response data as needed
+              console.log('Update successful:', data);
+          })
+          .catch(error => {
+              console.error('Error updating data:', error);
+          });
+          this.getView().byId("OpenDialog_app").close();
+          MessageToast.show("Application added, refresh the page to get the changes");
+          // onSuccessfulPatch()
+      }
 
                     this.getView().byId("OpenDialog").close();
                     MessageToast.show("Student registered successfulyl");
