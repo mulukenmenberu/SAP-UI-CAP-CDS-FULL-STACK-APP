@@ -6,7 +6,8 @@ sap.ui.define([
 ],
 function (MessageToast, Controller, JSONModel, require) {
     "use strict";
-
+ //1 CS, 2 DC, 3 AP, 4 FC, 5 LF
+ //1 CS, 2 DC, 3 AP, 4 FC, 5 LF
     var PageController = Controller.extend("sap.suite.ui.microchart.sample.ComparisonMicroChartInGridTable.Page", {
         onInit: function() {
             var sPath = require.toUrl("./SampleData.json");

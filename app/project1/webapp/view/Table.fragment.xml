@@ -51,33 +51,33 @@
 			<table:Column  width="8rem">
 				<m:Label text="Student DB ID"/>
 				<table:template>
-					<m:Label text="{Supplier}"/>
+					<m:Label text="{StudentDBID}"/>
 				</table:template>
 			</table:Column>
 			<table:Column  width="10rem">
 				<m:Label text="Full Name"/>
 				<table:template>
-					<m:Label text="{Supplier ID}"/>
+					<m:Label text="{Student Name}"/>
 				</table:template>
 			</table:Column>
 			<table:Column  width="8rem">
 				<m:Label text="Member Date"/>
 				<table:template>
-					<m:Label text="{Sales Manager}"/>
+					<m:Label text="{Member Date}"/>
 				</table:template>
 
 			</table:Column>
 					<table:Column  width="8rem">
 				<m:Label text="Intake"/>
 				<table:template>
-					<m:Label text="{Sales Manager}"/>
+					<m:Label text="{Intake}"/>
 				</table:template>
 
 			</table:Column>
 			<table:Column  width="8rem">
 				<m:Label text="App Type"/>
 				<table:template>
-					<m:Label text="{Product ID}"/>
+					<m:Label text="{App Type}"/>
 				</table:template>
 			</table:Column>
 			<table:Column  width="8rem">

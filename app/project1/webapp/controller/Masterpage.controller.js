@@ -200,7 +200,21 @@ this._oPopover = new ResponsivePopover({
      
 
 		},
-
+    formatClassName: function(sStatus) {
+      switch (sStatus) {
+          case 1:
+          case 2:
+          case 3:
+          case 4:
+              return "crmStatusOk";
+          case 0:
+              return "crmDefault";
+          case 5:
+              return "crmStatusNotOk";
+          default:
+              return ""; // Set a default value if needed
+      }
+  },
     handlePopoverPress: function (oEvent) {
       this.oMessageView.navigateBack();
       this._oPopover.openBy(oEvent.getSource());
