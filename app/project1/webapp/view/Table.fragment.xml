@@ -3,8 +3,49 @@
   xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
   xmlns:form="sap.ui.layout.form"
   xmlns="sap.m"
- xmlns:m="sap.m" xmlns:table="sap.ui.table">
+ xmlns:m="sap.m" xmlns:table="sap.ui.table"
+
+  xmlns:l="sap.ui.layout"
+
+  >
 	  <VBox alignItems="Center" justifyContent="Center"> 
+<VBox alignItems="Center" justifyContent="Center"> 
+    <VBox direction="Row" alignItems="Center" justifyContent="Center">
+        <DatePicker placeholder="Enter your text here"/>
+        <MultiComboBox placeholder="Enter your text here">
+            <core:Item text="Option 1"/>
+            <core:Item text="Option 2"/>
+            <core:Item text="Option 3"/>
+        </MultiComboBox>
+        <Select placeholder="Enter your text here">
+            <core:Item text="Option 1"/>
+            <core:Item text="Option 2"/>
+            <core:Item text="Option 3"/>
+        </Select>
+        <DateRangeSelection placeholder="Enter your text here"/>
+    </VBox>
+    <VBox direction="Row" alignItems="Center" justifyContent="Center">
+        <Select placeholder="Enter your text here">
+            <core:Item text="Option A"/>
+            <core:Item text="Option B"/>
+            <core:Item text="Option C"/>
+        </Select>
+        <Select placeholder="Enter your text here">
+            <core:Item text="Option X"/>
+            <core:Item text="Option Y"/>
+            <core:Item text="Option Z"/>
+        </Select>
+        <Select placeholder="Enter your text here">
+            <core:Item text="Option Alpha"/>
+            <core:Item text="Option Beta"/>
+            <core:Item text="Option Gamma"/>
+        </Select>
+        <Input placeholder="Enter your text here"/>
+	
+    </VBox>
+</VBox>
+
+		
 	<table:Table selectionMode="None" rows="{/Rows}">
 		<table:columns>
 			<table:Column  width="8rem">

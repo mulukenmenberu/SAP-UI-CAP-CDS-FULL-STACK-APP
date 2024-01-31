@@ -85,3 +85,6 @@
     padding: 0 !important;
 
   }
+  .labelSpacing{
+	margin-right: 1rem; /* Adjust the spacing as needed */
+  }
