@@ -88,3 +88,39 @@
   .labelSpacing{
 	margin-right: 1rem; /* Adjust the spacing as needed */
   }
+  .card {
+    border-radius: 15px; /* Adjust the border radius as needed */
+    background-color: lightblue;
+    padding: 20px;
+    width: fit-content;
+    height: fit-content;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures content within the card stays within the rounded corners */
+	justify-content: space-evenly;
+}
+.cardTable {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh;  */
+	margin-top: 10px;
+}
+.table {
+	border-radius: 15px; /* Adjust the border radius as needed */
+    background-color: rgb(123, 123, 123);
+
+    width: 90%; /* Set width to 90% */
+    max-width: 1200px; /* Optional: set a maximum width */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures content within the card stays within the rounded corners */
+}
+.submitButton{
+	border-radius: 15px; /* Adjust the border radius as needed */
+    background-color: lightblue;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+.alignItems{
+	justify-content: space-evenly;
+
+}

@@ -1,134 +1,175 @@
-<mvc:View controllerName="project1.controller.Table"
-  xmlns:core="sap.ui.core"
-  xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-  xmlns:form="sap.ui.layout.form"
-  xmlns="sap.m"
- xmlns:m="sap.m" xmlns:table="sap.ui.table"
-
-  xmlns:l="sap.ui.layout"
-
-  >
-	  <VBox alignItems="Center" justifyContent="Center"> 
-<VBox alignItems="Center" justifyContent="Center"> 
-    <VBox direction="Row" alignItems="Center" justifyContent="Center">
-        <DatePicker placeholder="Enter your text here"/>
-        <MultiComboBox placeholder="Enter your text here">
-            <core:Item text="Option 1"/>
-            <core:Item text="Option 2"/>
-            <core:Item text="Option 3"/>
-        </MultiComboBox>
-        <Select placeholder="Enter your text here">
-            <core:Item text="Option 1"/>
-            <core:Item text="Option 2"/>
-            <core:Item text="Option 3"/>
-        </Select>
-        <DateRangeSelection placeholder="Enter your text here"/>
-    </VBox>
-    <VBox direction="Row" alignItems="Center" justifyContent="Center">
-        <Select placeholder="Enter your text here">
-            <core:Item text="Option A"/>
-            <core:Item text="Option B"/>
-            <core:Item text="Option C"/>
-        </Select>
-        <Select placeholder="Enter your text here">
-            <core:Item text="Option X"/>
-            <core:Item text="Option Y"/>
-            <core:Item text="Option Z"/>
-        </Select>
-        <Select placeholder="Enter your text here">
-            <core:Item text="Option Alpha"/>
-            <core:Item text="Option Beta"/>
-            <core:Item text="Option Gamma"/>
-        </Select>
-        <Input placeholder="Enter your text here"/>
+<mvc:View
+	controllerName="project1.controller.Table"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+	xmlns:form="sap.ui.layout.form"
+	xmlns="sap.m"
+	xmlns:m="sap.m"
+	xmlns:table="sap.ui.table"
+	xmlns:l="sap.ui.layout"
+>
+	<VBox
+		alignItems="Center"
+		justifyContent="Center"
+	>
+		<VBox
+			alignItems="Center"
+			justifyContent="Center"
+			class="card"
+		>
+			<VBox
+				direction="Row"
+				class="alignItems"
+			>
+			<DateRangeSelection placeholder="Date from - to" />
+				<MultiComboBox placeholder="Office">
+					<core:Item text="Office 1" />
+					<core:Item text="Office 2" />
+					<core:Item text="Office 3" />
+				</MultiComboBox>
+				<Select placeholder="Country">
+					<core:Item text="Country 1" />
+					<core:Item text="Country 2" />
+					<core:Item text="Country 3" />
+				</Select>
 	
-    </VBox>
-</VBox>
-
-		
-	<table:Table selectionMode="None" rows="{/Rows}">
-		<table:columns>
-			<table:Column  width="8rem">
-				<m:Label text="Student DB ID"/>
-				<table:template>
-					<m:Label text="{StudentDBID}"/>
-				</table:template>
-			</table:Column>
-			<table:Column  width="10rem">
-				<m:Label text="Full Name"/>
-				<table:template>
-					<m:Label text="{Student Name}"/>
-				</table:template>
-			</table:Column>
-			<table:Column  width="8rem">
-				<m:Label text="Member Date"/>
-				<table:template>
-					<m:Label text="{Member Date}"/>
-				</table:template>
-
-			</table:Column>
-					<table:Column  width="8rem">
-				<m:Label text="Intake"/>
-				<table:template>
-					<m:Label text="{Intake}"/>
-				</table:template>
-
-			</table:Column>
-			<table:Column  width="8rem">
-				<m:Label text="App Type"/>
-				<table:template>
-					<m:Label text="{App Type}"/>
-				</table:template>
-			</table:Column>
-			<table:Column  width="8rem">
-				<m:Label text="Count"/>
-				<table:template>
-					<m:Label text="{Unit Price}"/>
-				</table:template>
-			</table:Column>
-
-			<table:Column width="16rem">
-				<m:Label text="Status"/>
-				<table:template>			
-				 <HBox class="vBoxContainer">
-				<VBox class="crmStatusOk" >
-				<Text text="CS" class="overlayText"/>
-				</VBox>
-
-				<VBox class="crmStatusOk">
-				<Text text="AP" class="overlayText"/>
-				</VBox>
-
-				<VBox class="crmStatusOk">
-				<Text text="DC" class="overlayText"/>
-				</VBox>
-
-				<VBox class="crmDefault">
-				<Text text="FC" class="overlayText"/>
-				</VBox>
-				<VBox class="crmDefault">
-					<Text text="LF" class="overlayText"/>
-				</VBox>
-			 </HBox>
-				</table:template>
-			</table:Column>
-
-
-			<table:Column  width="13rem">
-				<m:Label text="Action"/>
-				<table:template>
-						 <HBox>
-				<VBox>
-              <Button id="deleteButtonnnn" icon="sap-icon://delete" tooltip="Delete" />
-            </VBox>
-				       <VBox>
-              <Button id="fsdf" icon="sap-icon://edit" tooltip="Edit" press="press"/>
-            </VBox>
-				 </HBox>
-				</table:template>
-			</table:Column>
-
-		</table:columns>
-	</table:Table>
-</VBox>
+			</VBox>
+			<VBox
+				direction="Row"
+				class="alignItems"
+			>
+				<Select placeholder="Enter your text here">
+					<core:Item text="Option A" />
+					<core:Item text="Option B" />
+					<core:Item text="Option C" />
+				</Select>
+				<Select placeholder="Enter your text here">
+					<core:Item text="Option X" />
+					<core:Item text="Option Y" />
+					<core:Item text="Option Z" />
+				</Select>
+				<Select placeholder="Enter your text here">
+					<core:Item text="Option Alpha" />
+					<core:Item text="Option Beta" />
+					<core:Item text="Option Gamma" />
+				</Select>
+				<!-- <Input placeholder="Enter your text here" /> -->
+			</VBox>
+			<VBox
+				direction="Row"
+				class="alignItems"
+			>
+				<Button
+					xmlns="sap.m"
+					text="Search"
+					 type="Emphasized"
+					class="submitButton"
+				/>
+			</VBox>
+		</VBox>
+		<VBox
+			alignItems="Center"
+			justifyContent="Center"
+			class="cardTable"
+		>
+			<table:Table
+				selectionMode="None"
+				rows="{/Rows}"
+				class="table"
+			>
+				<table:columns>
+					<table:Column width="8rem">
+						<m:Label text="Student DB ID" />
+						<table:template>
+							<m:Label text="{StudentDBID}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="10rem">
+						<m:Label text="Full Name" />
+						<table:template>
+							<m:Label text="{Student Name}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="8rem">
+						<m:Label text="Member Date" />
+						<table:template>
+							<m:Label text="{Member Date}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="8rem">
+						<m:Label text="Intake" />
+						<table:template>
+							<m:Label text="{Intake}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="8rem">
+						<m:Label text="App Type" />
+						<table:template>
+							<m:Label text="{App Type}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="8rem">
+						<m:Label text="Count" />
+						<table:template>
+							<m:Label text="{Unit Price}" />
+						</table:template>
+					</table:Column>
+					<table:Column width="16rem">
+						<m:Label text="Status" />
+						<table:template>
+							<HBox class="vBoxContainer">
+								<VBox class="crmStatusOk">
+									<Text
+										text="CS"
+										class="overlayText"
+									/>
+								</VBox>
+								<VBox class="crmStatusOk">
+									<Text
+										text="AP"
+										class="overlayText"
+									/>
+								</VBox>
+								<VBox class="crmStatusOk">
+									<Text
+										text="DC"
+										class="overlayText"
+									/>
+								</VBox>
+								<VBox class="crmDefault">
+									<Text
+										text="FC"
+										class="overlayText"
+									/>
+								</VBox>
+								<VBox class="crmDefault" >
+									<Text
+										text="LF"
+										class="overlayText"
+									/>
+								</VBox>
+							</HBox>
+						</table:template>
+					</table:Column>
+					<table:Column width="13rem">
+						<m:Label text="Action" />
+						<table:template>
+						
+						
+								<VBox>
+									<Button
+										id="fsdf"
+										icon="sap-icon://edit"
+										tooltip="Edit"
+										press="press"
+									/>
+								</VBox>
+						
+						</table:template>
+					</table:Column>
+				</table:columns>
+			</table:Table>
+		</VBox>
+	</VBox>
 </mvc:View>
