@@ -1,151 +1,487 @@
 {
-	"selectedKey": "Table",
-	"navigation": [
-		{
-			"title": "Dashboard",
-			"icon": "sap-icon://home",
-			"key": "Dash"
-		},
-		{
-			"title": "Main Menu",
-			"icon": "sap-icon://drop-down-list",
-			"expanded": true,
-			"key": "AdditionalPage",
-			"items": [
-				{
-					"title": "Student List",
-					"key": "Student"
-				},
-				{
-					"title": "User list",
-					"key": "Table"
-				}
-			]
-		},
-	
-		{
-			"title": "Settings",
-			"icon": "sap-icon://action-settings",
-			"expanded": false,
-            "key": "Mainsetings",
-			"items": [
-				{
-					"title": "Setting 1 "
-				},
-				{
-					"title": "Setting 2"
-				},
-				{
-					"title": "Setting 3"
-				},
-				{
-					"title": "Setting 4"
-				}
-				
-			]
-		},
-		{
-			"title": "Reports",
-			"icon": "sap-icon://manager-insight",
-			"expanded": false,
-			"items": [
-				{
-					"title": "Report 1"
-				},
-				{
-					"title": "Report 2"
-				},
-				{
-					"title": "Report 3"
-				}
-			]
-		}
-	],
-	"fixedNavigation": [
-		{
-			"title": "Fixed Menu 1",
-			"icon": "sap-icon://menu2"
-		},
-		{
-			"title": "Fixed Menu 2",
-			"icon": "sap-icon://menu2"
-		}
-	
-	],
-	"toprightmenu": [
-		{
-			"title": "profile",
-			"icon": "sap-icon://account",
-			"key": "profile"
-		},
-		{
-			"title": "Account Settings",
-			"icon": "sap-icon://action-settings",
-			"key": "setting"
-		}
-	
-	],
-	"Rows": [
-		{
-		  "Supplier": "1.",
-		  "Supplier ID": "Abe",
-		  "Sales Manager": "0000-00-00",
-		  "Product ID":  "UNi",
-		  "Unit Price": "1",
-		  "Period": "001",
-		  "Target": 320,
-		  "Actual": 350,
-		  "maxValue": 600,
-		  "minValue": 0,
-		  "AMER": 200,
-		  "APAC": 100,
-		  "EMEA": 50,
-		  "maxValueC": 200,
-		  "minValueC": 0,
-		  "Retail": 64,
-		  "Online": 26,
-		  "Direct": 10
-		},
-		{
-		  "Supplier": "2",
-		  "Supplier ID": "Kebe",
-		  "Sales Manager":  "0000-00-00",
-		  "Product ID": "UNi",
-		  "Unit Price": "1",
-		  "Period": "001",
-		  "Target": 170,
-		  "Actual": 160,
-		  "maxValue": 600,
-		  "minValue": 0,
-		  "AMER": 50,
-		  "APAC": 30,
-		  "EMEA": 80,
-		  "maxValueC": 200,
-		  "minValueC": 0,
-		  "Retail": 71,
-		  "Online": 19,
-		  "Direct": 10
-		},
-		{
-		  "Supplier": "3",
-		  "Supplier ID": "Mule",
-		  "Sales Manager": "0000-00-00",
-		  "Product ID": "Uni",
-		  "Unit Price": "1",
-		  "Period": "001",
-		  "Target": 175,
-		  "Actual": 211,
-		  "maxValue": 600,
-		  "minValue": 0,
-		  "AMER": 111,
-		  "APAC": 90,
-		  "EMEA": 10,
-		  "maxValueC": 200,
-		  "minValueC": 0,
-		  "Retail": 64,
-		  "Online": 26,
-		  "Direct": 10
-		}
-		
-	  ]
-}
+	"Userrecord": [{
+		"StudentDBID": "1239102",
+		"Name": "gashaw",
+		"Sex": "male",
+		"MemberDate": "2022-00-00",
+		"country":"country 1",
+		"office":"office 1",
+		"Count":1,
+		"CS":1,
+		"AP":1,
+		"DC":1,
+		"FC":1,
+		"LF":1,
+		"color": "red",
+		"App_type": "Univ"
+	},  {
+		"StudentDBID": "1239106",
+		"Name": "minale",
+		"Sex": "male",
+		"MemberDate": "2022-00-00",
+		"country":"country 1",
+		"office":"office 2",
+		"Count":1,
+		"CS":1,
+		"AP":1,
+		"DC":1,
+		"FC":1,
+		"LF":1,
+		"color": "green",
+		"App_type": "Univ"
+	},  {
+		"StudentDBID": "1239109",
+		"Name": "belachew",
+		"Sex": "male",
+		"MemberDate": "0000-00-00",
+		"country":"country 1",
+		"office":"office 2",
+		"Count":2,
+		"CS":1,
+		"AP":1,
+		"DC":1,
+		"FC":1,
+		"LF":0,
+		"App_type": "Univ"
+	}, {
+		"StudentDBID": "1239112",
+		"Name": "gemechu",
+		"Sex": "male",
+		"MemberDate": "2022-00-00",
+		"country":"country 2",
+		"office":"office 3",
+		"Count":7,
+		"CS":1,
+		"AP":1,
+		"DC":1,
+		"FC":0,
+		"LF":0,
+		"App_type": "Univ"
+	}, {
+		"StudentDBID": "1239113",
+		"Name": "zinabu",
+		"Sex": "male",
+		"MemberDate": "2022-00-00",
+		"country":"country 2",
+		"office":"office 3",
+		"Count":7,
+		"CS":1,
+		"AP":1,
+		"DC":1,
+		"FC":1,
+		"LF":1,
+		"App_type": "Univ"
+	}, {
+		"StudentDBID": "1239114",
+		"Name": "megbaru",
+		"Sex": "male",
+		"MemberDate": "0000-00-00",
+		"country":"country 2",
+		"office":"office 3",
+		"Count":2,
+		"CS":1,
+		"AP":1,
+		"DC":1,
+		"FC":0,
+		"LF":0,
+		"App_type": "Univ"
+	},  {
+		"StudentDBID": "1239117",
+		"Name": "belew",
+		"Sex": "male",
+		"MemberDate": "2022-00-00",
+		"country":"country 2",
+		"office":"office 4",
+		"Count":3,
+		"CS":1,
+		"AP":1,
+		"DC":0,
+		"FC":0,
+		"LF":0,
+		"App_type": "Univ"
+	}, {
+		"StudentDBID": "1239118",
+		"Name": "setie",
+		"Sex": "male",
+		"MemberDate": "2022-00-00",
+		"country":"country 2",
+		"office":"office 4",
+		"Count":6,
+		"CS":1,
+		"AP":1,
+		"DC":1,
+		"FC":1,
+		"LF":0,
+		"App_type": "Univ"
+	}, {
+		"StudentDBID": "473221",
+		"Name": "Abebe",
+		"Sex": "male",
+		"MemberDate": "2022-00-00",
+		"country":"country 2",
+		"office":"office 4",
+		"Count":5,
+		"CS":1,
+		"AP":1,
+		"DC":1,
+		"FC":1,
+		"LF":1,
+		"App_type": "Univ"
+	},  {
+		"StudentDBID": "473223",
+		"Name": "mersha",
+		"Sex": "male",
+		"MemberDate": "0000-00-00",
+		"country":"country 2",
+		"office":"office 5",
+		"Count":4,
+		"CS":1,
+		"AP":1,
+		"DC":1,
+		"FC":0,
+		"LF":0,
+		"App_type": "Univ"
+	},   {
+		"StudentDBID": "K473226",
+		"Name": "mizanu",
+		"Sex": "male",
+		"MemberDate": "2022-00-00",
+		"country":"country 2",
+		"office":"office 5",
+		"Count":3,
+		"CS":1,
+		"AP":1,
+		"DC":1,
+		"FC":1,
+		"LF":0,
+		"App_type": "Univ"
+	}, {
+		"StudentDBID": "K473227",
+		"Name": "yadergal",
+		"Sex": "male",
+		"MemberDate": "2022-00-00",
+		"country":"country 2",
+		"office":"office 6",
+		"Count":2,
+		"CS":1,
+		"AP":1,
+		"DC":1,
+		"FC":0,
+		"LF":0,
+		"App_type": "Univ"
+	}, {
+		"StudentDBID": "K473228",
+		"Name": "taye",
+		"Sex": "male",
+		"MemberDate": "0000-00-00",
+		"country":"country 3",
+		"office":"office 7",
+		"Count":3,
+		"CS":1,
+		"AP":0,
+		"DC":0,
+		"FC":0,
+		"LF":0,
+		"App_type": "Univ"
+	}, {
+		"StudentDBID": "K473229",
+		"Name": "amogne",
+		"Sex": "male",
+		"MemberDate": "2022-00-00",
+		"country":"country 3",
+		"office":"office 7",
+		"Count":4,
+		"CS":1,
+		"AP":0,
+		"DC":0,
+		"FC":0,
+		"LF":0,
+		"App_type": "Univ"
+	},  {
+		"StudentDBID": "22134T2",
+		"Name": "almaz",
+		"Sex": "Female",
+		"MemberDate": "2022-00-00",
+		"country":"country 3",
+		"office":"office 7",
+		"Count":5,
+		"CS":1,
+		"AP":1,
+		"DC":1,
+		"FC":1,
+		"LF":1,
+		"App_type": "Univ"
+	},   {
+		"StudentDBID": "22134T7",
+		"Name": "mahi",
+		"Sex": "Female",
+		"MemberDate": "2022-00-00",
+		"country":"country 3",
+		"office":"office 8",
+		"Count":6,
+		"CS":1,
+		"AP":1,
+		"DC":1,
+		"FC":1,
+		"LF":1,
+		"App_type": "college"
+	}, {
+		"StudentDBID": "22134T10",
+		"Name": "sewareg",
+		"Sex": "Female",
+		"MemberDate": "0000-00-00",
+		"country":"country 3",
+		"office":"office 8",
+		"Count":6,
+		"CS":1,
+		"AP":1,
+		"DC":0,
+		"FC":0,
+		"LF":0,
+		"App_type": "Univ"
+	}, {
+		"StudentDBID": "22134T11",
+		"Name": "senaite",
+		"Sex": "Female",
+		"MemberDate": "2022-00-00",
+		"country":"country 3",
+		"office":"office 8",
+		"Count":5,
+		"CS":1,
+		"AP":1,
+		"DC":0,
+		"FC":0,
+		"LF":0,
+		"App_type": "college"
+	}, {
+		"StudentDBID": "22134T12",
+		"Name": "mintamir",
+		"Sex": "Female",
+		"MemberDate": "0000-00-00",
+		"country":"country 3",
+		"office":"office 9",
+		"Count":2,
+		"CS":0,
+		"AP":0,
+		"DC":0,
+		"FC":0,
+		"LF":0,
+		"App_type": "Univ"
+	}, {
+		"StudentDBID": "22134T13",
+		"Name": "mekdes",
+		"Sex": "Female",
+		"MemberDate": "2022-00-00",
+		"country":"country 3",
+		"office":"office 9",
+		"Count":3,
+		"CS":1,
+		"AP":1,
+		"DC":1,
+		"FC":1,
+		"LF":0,
+		"App_type": "college"
+	}, {
+		"StudentDBID": "P1239824",
+		"Name": "Aster",
+		"Sex": "Female",
+		"MemberDate": "2022-00-00",
+		"country":"country 3",
+		"office":"office 9",
+		"Count":4,
+		"CS":1,
+		"AP":1,
+		"DC":1,
+		"FC":0,
+		"LF":0,
+		"App_type": "Univ"
+	}, {
+		"StudentDBID": "214121828",
+		"Name": "maritu",
+		"Sex": "Female",
+		"MemberDate": "0000-00-00",
+		"country":"country 3",
+		"office":"office 9",
+		"Count":1,
+		"CS":1,
+		"AP":1,
+		"DC":1,
+		"FC":0,
+		"LF":0,
+		"App_type": "Univ"
+	},{
+		"StudentDBID": "38800016",
+		"Name": "mulie",
+		"Sex": "Male",
+		"MemberDate": "2022-00-00",
+		"country":"country 3",
+		"office":"office 9",
+		"Count":1,
+		"CS":1,
+		"AP":1,
+		"DC":0,
+		"FC":0,
+		"LF":0,
+		"App_type": "Univ"
+	}],
+	"NameCategory" : [{
+		"key" : "mulie",
+		"name" : "mulie"
+	}, {
+		"key" : "Abebe",
+		"name" : "Abebe"
+	}, {
+		"key" : "maritu",
+		"name" : "maritu"
+	}, {
+		"key" : "Aster",
+		"name" : "Aster"
+	}, {
+		"key" : "gashaw",
+		"name" : "gashaw"
+	},
+	{
+		"key" : "mekdes",
+		"name" : "mekdes"
+	},
+	{
+		"key" : "mintamir",
+		"name" : "mintamir"
+	}, 
+	{
+		"key" : "senite",
+		"name" : "senite"
+	},
+	{
+		"key" : "sewareg",
+		"name" : "sewareg"
+	},
+	{
+		"key" : "mahi",
+		"name" : "mahi"
+	},
+	{
+		"key" : "almaz",
+		"name" : "almaz"
+	},
+	{
+		"key" : "taye",
+		"name" : "taye"
+	},
+	{
+		"key" : "amogne",
+		"name" : "amogne"
+	},
+	{
+		"key" : "mizanu",
+		"name" : "mizanu"
+	},
+	{
+		"key" : "yadergal",
+		"name" : "yadergal"
+	},
+	{
+		"key" : "mersha",
+		"name" : "mersha"
+	},
+	{
+		"key" : "belew",
+		"name" : "belew"
+	},
+	{
+		"key" : "setie",
+		"name" : "setie"
+	},
+	{
+		"key" : "zinabu",
+		"name" : "zinabu"
+	},
+	{
+		"key" : "megbaru",
+		"name" : "megbaru"
+	},
+	{
+		"key" : "gemechu",
+		"name" : "gemechu"
+	},
+	{
+		"key" : "minale",
+		"name" : "minale"
+	},{
+		"key" : "almaz",
+		"name" : "almaz"
+	}],
+	"SexCategories" : [{
+		"key" : "Female",
+		"name" : "Female"
+	},
+	  {
+		"key" : "male",
+		"name" : "male"
+	}],
+	"countryCategories" : [{
+		"key" : "country 1",
+		"name" : "country 1"
+	},
+	{
+		"key" : "country 2",
+		"name" : "country 2"
+	},
+	  {
+		"key" : "country 3",
+		"name" : "country 3"
+	}],
+	"officeCategories" : [{
+		"key" : "office 1",
+		"name" : "office 1"
+	},
+	{
+		"key" : "office 2",
+		"name" : "office 2"
+	},
+	  {
+		"key" : "office 3",
+		"name" : "office 3"
+	}
+	,
+	{
+		"key" : "office 4",
+		"name" : "office 4"
+	}
+	,
+	{
+		"key" : "office 5",
+		"name" : "office 5"
+	},
+	{
+		"key" : "office 6",
+		"name" : "office 6"
+	},
+	{
+		"key" : "office 7",
+		"name" : "office 7"
+	},
+	{
+		"key" : "office 8",
+		"name" : "office 8"
+	},
+	{
+		"key" : "office 9",
+		"name" : "office 9"
+	}],
+	"dateCategories" : [{
+		"key" : "0000-00-00",
+		"name" : "0000-00-00"
+	},
+	  {
+		"key" : "2022-00-00",
+		"name" : "2022-00-00"
+	}],
+	"App_Category": [ {
+		"key" : "college",
+		"name" : "college"
+	}, {
+		"key" : "Univ",
+		"name" : "Univ"
+	}]
+  }

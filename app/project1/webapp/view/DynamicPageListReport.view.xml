@@ -1,0 +1,199 @@
+<mvc:View
+		controllerName="project1.controller.DynamicPageListReport"
+		height="100%"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns:core="sap.ui.core"
+		xmlns="sap.m"
+		xmlns:f="sap.f"
+		xmlns:fb="sap.ui.comp.filterbar"
+		xmlns:svm="sap.ui.comp.smartvariants">
+		<f:DynamicPage headerExpanded="{/headerExpanded}">
+			<f:title>
+				<f:DynamicPageTitle>
+					<f:heading>
+						<svm:SmartVariantManagement id="svm" showExecuteOnSelection="true" />
+					</f:heading>
+					<f:expandedContent>
+						<Label id="expandedLabel" text="No filters active" />
+					</f:expandedContent>
+					<f:snappedContent>
+						<Label id="snappedLabel" text="No filters active" />
+					</f:snappedContent>
+				</f:DynamicPageTitle>
+			</f:title>
+			<f:header>
+				<f:DynamicPageHeader>
+					<f:content>
+						<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+							<fb:filterGroupItems>
+								<fb:FilterGroupItem name="Name" label="Name" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="Name"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/NameCategory',
+												templateShareable: true
+											}"
+										>
+											<core:Item key="{key}" text="{name}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="Sex" label="Sex" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="Sex"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/SexCategories',
+												templateShareable: true
+											}"
+										>
+											<core:Item key="{key}" text="{name}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="App_type" label="App_type" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="App_type"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/App_Category',
+												templateShareable: true
+											}"
+										>
+											<core:Item key="{key}" text="{name}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+                                <fb:FilterGroupItem name="MemberDate" label="MemberDate" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="MemberDate"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/dateCategories',
+												templateShareable: true
+											}"
+										>
+											<core:Item key="{key}" text="{name}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+                                   <fb:FilterGroupItem name="country" label="country" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="country"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/countryCategories',
+												templateShareable: true
+											}"
+										>
+											<core:Item key="{key}" text="{name}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+                                   <fb:FilterGroupItem name="office" label="office" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="office"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/officeCategories',
+												templateShareable: true
+											}"
+										>
+											<core:Item key="{key}" text="{name}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+							</fb:filterGroupItems>
+						</fb:FilterBar>
+					</f:content>
+				</f:DynamicPageHeader>
+			</f:header>
+			<f:content>
+				<Table
+					id="table"
+					inset="false"
+					items="{
+						path: '/Userrecord'
+					}"
+				>
+					<columns>
+                    	<Column minScreenWidth="Tablet" width="6rem" demandPopin="true">
+							<Text text="Student ID"/>
+						</Column>
+						<Column minScreenWidth="Tablet" width="10rem" demandPopin="true">
+							<Text text="Name"/>
+						</Column>
+						<Column minScreenWidth="Tablet" width="6rem" demandPopin="true">
+							<Text text="Sex"/>
+						</Column>
+						<Column minScreenWidth="Tablet" width="10rem" demandPopin="true">
+							<Text text="App type"/>
+						</Column>
+                         <Column minScreenWidth="Tablet" width="10rem" demandPopin="true">
+							<Text text="Member Date"/>
+						</Column>
+                        <Column minScreenWidth="Tablet" width="10rem" demandPopin="true">
+							<Text text="Country"/>
+						</Column>
+                        <Column minScreenWidth="Tablet" width="10rem" demandPopin="true">
+							<Text text="Office"/>
+						</Column>
+						   <Column minScreenWidth="Tablet" width="6rem" demandPopin="true">
+							<Text text="Count"/>
+						</Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Status"/>
+						</Column>
+                        
+					</columns>
+
+					<items >
+						<ColumnListItem  vAlign="Middle" >
+							<cells >
+                             <Link text="{StudentDBID}" press="onUserIdClick" />
+                              <!-- <Text text="{StudentDBID}" /> -->
+								<ObjectIdentifier  title="{Name}" />
+								<Text text="{Sex}" />
+								<Text text="{App_type}" />
+                                <Text text="{MemberDate}" />
+                                 <Text text="{country}" />
+                                  <Text text="{office}" />   
+								 <Text text="{Count}" />                                 
+                               	<HBox class="vBoxContainer" >  
+								<!-- <Button icon="sap-icon://color-fill" text="Add" color="{= ${CS} === 1 ? 'green' : 'grey'}" /> -->
+             
+									<VBox alignItems="Center" >
+									<core:Icon tooltip="CS" src="sap-icon://color-fill" color="{= ${CS} === 1 ? '#28a745' : '#6c757d'}" size="2rem" />
+									 <Label text="CS" class="smallLabel" />
+									</VBox>
+									<VBox alignItems="Center">
+									<core:Icon tooltip="AP" src="sap-icon://color-fill" color="{= ${AP} === 1 ? '#28a745' :  '#6c757d'}" size="2rem" />
+									<Label text="AP" class="smallLabel" />
+									</VBox>
+									<VBox alignItems="Center" >
+									<core:Icon tooltip="DC"  src="sap-icon://color-fill" color="{= ${DC} ===1 ? '#28a745'  : '#6c757d'}" size="2rem" />
+									<Label text="DC"  class="smallLabel"/>
+									</VBox>
+									<VBox alignItems="Center" >
+									<core:Icon tooltip="FC" src="sap-icon://color-fill" color="{= ${FC} ===1 ? '#28a745'  : '#6c757d'}" size="2rem" />
+									<Label text="FC" class="smallLabel" />
+									</VBox>
+									<VBox alignItems="Center" >
+									<core:Icon tooltip="LF"  src="sap-icon://color-fill" color="{= ${LF} === 1 ? '#dc3545'  : '#6c757d'}" size="2rem" />
+									<Label text="LF" class="smallLabel"/>
+									</VBox>
+							</HBox>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</f:content>
+		</f:DynamicPage>
+</mvc:View>
