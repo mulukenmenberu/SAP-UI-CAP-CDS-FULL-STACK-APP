@@ -27,6 +27,10 @@
 				}
 				,
 				{
+					"title": "filter",
+					"key": "DynamicPageListReport"
+				},
+				{
 					"title": "Register Students",
 					"key": "Register"
 				}

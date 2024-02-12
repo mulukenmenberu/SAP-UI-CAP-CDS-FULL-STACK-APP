@@ -51,9 +51,9 @@
 
             <ColumnListItem type="Active" id="item0">
               <cells>
-                <Text text="{Students>Full_name}" />
-                <Text text="{Students>Gender}" />
-                <Text text="{Students>Office}" />
+                <Text text="{StudentServices>Full_name}" />
+                <Text text="{StudentServices>Gender}" />
+                <Text text="{StudentServices>Office}" />
                 <Button id="id6" icon="sap-icon://edit" press="onSelect" />
                 <!-- Add more cells based on your entity properties -->
               </cells>

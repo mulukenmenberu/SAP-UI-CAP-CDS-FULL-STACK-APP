@@ -12,7 +12,20 @@ function (MessageToast, Controller, JSONModel, require) {
             var sPath = require.toUrl("./SampleData.json");
             this.oModel = new JSONModel(sPath);
             this.getView().setModel(this.oModel);
+            // this.getView().setModel(sap.ui.getCore().getModel());
         },
+        formatBackgroundColor: function (supplier) {
+          switch (supplier) {
+              case 1:
+                  return 'greenText';
+              case 2:
+                  return 'yellowText';
+              case 3:
+                  return 'redText';
+              default:
+                  return 'greenText';
+          }
+      },
         formatColor: function (value) {
             // Your condition for setting the color
             if (value === 1) {

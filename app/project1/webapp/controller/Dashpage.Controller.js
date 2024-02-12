@@ -44,6 +44,8 @@
 	return Controller.extend("project1.controller.Dashpage", {
 		_themeHasBeenSet: false, // Add this flag
 		onInit: function () {
+
+			
 			
 			var oModel = new JSONModel(sap.ui.require.toUrl("project1/model/data.json"));
 			this.getView().setModel(oModel);
@@ -152,7 +154,10 @@
 				footer: oPopoverFooter,
 				placement: "Left",  // Set placement to Left
 			});
+		
 		},
+
+		
 		onLiveSearch: function (oEvent) {
 			alert('this is search')
 
