@@ -25,6 +25,10 @@
 					"title": "CRM",
 					"key": "user"
 				}
+				,	{
+					"title": "Register Lead",
+					"key": "member"
+				}
 				,
 				{
 					"title": "filter",

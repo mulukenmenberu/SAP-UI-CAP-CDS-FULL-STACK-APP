@@ -1,0 +1,145 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:l="sap.ui.layout"
+  xmlns:f="sap.f"
+  xmlns:core="sap.ui.core"
+  controllerName="project1.controller.Member">
+  <App>
+    <pages>
+      <Page title="Lead Information">
+    
+      <Panel headerText="" class="sapUiDemoFlexBoxSizeAdjustments">
+      
+			<FlexBox alignItems="Start">
+   <f:Card class="sapUiTinyMarginBegin sapUiTinyMarginTop sapUiTinyMarginBottom" width="300px">
+      <f:content>
+                <FlexBox justifyContent="Center" alignItems="Start">
+                  <VBox width="100%" class="sapUiTinyMargin">
+                    <Label text="Surname:" />
+                    <Input value="{/surname}" />
+                   <Label text="Office:" />
+                <MultiComboBox items="{/officeItems}"   value="Not Selected">
+                  <items>
+                    <core:Item key="{key}" text="{text}" />
+                  </items>
+                </MultiComboBox>
+                 <Label text="Counselor:" />
+                <MultiComboBox items="{/counselorItems}"  value="Not Selected">
+                  <items>
+                    <core:Item key="{key}" text="{text}" />
+                  </items>
+                </MultiComboBox>
+                    <Label text="Telephone:" />
+                    <Input value="{/telephone}" />
+                  </VBox>
+                     <layoutData>
+						<FlexItemData growFactor="1" />
+					</layoutData>
+        </FlexBox>
+        </f:content>
+    </f:Card>
+    <f:Card class="sapUiTinyMarginEnd sapUiTinyMarginTop sapUiTinyMarginBottom" width="300px">
+      <f:content>
+				     <FlexBox justifyContent="Center" alignItems="Start">
+                  <VBox width="100%" class="sapUiTinyMargin">
+                    <Label text="First Name:" />
+                    <Input value="{/firstName}" />
+
+                    <Label text="Native Name:" />
+                    <Input value="{/nativeName}" />
+
+                    <Label text="Email:" />
+                    <Input value="{/email}" />
+                  <Label text="Level of Interest:" />
+                <ComboBox items="{/levelOfInterestItems}" selectedKey="{/levelOfInterest}" >
+                  <items>
+                    <core:Item key="{key}" text="{text}" />
+                  </items>
+                </ComboBox>
+                  </VBox>
+                  <layoutData>
+						<FlexItemData growFactor="1" />
+					</layoutData>
+          </FlexBox>
+     </f:content>
+    </f:Card>
+<f:Card class="sapUiTinyMarginBegin sapUiTinyMarginTop sapUiTinyMarginBottom" width="300px">
+      <f:content>
+				    <FlexBox justifyContent="Center" alignItems="Start">
+                  <VBox width="100%" class="sapUiTinyMargin">
+                    <Label text="Lead Date:" />
+                    <DatePicker value="{/leadDate}" />
+
+                    <Label text="Leave Type:" />
+                     <ComboBox items="{/leadTypeItems}" selectedKey="{/leadType}">
+                  <items>
+                    <core:Item key="{key}" text="{text}" />
+                  </items>
+                </ComboBox>
+
+                    <Label text="Last Contact Status:" />
+                  <ComboBox items="{/lastContactStatusItems}" selectedKey="{/lastContactStatus}">
+                  <items>
+                    <core:Item key="{key}" text="{text}" />
+                  </items>
+                </ComboBox>
+                  <Label text="Working Student:" />
+                  <ComboBox items="{/workingStudentItems}" selectedKey="{/workingStudent}">
+                  <items>
+                    <core:Item key="{key}" text="{text}" />
+                  </items>
+                </ComboBox>
+                  </VBox>
+                   <layoutData>
+						<FlexItemData growFactor="1" />
+					</layoutData>
+          </FlexBox>
+      </f:content>
+    </f:Card>
+          <f:Card class="sapUiTinyMarginEnd sapUiTinyMarginTop sapUiTinyMarginBottom" width="300px">
+                <f:content>
+                      <FlexBox justifyContent="Center" alignItems="Start">
+                  <VBox width="100%" class="sapUiTinyMargin">
+                    <Label text="Planned Leaving Date:" />
+                    <DatePicker value="{/plannedLeavingDate}" />
+
+                  <Label text="Initial Student Source:" />
+                  <MultiComboBox items="{/initialStudentSourceItems}"  value="Not Selected" >
+                  <items>
+                    <core:Item key="{key}" text="{text}" />
+                  </items>
+                </MultiComboBox>
+
+                    <Label text="Failure Reason" />
+                          <ComboBox items="{/failureReasonItems}" selectedKey="{/failureReason}">
+                  <items>
+                    <core:Item key="{key}" text="{text}" />
+                  </items>
+                </ComboBox>
+
+                    <Label text="ITLS English Course Statement" />
+                      <MultiComboBox items="{/itlsEnglishItems}"   value="Not Selected">
+                      <items>
+                        <core:Item key="{key}" text="{text}" />
+                      </items>
+                    </MultiComboBox>
+                  </VBox>
+                  <layoutData>
+						<FlexItemData growFactor="1" />
+					</layoutData>
+          </FlexBox>	
+          </f:content>
+    </f:Card>		
+			</FlexBox>
+          <FlexBox justifyContent="Center">
+          <Button text="Search" press="onSearchPress" />
+          <Button text="Create New Lead" press="onCreateNewLeadPress" />
+        </FlexBox>
+		</Panel>
+        <!-- Search and Create New Lead Button -->
+    
+      </Page>
+    </pages>
+  </App>
+</mvc:View>

@@ -174,6 +174,57 @@ sap.ui.define([
 			// You can use routing or any other logic here
 			// For example, opening a new page or showing a dialog
 			alert("User ID clicked: " + sUserId);
-		  }
+		  },
+
+
+
+		  onCopyTextToClipboard: function() {
+			var table = this.getView().byId("table");
+		
+			// Get column names
+			var columnNames = table.getColumns().map(function(column) {
+				var header = column.getHeader();
+				return header.getText();
+			}).join(",");
+		
+			// Get table data
+			var tableData = table.getItems().map(function(item) {
+				var cells = item.getCells();
+				return cells.map(function(cell) {
+					// Adjust based on the actual content of the cells
+					if (cell instanceof sap.m.Link) {
+						return cell.getText();
+					} else if (cell instanceof sap.m.ObjectIdentifier) {
+						return cell.getTitle();
+					} else if (cell instanceof sap.m.Text) {
+						return cell.getText();
+					} else {
+						// Handle other types of controls if needed
+						return "";
+					}
+				}).join(",");
+			}).join("\n");
+		
+			// Concatenate column names and table data
+			var textToCopy = columnNames + "\n" + tableData;
+		
+			// Display in the console (for testing)
+			// console.log(textToCopy);
+		
+			// Copy to clipboard
+			navigator.clipboard.writeText(textToCopy)
+				.then(function() {
+					// console.log("Table content copied to clipboard successfully");
+					sap.m.MessageToast.show("Table content copied to clipboard");
+				})
+				.catch(function(error) {
+					console.error("Error copying table content to clipboard: ", error);
+				});
+		},
+		
+		
+		
+		
+		
 	});
 });

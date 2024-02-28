@@ -177,7 +177,7 @@
 			</tnt:SideNavigation>
 		</tnt:sideContent>
 		<tnt:mainContents>
-			<NavContainer id="pageContainer" initialPage="DynamicPageListReport">
+			<NavContainer id="pageContainer" initialPage="member">
 				<pages>
 					<ScrollContainer
 						id="student"
@@ -251,6 +251,16 @@
 						height="100%"
 						class="sapUiContentPadding">
 						<mvc:XMLView viewName="project1.view.Table"/>	
+						<!-- <core:Fragment fragmentName="project1.view.Profile" type="XML"/> -->
+					</ScrollContainer>
+
+						<ScrollContainer
+						id="member"
+						horizontal="false"
+						vertical="true"
+						height="100%"
+						class="sapUiContentPadding">
+						<mvc:XMLView viewName="project1.view.Member"/>	
 						<!-- <core:Fragment fragmentName="project1.view.Profile" type="XML"/> -->
 					</ScrollContainer>
 
