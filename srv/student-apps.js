@@ -8,13 +8,13 @@ module.exports = async function () {
   const { Student_applications } = db.entities;
 
   // Handle READ operation
-  this.on('READ', 'Student_applications', async (req) => {
+  // this.on('READ', 'Student_applications', async (req) => {
 
-    // sendEmail() 
+  //   // sendEmail() 
 
-    const result = await SELECT.from(Student_applications);
-    return result;
-  });
+  //   const result = await SELECT.from(Student_applications);
+  //   return result;
+  // });
 
   this.on('READ', 'StudentWithApps', async (req) => {
 
@@ -25,7 +25,9 @@ module.exports = async function () {
       console.log(decoded)
       // return {"success":"false","message":"token expired or invalid"}
     }
-
+// console.log(req,"===")
+const id = req.params.id || 1 || 2 ||3
+    // const id = req.params[0] || 1
     const result = await cds
     .run(
       SELECT.from(Student_applications).columns([
@@ -38,6 +40,7 @@ module.exports = async function () {
         'Note',
         'Final_choice'
       ])
+      // .where({Student_ID:id})
     )
     .then((result) => result);
 

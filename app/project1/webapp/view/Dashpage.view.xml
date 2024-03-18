@@ -177,7 +177,7 @@
 			</tnt:SideNavigation>
 		</tnt:sideContent>
 		<tnt:mainContents>
-			<NavContainer id="pageContainer" initialPage="member">
+			<NavContainer id="pageContainer" initialPage="Student">
 				<pages>
 					<ScrollContainer
 						id="student"

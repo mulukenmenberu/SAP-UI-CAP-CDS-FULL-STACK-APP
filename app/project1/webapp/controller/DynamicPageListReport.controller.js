@@ -176,7 +176,22 @@ sap.ui.define([
 			alert("User ID clicked: " + sUserId);
 		  },
 
-
+ // test modal
+    onpress_cs:function(event){
+	alert(" CS  Clicked"+event);
+	},
+	onpress_AP:function(){
+	alert(" AP  Clicked");
+	},
+	onpress_DC:function(){
+	alert(" DC  Clicked");
+	},
+	onpress_FC:function(){
+	alert(" FC  Clicked");
+	},
+	onpress_LF:function(){
+	alert(" LF  Clicked");
+	},
 
 		  onCopyTextToClipboard: function() {
 			var table = this.getView().byId("table");

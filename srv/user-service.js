@@ -15,7 +15,7 @@ module.exports = async function () {
   const insertDemoData = async () => {
     const demoData = [
       {
-        Full_name: "John Doe",
+        Full_name: "Test advisor1",
         Email: "gtforever2009@gmail.com",
         Office: "Headquarters",
         Role: "Admin",
@@ -26,7 +26,7 @@ module.exports = async function () {
         Account_status: 1,
       },
       {
-        Full_name: "Jane Doe",
+        Full_name: "Test advisor2",
         Email: "gtforever@example.com",
         Office: "Branch Office",
         Role: "User",

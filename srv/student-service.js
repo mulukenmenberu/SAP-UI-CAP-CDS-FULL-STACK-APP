@@ -11,7 +11,7 @@ module.exports = async function () {
   const insertDemoData = async () => {
     const demoData = [
       {
-        Full_name: 'John Doe',
+        Full_name: 'gash',
         Gender: 'Male',
         Office: 'Office A',
         // Advisor: 1, // Assuming the User_id exists in the Users entity
@@ -19,7 +19,7 @@ module.exports = async function () {
         Planned_study_date: new Date('2023-01-01T00:00:00.000Z'),
       },
       {
-        Full_name: 'Jane Doe',
+        Full_name: 'marta',
         Gender: 'Female',
         Office: 'Office B',
         // Advisor: 2, // Assuming the User_id exists in the Users entity
@@ -27,7 +27,7 @@ module.exports = async function () {
         Planned_study_date: new Date('2023-02-01T00:00:00.000Z'),
       },
       {
-        Full_name: 'sdfasdfasdf',
+        Full_name: 'kalkidan',
         Gender: 'Female',
         Office: 'Office B',
         // Advisor: 2, // Assuming the User_id exists in the Users entity
@@ -36,7 +36,7 @@ module.exports = async function () {
       },
       {
         Full_name: 'Getnet',
-        Gender: 'Female',
+        Gender: 'male',
         Office: 'Office B',
         // Advisor: 2, // Assuming the User_id exists in the Users entity
         Created_at: new Date(),
@@ -44,7 +44,31 @@ module.exports = async function () {
       },
       {
         Full_name: 'Getachew',
+        Gender: 'male',
+        Office: 'Office B',
+        // Advisor: 2, // Assuming the User_id exists in the Users entity
+        Created_at: new Date(),
+        Planned_study_date: new Date('2023-02-01T00:00:00.000Z'),
+      },
+      {
+        Full_name: 'mihret',
         Gender: 'Female',
+        Office: 'Office B',
+        // Advisor: 2, // Assuming the User_id exists in the Users entity
+        Created_at: new Date(),
+        Planned_study_date: new Date('2023-02-01T00:00:00.000Z'),
+      },
+      {
+        Full_name: 'abebe',
+        Gender: 'male',
+        Office: 'Office B',
+        // Advisor: 2, // Assuming the User_id exists in the Users entity
+        Created_at: new Date(),
+        Planned_study_date: new Date('2023-02-01T00:00:00.000Z'),
+      },
+      {
+        Full_name: 'muluken',
+        Gender: 'male',
         Office: 'Office B',
         // Advisor: 2, // Assuming the User_id exists in the Users entity
         Created_at: new Date(),
@@ -59,7 +83,7 @@ module.exports = async function () {
         Planned_study_date: new Date('2023-02-01T00:00:00.000Z'),
       },
       {
-        Full_name: 'Jane Doe',
+        Full_name: 'Anne',
         Gender: 'Female',
         Office: 'Office B',
         // Advisor: 2, // Assuming the User_id exists in the Users entity
@@ -67,32 +91,8 @@ module.exports = async function () {
         Planned_study_date: new Date('2023-02-01T00:00:00.000Z'),
       },
       {
-        Full_name: 'Jane Doe',
-        Gender: 'Female',
-        Office: 'Office B',
-        // Advisor: 2, // Assuming the User_id exists in the Users entity
-        Created_at: new Date(),
-        Planned_study_date: new Date('2023-02-01T00:00:00.000Z'),
-      },
-      {
-        Full_name: 'Jane Doe',
-        Gender: 'Female',
-        Office: 'Office B',
-        // Advisor: 2, // Assuming the User_id exists in the Users entity
-        Created_at: new Date(),
-        Planned_study_date: new Date('2023-02-01T00:00:00.000Z'),
-      },
-      {
-        Full_name: 'Jane Doe',
-        Gender: 'Female',
-        Office: 'Office B',
-        // Advisor: 2, // Assuming the User_id exists in the Users entity
-        Created_at: new Date(),
-        Planned_study_date: new Date('2023-02-01T00:00:00.000Z'),
-      },
-      {
-        Full_name: 'Jane Doe',
-        Gender: 'Female',
+        Full_name: 'Direlisgn',
+        Gender: 'male',
         Office: 'Office B',
         // Advisor: 2, // Assuming the User_id exists in the Users entity
         Created_at: new Date(),
@@ -100,8 +100,8 @@ module.exports = async function () {
       },
       
       {
-        Full_name: 'Jane Doe',
-        Gender: 'Female',
+        Full_name: 'Grham',
+        Gender: 'male',
         Office: 'Office B',
         // Advisor: 2, // Assuming the User_id exists in the Users entity
         Created_at: new Date(),

@@ -1,0 +1,39 @@
+ <mvc:View
+	controllerName="project1.controller.Dash"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:grid="sap.ui.layout.cssgrid"><VBox alignItems="Center"  class="iconContainer">
+							    <!-- <VBox class="iconContainer"> -->
+								<core:Icon  visible="true"  src="sap-icon://color-fill" backgroundColor="{= ${CS} === 1 ? '#28a745' : '#6c757d'}" color="{= ${CS} === 1 ? '#28a745' : '#6c757d'}" class="iconSize" size="2rem" /> <!-- Apply icon size class -->
+								<VBox class="textOverlay">
+								<Text text="CS" class="textcolor" tooltip="CS"/>
+							</VBox>
+							</VBox>
+							<VBox alignItems="Center" class="iconContainer">
+								<core:Icon  src="sap-icon://color-fill" backgroundColor="{= ${AP} === 1 ? '#28a745' : '#6c757d'}" color="{= ${AP} === 1 ? '#28a745' : '#6c757d'}" class="iconSize" size="2rem" /> <!-- Apply icon size class -->
+								<VBox class="textOverlay">
+								<Text text="AP" class="textcolor" tooltip="AP"/>
+								</VBox>
+							</VBox>
+							<VBox alignItems="Center" class="iconContainer">
+							<!-- <VBox class="iconContainer"> -->
+								<core:Icon   src="sap-icon://color-fill" backgroundColor="{= ${DC} === 1 ? '#28a745' : '#6c757d'}" color="{= ${DC} === 1 ? '#28a745' : '#6c757d'}" class="iconSize" size="2rem" /> <!-- Apply icon size class -->
+								<VBox class="textOverlay">
+								<Text text="DC" class="textcolor" tooltip="DC"/>
+							</VBox>
+							</VBox>
+							<VBox alignItems="Center" class="iconContainer">
+							<!-- <VBox class="iconContainer"> -->
+								<core:Icon   src="sap-icon://color-fill" backgroundColor="{= ${FC} === 1 ? '#28a745' : '#6c757d'}"  color="{= ${FC} === 1 ? '#28a745' : '#6c757d'}" class="iconSize" size="2rem" /> <!-- Apply icon size class -->
+								<VBox class="textOverlay">
+								<Text text="FC" class="textcolor" tooltip="FC"/>
+							</VBox>
+							</VBox>
+							<VBox alignItems="Center" class="iconContainer">
+							<!-- <VBox class="iconContainer"> -->
+								<core:Icon  tooltip="LF" src="sap-icon://color-fill"  backgroundColor="{= ${LF} === 1 ? '#dc3545' : '#6c757d'}" color="{= ${LF} === 1 ? '#dc3545' : '#6c757d'}" class="iconSize" size="2rem" /> <!-- Apply icon size class -->
+								<VBox class="textOverlay">
+								<Text text="LF" class="textcolor" />
+							</VBox>
+							</VBox>		
+							</mvc:View>		

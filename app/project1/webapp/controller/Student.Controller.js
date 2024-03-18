@@ -16,6 +16,7 @@ sap.ui.define([
         return Controller.extend("project1.controller.Student", {
             
             onInit: function () {
+                // alert('helo gashu')
                
                 this._oTable = this.byId("table0");
                 this._createReadOnlyTemplates();
@@ -202,6 +203,30 @@ sap.ui.define([
                 // this.getView().byId("OpenDialog").open();
              },
              onOpenDetailDialog: function (oEvent) {
+                // const studentID = parseInt(that.byId("ID_edit2").getValue(), 10);
+                //   alert('i am modal')
+                  const token = sessionStorage.getItem('token')
+                  if(token){
+                  const studentID = 2; // Replace with your actual student ID
+
+fetch(Config.baseUrl + `StudentAppServices/StudentWithApps?id=${studentID}`, {
+    method: 'GET',
+    headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+    },
+})
+    .then(response => response.json())
+    .then(data => {
+        // Create a JSONModel and set the data to the model
+        var oModel = new JSONModel(data);
+        console.log(data, "=======", oModel);
+        this.getView().setModel(oModel, "Student_applications");
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
+                  }
                 var oSelectedRow = oEvent.getSource().getBindingContext("customModel").getObject();
 
                 // Create a new JSONModel with the values from the selected row
@@ -213,7 +238,6 @@ sap.ui.define([
                     Full_name_edit: oSelectedRow.Full_name,
                     ID_edit: oSelectedRow.ID,
                 });
-            
                 // Set the model for the dialog
                 this.getView().setModel(oModel, "editModel");
 
@@ -221,6 +245,8 @@ sap.ui.define([
                 var oDialog = this.getView().byId("studentDetailModal");
                 oDialog.setContentWidth("100%");
                 oDialog.setContentHeight("100%");
+
+                //  alert(oDialog)
 
                 this.getView().byId("studentDetailModal").open();
              },
@@ -499,6 +525,7 @@ sap.ui.define([
         },
         
 refreshModel: function (sModelName, sGroup){
+
             return new Promise((resolve,reject)=>{
                 this.makeChangesAndSubmit.call(this,resolve,reject,
                 sModelName,sGroup);
@@ -506,6 +533,7 @@ refreshModel: function (sModelName, sGroup){
             
         },
         makeChangesAndSubmit: function (resolve, reject, sModelName,sGroup){
+           
             const that = this;
             sModelName = "customModel";
             sGroup = "$auto";
@@ -530,6 +558,7 @@ refreshModel: function (sModelName, sGroup){
             
         },
         _createReadOnlyTemplates: function () {
+            // alert('gashu man')
             this.oReadOnlyTemplate = new sap.m.ColumnListItem({
             cells: [
                 new sap.m.Text({
@@ -562,8 +591,7 @@ refreshModel: function (sModelName, sGroup){
         });
     },
 
-    // test modal
-
+   
     onOpenAddDialog_app: function () {
         // alert('helo')
         var oDialog = this.getView().byId("OpenDialog_app");
@@ -597,7 +625,8 @@ refreshModel: function (sModelName, sGroup){
         waitForRendering.then(function() {
             // Access the elements after rendering
             const studentID = parseInt(that.byId("ID_edit2").getValue(), 10);
-            const Course_id =  1;//parseInt(this.byId("Course_id").getSelectedKey(), 10);
+            // const Course_id =  1;
+            const Course_id = parseInt(that.byId("Course_id").getSelectedKey(), 10);
             const User = 10;
             const Start_date = that.byId("Start_date").getValue();
             const Note = that.byId("Note").getValue();

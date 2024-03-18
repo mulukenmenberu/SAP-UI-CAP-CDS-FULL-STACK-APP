@@ -18,31 +18,28 @@
 			"key": "Dash",
 			"items": [
 				{
-					"title": "Students",
+					"title": "Leads",
 					"key": "student"
 				},
 				{
 					"title": "CRM",
-					"key": "user"
-				}
-				,	{
-					"title": "Register Lead",
-					"key": "member"
-				}
-				,
-				{
-					"title": "filter",
 					"key": "DynamicPageListReport"
 				},
 				{
-					"title": "Register Students",
-					"key": "Register"
+					"title": "CRM test2",
+					"key": "user"
+				}
+				,	{
+					"title": "Registration UI",
+					"key": "member"
 				}
 				,
+				
 				{
-					"title": "Test",
-					"key": "test"
+					"title": "Register Leads",
+					"key": "Register"
 				}
+			
 				
 			]
 		},

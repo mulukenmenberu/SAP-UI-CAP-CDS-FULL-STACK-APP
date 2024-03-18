@@ -169,3 +169,55 @@
 .smallLabel {
     font-size: 11px;
 }
+
+/* Define custom classes for different colors */
+.sapMBtn.sapMBtnAccept {
+    background-color: green; /* Change the background color for Emphasized type */
+    color: white; /* Change the text color */
+}
+
+.sapMBtn.Default {
+    background-color: grey; /* Change the background color for Default type */
+    color: white; /* Change the text color */
+}
+
+.iconContainer {
+    display: relative;
+	 margin-right: 0; /* Set margin-right to 0 */
+	 padding: 0;
+	 cursor:pointer;
+	 border-color: rgb(12, 12, 12);
+	 border: 1px;
+  }
+
+  .textOverlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white; 
+    font-size: 0.8rem;
+	cursor:pointer;
+	border-color: rgb(0, 0, 0);
+	border: 1px;
+	margin-top: auto;
+
+  }
+
+  .iconSize {
+    width: 2.4rem; /* Set icon width */
+    height: 1.8rem; /* Set icon height */
+	border-color: rgb(0, 0, 0);
+	border: 1px;
+	cursor:pointer;
+  }
+
+  .textcolor {
+	font-size: .8rem;
+	color: rgb(248, 243, 243);
+	font-weight: bold; /* Add bold text */
+	cursor:pointer;
+	border-color: rgb(233, 95, 95);
+	
+  }

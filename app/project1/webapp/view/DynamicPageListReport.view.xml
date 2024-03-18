@@ -119,6 +119,7 @@
 					items="{
 						path: '/Userrecord'
 					}"
+					
 				>
 					<columns>
                     	<Column minScreenWidth="Tablet" width="10rem" demandPopin="true">
@@ -151,7 +152,7 @@
 					</columns>
 					<items >
 						<ColumnListItem  vAlign="Middle" >
-							<cells >
+							<cells  >
                              <Link text="{StudentDBID}" press="onUserIdClick" />
                               <!-- <Text text="{StudentDBID}" /> -->
 								<ObjectIdentifier  title="{Name}" />
@@ -160,29 +161,46 @@
                                 <Text text="{MemberDate}" />
                                  <Text text="{country}" />
                                   <Text text="{office}" />   
-								 <Text text="{Count}" />                                 
-                               	<HBox class="vBoxContainer"  >  
-								<!-- <Button icon="sap-icon://color-fill" text="Add" color="{= ${CS} === 1 ? 'green' : 'grey'}" /> -->             
-									<VBox alignItems="Center" >
-									<core:Icon tooltip="CS" src="sap-icon://color-fill" color="{= ${CS} === 1 ? '#28a745' : '#6c757d'}" size="2rem" />
-									 <Label text="CS" class="smallLabel" />
-									</VBox>
-									<VBox alignItems="Center">
-									<core:Icon tooltip="AP" src="sap-icon://color-fill" color="{= ${AP} === 1 ? '#28a745' :  '#6c757d'}" size="2rem" />
-									<Label text="AP" class="smallLabel" />
-									</VBox>
-									<VBox alignItems="Center" >
-									<core:Icon tooltip="DC"  src="sap-icon://color-fill" color="{= ${DC} ===1 ? '#28a745'  : '#6c757d'}" size="2rem" />
-									<Label text="DC"  class="smallLabel"/>
-									</VBox>
-									<VBox alignItems="Center" >
-									<core:Icon tooltip="FC" src="sap-icon://color-fill" color="{= ${FC} ===1 ? '#28a745'  : '#6c757d'}" size="2rem" />
-									<Label text="FC" class="smallLabel" />
-									</VBox>
-									<VBox alignItems="Center" >
-									<core:Icon tooltip="LF"  src="sap-icon://color-fill" color="{= ${LF} === 1 ? '#dc3545'  : '#6c757d'}" size="2rem" />
-									<Label text="LF" class="smallLabel"/>
-									</VBox>
+								 <Text text="{Count}" />   
+									<HBox class="vBoxContainer" alignContent="Stretch">  
+
+										<!-- <Button text="CS" press="onpress_cs" type="{=(${CS} >= 1 ? 'Accept' : 'Default')}" />
+										<Button text="AP" press="onpress_cs" type="{=(${AP} >= 1 ? 'Accept' : 'Default')}" />
+										<Button text="DC" press="onpress_cs" type="{=(${DC} >= 1 ? 'Accept' : 'Default')}" />
+										<Button text="FC" press="onpress_cs" type="{=(${FC} >= 1 ? 'Accept' : 'Default')}" />
+										<Button text="LF" press="onpress_cs" type="{=(${LF} >= 1 ? 'Reject' : 'Default')}" /> -->
+
+
+         				    <VBox alignItems="Center"  class="iconContainer">
+								<core:Icon press="onpress_cs"  visible="true" hoverBackgroundColor="{= ${CS} === 1 ? '#005f28' : '#000000'}"   backgroundColor="{= ${CS} === 1 ? '#28a745' : '#6c757d'}"  class="iconSize"  /> <!-- Apply icon size class -->
+								<VBox class="textOverlay">
+								  <Text text="CS" class="textcolor" tooltip="CS"/>
+							   </VBox>
+							</VBox>
+							<VBox alignItems="Center" class="iconContainer">
+								<core:Icon press="onpress_AP"  hoverBackgroundColor="{= ${AP} === 1 ? '#005f28' : '#000000'}"  backgroundColor="{= ${AP} === 1 ? '#28a745' : '#6c757d'}" class="iconSize" /> <!-- Apply icon size class -->
+								<VBox class="textOverlay" >
+								   <Text text="AP"  class="textcolor" tooltip="AP"/>
+								</VBox>
+							</VBox>
+							<VBox alignItems="Center" class="iconContainer">
+								<core:Icon press="onpress_DC"   hoverBackgroundColor="{= ${DC} === 1 ? '#005f28' : '#000000'}" backgroundColor="{= ${DC} === 1 ? '#28a745' : '#6c757d'}" class="iconSize"  /> <!-- Apply icon size class -->
+								<VBox class="textOverlay">
+								  <Text text="DC" class="textcolor" tooltip="DC"/>
+							   </VBox>
+							</VBox>
+							<VBox alignItems="Center" class="iconContainer">
+								<core:Icon press="onpress_FC"  hoverBackgroundColor="{= ${FC} === 1 ? '#005f28' : '#000000'}" backgroundColor="{= ${FC} === 1 ? '#28a745' : '#6c757d'}"   class="iconSize" /> <!-- Apply icon size class -->
+								<VBox class="textOverlay" >
+								  <Text text="FC" class="textcolor" tooltip="FC"/>
+							    </VBox>
+						    </VBox>
+							<VBox alignItems="Center" class="iconContainer">
+								<core:Icon   press="onpress_LF"   hoverBackgroundColor="{= ${LF} === 1 ? '#701F28' : '#000000'}"  backgroundColor="{= ${LF} === 1 ? '#dc3545' : '#6c757d'}" class="iconSize"  /> <!-- Apply icon size class -->
+								<VBox class="textOverlay">
+								   <Text text="LF" class="textcolor" tooltip="LF" />
+							    </VBox>
+							</VBox>							 
 							</HBox>
 							</cells>
 						</ColumnListItem>
