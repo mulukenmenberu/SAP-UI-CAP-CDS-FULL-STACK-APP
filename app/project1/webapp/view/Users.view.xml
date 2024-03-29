@@ -7,10 +7,7 @@
   xmlns="sap.m"
   xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
   height="100%">
- <App id="SplitAppDemoo"
-		>
-   
-        
+ <App id="SplitAppDemoo">       
 			<Page>
 		<Table id="studentsTables" items="{StudentServices>/Students}" >
         <headerToolbar>
@@ -31,8 +28,7 @@
             </Column>
             <Column>
               <Text text="Full Name" />
-            </Column>
-    
+            </Column>    
             <Column>
               <Text text="Office" />
             </Column>
@@ -48,7 +44,6 @@
           </columns>
           <items>
             <!-- <ColumnListItem> -->
-
             <ColumnListItem type="Active" id="item0">
               <cells>
                 <Text text="{StudentServices>Full_name}" />
@@ -57,13 +52,9 @@
                 <Button id="id6" icon="sap-icon://edit" press="onSelect" />
                 <!-- Add more cells based on your entity properties -->
               </cells>
-            </ColumnListItem>
-            
+            </ColumnListItem>            
           </items>
         </Table>              
-	</Page>				
-		
-		
-	
+	</Page>		
 	</App>     
 </mvc:View>

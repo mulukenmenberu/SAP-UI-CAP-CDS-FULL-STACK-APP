@@ -11,6 +11,5 @@
 					fragmentName="project1.view.NavigationList"
 					type="XML" />
 		</NavigationList>        
-	</fixedItem>  
-	
+	</fixedItem>	
 </SideNavigation>

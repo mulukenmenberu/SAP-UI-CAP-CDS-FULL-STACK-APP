@@ -38,8 +38,8 @@
             </Panel>
               <Panel id="otpPanel" headerText="Verify OTP" width="500px" height="300px" visible="false">
               <VBox class="sapUiSmallMargin">
-                         <Input
-                         visible="false"
+                  <Input
+                  visible="false"
                   type="Email"
                   value="{/email}"
                   width="100%"

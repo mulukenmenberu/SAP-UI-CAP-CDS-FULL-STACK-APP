@@ -3,13 +3,11 @@
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
-
 	-webkit-box-direction: normal;
 	-webkit-box-orient: vertical;
 	-webkit-flex-direction: column;
 	-ms-flex-direction: column;
 	flex-direction: column;
-
 	max-width: 15rem;
 }
 .redButton {
@@ -20,15 +18,12 @@
 .fullmodal{
 	width:'100%';
 }
-
 .customShellBarWithMenu .sapMSBMenuBtn {
     display: inline-block;
 }
-
 .customShellBarWithoutMenu .sapMSBMenuBtn {
     display: none;
 }
-
 .customShellBar {
     display: inline-block;
 }
@@ -40,7 +35,6 @@
 	position: relative;
 	margin-right: 0 !important;
 	padding: 0 !important;
-
   }
   .crmStatusNotOk {
 	width: 25px;
@@ -49,7 +43,6 @@
 	margin: 5px;
 	margin-right: 0 !important;
 	padding: 0 !important;
-
 	position: relative;
   }
   .crmDefault {
@@ -59,14 +52,12 @@
 	margin: 5px;
 	margin-right: 0 !important;
 	padding: 0 !important;
-
 	position: relative;
   }
   .overlayText {
 	position: absolute;
 	top: 50%;
 	left: 20%;
-
 	color: white;
 	font-weight: bold;
 	font-size: 12px; /* Adjust the font size as needed */
@@ -76,14 +67,12 @@
 	text-align: center;
 	line-height: 25px; /* Adjust the line height to match the height of .hasApps */
 	white-space: nowrap; /* Prevent text from wrapping to a new line */
-  }
-  
+  }  
   .vBoxContainer{
 	display: flex;
 	justify-content: flex-start;
 	margin-right: 0 !important;
     padding: 0 !important;
-
   }
   .labelSpacing{
 	margin-right: 1rem; /* Adjust the spacing as needed */
@@ -108,7 +97,6 @@
 .table {
 	border-radius: 15px; /* Adjust the border radius as needed */
     background-color: rgb(123, 123, 123);
-
     width: 90%; /* Set width to 90% */
     max-width: 1200px; /* Optional: set a maximum width */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -118,11 +106,9 @@
 	border-radius: 15px; /* Adjust the border radius as needed */
     background-color: lightblue;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
 }
 .alignItems{
 	justify-content: space-evenly;
-
 }
 .blue {
 	width: 25px;
@@ -148,7 +134,6 @@
 	margin-right: 0 !important;
 	padding: 0 !important;
 }
-
 .red {
     width: 25px;
 	height: 25px;
@@ -165,22 +150,18 @@
 	margin-right: 0 !important;
 	padding: 0 !important;
 }
-
 .smallLabel {
     font-size: 11px;
 }
-
 /* Define custom classes for different colors */
 .sapMBtn.sapMBtnAccept {
     background-color: green; /* Change the background color for Emphasized type */
     color: white; /* Change the text color */
 }
-
 .sapMBtn.Default {
     background-color: grey; /* Change the background color for Default type */
     color: white; /* Change the text color */
 }
-
 .iconContainer {
     display: relative;
 	 margin-right: 0; /* Set margin-right to 0 */
@@ -189,7 +170,6 @@
 	 border-color: rgb(12, 12, 12);
 	 border: 1px;
   }
-
   .textOverlay {
     position: absolute;
     top: 50%;
@@ -199,25 +179,396 @@
     color: white; 
     font-size: 0.8rem;
 	cursor:pointer;
-	border-color: rgb(0, 0, 0);
-	border: 1px;
+	border-color: blue;
+	border: 5px;
 	margin-top: auto;
 
   }
-
   .iconSize {
-    width: 2.4rem; /* Set icon width */
+    width: 6rem; /* Set icon width */
     height: 1.8rem; /* Set icon height */
-	border-color: rgb(0, 0, 0);
-	border: 1px;
+	border-color: blue;
+	border: 5px;
 	cursor:pointer;
+	flex: 1;
   }
-
   .textcolor {
 	font-size: .8rem;
 	color: rgb(248, 243, 243);
 	font-weight: bold; /* Add bold text */
-	cursor:pointer;
+	/* cursor:pointer; */
 	border-color: rgb(233, 95, 95);
-	
+	border-color: blue;
+	border: 5px;	
   }
+  /* PART 3: the style common to all control instances */
+		/* Could also be added inline to the control HTML, or separated out into a CSS file */
+		
+		.rpb {                  /* style the CSS class that has been written by the renderer method */
+			padding: 0px;
+			text-align: center;
+			text-align: center;
+			vertical-align: middle;
+		}		
+		/* Red Color */
+.redButton {
+	cursor:pointer;
+	border-color: rgb(10, 10, 10);
+    background-color: red;
+    font-size: .8rem;
+	color: rgb(248, 243, 243);
+	font-weight: bold; /* Add bold text */
+	width: 2.4rem; /* Set icon width */
+    height: 2rem; /* Set icon height */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 150%; /* Adjust the height of tton as needed */
+}
+/* Green Color */
+.greenButton {
+	cursor:pointer;
+	border-color: rgb(10, 10, 10);
+    background-color:green;
+	font-size: .8rem;
+	color: rgb(248, 243, 243);
+	font-weight: bold; /* Add bold text */
+	width: 2.4rem; /* Set icon width */
+    height: 2rem; /* Set icon height */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 150%; /* Adjust the height of e height of the button as needed */
+}
+/* Grey Color */
+.greyButton {
+	cursor:pointer;
+	border-color: rgb(10, 10, 10);
+    background-color: grey;
+    font-size: .8rem;
+	color: rgb(248, 243, 243);
+	font-weight: bold; /* Add bold text */
+	width: 2.4rem; /* Set icon width */
+    height: 2rem; /* Set icon height */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 150%; /* Adjust the height of the button as needed */	
+}
+/* Define the hover color */
+.hoverColor:hover {
+    background-color: #c7da1d;
+	color: white;
+    /* Add any other styles for the hover effect */
+}
+.blueButton {
+	cursor:pointer;
+	border-color: blue;
+    background-color: #000080;
+    font-size: .8rem;
+	color: rgb(248, 243, 243);
+	font-weight: bold; /* Add bold text */
+	width: 5rem; /* Set icon width */
+    height: 2rem; /* Set icon height */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 150%; /* Adjust the height of the button as needed */
+}
+ .defaultButton{
+	cursor:pointer;
+	border-color: white;
+    background-color: lightgrey;
+    font-size: .8rem;
+	color: black;
+	font-weight: bold; /* Add bold text */
+	width: 5rem; /* Set icon width */
+    height: 2rem; /* Set icon height */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 150%; /* Adjust the height of the button as needed */
+ }
+ .callIcon {
+	cursor: pointer;
+	background-color: #f8f3f3; 
+	border: 2px solid #fffefe; 
+    border-radius: 10px; 
+    margin-right: 2.5rem; /* Adjust as needed */
+	margin-top: 100px;
+	margin-bottom: 0px;
+	font-size: 14px; /* Font size */
+	width: 3rem;
+    height: 3rem;
+	display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+.country {
+    background-color: hwb(195 82% 4%);
+    border: 2px solid hwb(195 80% 3%);
+    color: rgb(67, 111, 193);
+    border-radius: 20px;
+    margin-right: 1.5rem; /* Adjust as needed */
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 24px; /* Font size */
+    width: 3.5rem;
+    height: 2rem;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+	font-weight: bold;
+}
+.callIconc2 {
+    background-color: #d48517;
+    border: 2px solid #f08418;
+    color: white;
+    border-radius: 20px;
+    margin-right: 1.5rem; /* Adjust as needed */
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 24px; /* Font size */
+    width: 8rem;
+    height: 2rem;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+.spaceing {
+    margin-right: 0.5rem; /* Adjust as needed */
+}
+.callIconc3 {
+    background-color: transparent;
+    /* border: 2px solid #ccc; */
+    color: white; /* Ensure the color property is retained */
+    /* border-radius: 20px; */
+    margin-right: 15rem; /* Adjust as needed */
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 14px; /* Font size */
+    width: 10rem; /* Adjust width as needed */
+    height: auto; /* Adjust to fit content */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+}
+.callIconc3 .sapMText {
+    margin-bottom: 5px; /* Adjust space between text and icon */
+}
+.callIconc4 {
+	background-color:  rgb(232, 241, 245);
+    border: 2px solid rgb(243, 245, 246);
+    color: rgb(77, 77, 184);
+    border-radius: 10px;
+    margin-right: 1.5rem; /* Adjust as needed */
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 16px; /* Font size */
+    width: 8rem;
+    height: 2rem;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+	font-weight: bolder;
+}
+.panelWithCustomStyle {
+    width: 15rem;
+    height: 3rem;
+    background-color: #E69A17; /* Specify your desired background color */
+}
+.flexBoxWithMargin {
+    margin: 0.5rem;
+	margin-top: 0;
+	background-color: #E69A17; 	
+}
+.iconContainer2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.textAndIconContainernew {
+    display: flex;
+	border: 5px solid #000080;
+	background-color: #000080;
+	border-right: #ccc;
+    align-items: center;
+    justify-content: center;
+	width: 20rem;
+}
+.textAndIconContainercip {
+    display: flex;
+	border: 5px solid #000080;
+	background-color: #000080;
+	border-right: #ccc;
+	border-left: #ccc;
+    align-items: center;
+    justify-content: center;
+	width: 20rem;
+}
+.textAndIconContainerap {	
+    display: flex;
+	border: 5px solid #000080;
+	background-color: #000080;
+	border-left: #ccc;
+    align-items: center;
+    justify-content: center;
+	width: 20rem;
+	height: 2.5rem;
+}
+.textcolor2 {
+	color: white;
+	font-weight: bold;
+    /* Your text color styles */
+}
+.textcolor3 {
+	color: black;
+	font-weight: bold;
+    /* Your text color styles */
+}
+.iconSize2 {
+    /* Your icon size styles */
+	width: 8rem;
+    height: 2rem;
+}
+.textAndIconContainernew .iconMargin {
+	cursor: pointer;
+    margin-left: 20px; /* Adjust the margin as needed */
+}
+.textAndIconContainercip .iconMargin {
+	cursor: pointer;
+    margin-left: 20px; /* Adjust the margin as needed */
+}
+.textAndIconContainerap .iconMargin {
+	cursor: pointer;
+    margin-left: 20px; /* Adjust the margin as needed */
+}
+.size3{
+	cursor: pointer;
+}
+.sapMSegB.vsdSetting {
+	margin-bottom: 1rem;
+}
+.customBackgroundColor {
+    background-color: transparent !important;
+}
+.customBackgroundColor[style*="background-color:red"] {
+    background-color: brown !important;
+}
+.customBackgroundColor[style*="background-color:green"] {
+    background-color: green !important;
+}
+.customBackgroundColor[style*="background-color:grey"] {
+    background-color: grey !important;
+}
+.redText {
+	background-color: rgb(200, 24, 24);
+    border: 2px solid rgb(200, 24, 24);
+    color: white;
+    border-radius: 20px;
+    margin-right: 1.5rem; /* Adjust as needed */
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 24px; /* Font size */
+    width: 8rem;
+    height: 2rem;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+.greenText {
+	background-color: #d48517;
+    border: 2px solid #d48517;
+    color: white;
+    border-radius: 20px;
+    margin-right: 1.5rem; /* Adjust as needed */
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 16px; /* Font size */
+    width: 8rem;
+    height: 2rem;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+.greyText {
+	background-color: rgb(247, 239, 239);
+    border: 2px solid grey;
+    color: black;
+    border-radius: 20px;
+    margin-right: 1.5rem; /* Adjust as needed */
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 24px; /* Font size */
+    width: 8rem;
+    height: 2rem;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+.flexBoxContainer {
+    display: flex;
+    align-items: center;
+    justify-content: start; /* Adjust as needed */
+}
+/* Adjust the margin-right value to reduce the space */
+.customMemberDateIcon {
+    margin-right: 5px; /* Adjust as needed */
+}
+.std_lvl{
+	background-color:#faeddb; 	
+    border-radius: 10px; 
+    margin-right: 2.5rem; /* Adjust as needed */
+	margin-top: 30px;
+	margin-bottom: 0px;
+	font-size: 14px; /* Font size */
+	color: red;
+	width: 6rem;
+    height: 2rem;
+	font-weight: bold;
+	display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+.std_name{	
+    border-radius: 10px; 
+    margin-right: 2.5rem; /* Adjust as needed */	
+	font-size: 24px; /* Font size */
+	font-weight: bold;
+}
+.std_id{	
+    margin-right: 2.5rem; /* Adjust as needed */	
+	font-size: 24px; /* Font size */
+	margin-top: 10px;
+	text-decoration: underline;	
+}
+.boldText{
+	font-weight: bold;
+	font-size: 24px;
+}
+.btn_arrow {
+    background-color: rgb(6, 6, 92);
+    border: 2px solid rgb(6, 6, 92);
+    color: white;
+    /* border-radius: 20px; */
+    margin-right: 1.5rem; /* Adjust as needed */
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 24px; /* Font size */
+    width: 20rem;
+    height: 3rem;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+.textcolor_arrow {
+    color: #000080;
+        cursor: pointer;
+        margin-left: 20px; /* Adjust the margin as needed */
+    }
+
+
+
+
+

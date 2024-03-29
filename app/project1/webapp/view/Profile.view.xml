@@ -7,5 +7,4 @@
     <Text text="This is the profile page content"/>
   </Page>
    <Button text="Click profile" press="onButtonClick" />
-
 </mvc:View>

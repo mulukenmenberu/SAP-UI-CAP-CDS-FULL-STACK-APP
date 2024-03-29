@@ -12,7 +12,6 @@
 	background: lightblue;
 	border-radius: 10px;
 }
-
 .sapMFlexBox.sapMFlexBoxWrapNoWrap.sapMVBox .demoInnerBox .sapMTitle,
 .sapMFlexBox.sapMFlexBoxWrapNoWrap.sapMVBox .demoInnerBox .sapMText {
 	color: #333333;

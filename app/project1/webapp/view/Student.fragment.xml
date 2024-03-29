@@ -27,14 +27,12 @@
                                                 <OverflowToolbarLayoutData priority="NeverOverflow" />
                                             </layoutData>
                                         </Button>
-
                                         <Button id="saveButton" text="Save" type="Emphasized" visible="false" enabled="true" press="onSave" />
                                         <Button id="editModeButton" visible="true" icon="sap-icon://edit" tooltip="Edit" press="onEditMode">
                                             <layoutData>
                                                 <OverflowToolbarLayoutData priority="NeverOverflow" />
                                             </layoutData>
                                         </Button>
-
                                     </content>
                                     <dependents>
                                         <Dialog id="OpenDialog" title="Create New Student">
@@ -52,20 +50,19 @@
                                                     <Input id="Office"  />
                                                     <Label text="Advisor" />
                                                     <ComboBox
-id="Advisor_ID" 
-    items="{
-      path: 'userModel>/value',
-      sorter: { path: 'Full_name' }
-    }">
-    <core:Item key="{userModel>ID}" text="{userModel>Full_name}" />
-</ComboBox>
+                                                        id="Advisor_ID" 
+                                                            items="{
+                                                            path: 'userModel>/value',
+                                                            sorter: { path: 'Full_name' }
+                                                            }">
+                                                            <core:Item key="{userModel>ID}" text="{userModel>Full_name}" />
+                                                        </ComboBox>
                                                     <!-- <Input id="Advisor_ID"  /> -->
                                                     <Label text="Gender" />
                                                     <Input id="Gender"  />
                                                     <Label text="Planned Study Date" />
                                                     <!-- <Input type="date" id="Planned_study_date"  /> -->
                                                     <DatePicker id="Planned_study_date" value="{/Planned_study_date}" />
-
                                                 </form:content>
                                             </form:SimpleForm>
                                         </Dialog>
@@ -79,7 +76,6 @@ id="Advisor_ID"
         <Button id="confirmCreateDetail" text="Create" press=".onUpdate" type="Emphasized" />
         <Button id="cancelCreateDetail" text="Cancel" press="onCancelDialog" type="Transparent" />
     </buttons>
-
     <!-- Use IconTabBar to organize content into tabs -->
     <IconTabBar
         id="iconTabBar"
@@ -123,7 +119,6 @@ id="Advisor_ID"
                     <core:Item key="{userModel>ID}" text="{userModel>Full_name}" />
                 </ComboBox>
             </VBox>
-
             <!-- Column 2 -->
             <VBox>
                 <Label text="Office" />
@@ -145,26 +140,24 @@ id="Advisor_ID"
                         <Input id="Full_name_editdasd" value="{editModel>/Full_name_edit}" />
                     </form:content>
                 </form:SimpleForm>
-            </IconTabFilter>
-                  <IconTabFilter
-                id="tab3"
-                text="Communications">
-                <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
-                    <form:content>
-                        <Label text="Full Name" />
-                        <Input id="Full_namexdas_edit" value="{editModel>/Full_name_edit}" />
-                    </form:content>
-                </form:SimpleForm>
-            </IconTabFilter>
-            <!-- Additional Tab Filters can be added here -->
+                        </IconTabFilter>
+                            <IconTabFilter
+                            id="tab3"
+                            text="Communications">
+                            <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+                                <form:content>
+                                    <Label text="Full Name" />
+                                    <Input id="Full_namexdas_edit" value="{editModel>/Full_name_edit}" />
+                                </form:content>
+                            </form:SimpleForm>
+                        </IconTabFilter>
+                            <!-- Additional Tab Filters can be added here -->
+                        </items>
+                    </IconTabBar>
+                </Dialog>
 
-        </items>
-    </IconTabBar>
-</Dialog>
-
-                                    </dependents>
-
-                                </OverflowToolbar>
+                    </dependents>
+                        </OverflowToolbar>
                             </headerToolbar>
                             <items>
                                 <ColumnListItem type="Active" id="item0">

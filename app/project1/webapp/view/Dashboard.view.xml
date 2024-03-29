@@ -50,8 +50,7 @@
 						<RadioButton id="RB1-4" text="popover" custom:splitAppMode="PopoverMode" />
 					</RadioButtonGroup>
 				</VBox>
-			</Page>
-            
+			</Page>            
 			<Page
 				id="detail2"
 				title="Detail 3 Page"
@@ -61,19 +60,8 @@
 				<Label text="This is Detail Page3" />
 				 <VBox class="sapUiTinyMargin">
 						<mvc:XMLView viewName="project1.view.Table"/>
-				 </VBox>
-				<!-- <Input/>
-				<Label text="Label 2" />
-				<Input/>
-				<Label text="Label 3" />
-				<Input/>
-				<Label text="Label 4" />
-				<Input/>
-				<Label text="Label 5" />
-				<Input/> -->
-					
+				 </VBox>					
 			</Page>
-
 		</detailPages>
 		<masterPages>
             <Page
@@ -95,11 +83,9 @@
 						<StandardListItem title="Students" type="Active" custom:to="detail" />
 						<StandardListItem title="Applications" type="Active" custom:to="detailDetail" />
 						<StandardListItem title="Users" type="Active" custom:to="detail2" />
-					</items>
-                    
+					</items>                    
 				</List>
-			</Page>
-      
+			</Page>      
 		</masterPages>
 	</SplitApp>
 </mvc:View>

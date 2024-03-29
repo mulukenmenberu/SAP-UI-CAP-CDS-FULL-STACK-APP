@@ -16,42 +16,42 @@
                      </content>   
                     </OverflowToolbar>    
                     </headerToolbar>     
-                                       <dependents>
-                                        <Dialog id="OpenDialog" title="Create New Application">
-                                            <buttons>
-                                                <Button id="confirmCreate" text="Create" press=".onCreate" type="Emphasized" />
-                                                <Button id="cancelCreate" text="Cancel" press="onCancelDialog" type="Transparent" />
-                                            </buttons>
-                                            <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
-                                                <form:content>
-                                                    <!-- <Label text="Student DB ID" required="true" />
-                                                    <Input id="ID" change="onNameChange" /> -->
-                                                                                  <Label text="student_ID" />
-                                                    <ComboBox
-                                                    id="student_ID" 
-                                                        items="{
-                                                        path: 'mainService>/Students',
-                                                        sorter: { path: 'ID' }
-                                                        }">
-                                                        <core:Item key="{mainService>ID}" text="{mainService>Full_name}" />
-                                                    </ComboBox>
-                                                    <Label text="Course_id" />
-                                                    <Input id="Course_id" />
-                                                    <Label text="Start_date" />
-                                                    <Input id="Start_date"  />
-                                                    <Label text="Note" />
-                                                 
-                                                    <Input id="Note"  />
-                                                    <Label text="Final_choice" />
-                                                    <Input id="Final_choice"  />
-                                                    <Label text="Is_deferred" />
-                                                    <Input  id="Is_deferred"  />
-                                                 <Label text="Application_status" />
-                                                    <Input  id="Application_status"  />
-                                                </form:content>
-                                            </form:SimpleForm>
-                                        </Dialog>
-                                    </dependents>                                          
+                    <dependents>
+                    <Dialog id="OpenDialog" title="Create New Application">
+                        <buttons>
+                            <Button id="confirmCreate" text="Create" press=".onCreate" type="Emphasized" />
+                            <Button id="cancelCreate" text="Cancel" press="onCancelDialog" type="Transparent" />
+                        </buttons>
+                        <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+                            <form:content>
+                                <!-- <Label text="Student DB ID" required="true" />
+                                <Input id="ID" change="onNameChange" /> -->
+                                                              <Label text="student_ID" />
+                                <ComboBox
+                                id="student_ID" 
+                                    items="{
+                                    path: 'mainService>/Students',
+                                    sorter: { path: 'ID' }
+                                    }">
+                                    <core:Item key="{mainService>ID}" text="{mainService>Full_name}" />
+                                </ComboBox>
+                                <Label text="Course_id" />
+                                <Input id="Course_id" />
+                                <Label text="Start_date" />
+                                <Input id="Start_date"  />
+                                <Label text="Note" />
+                              
+                                <Input id="Note"  />
+                                <Label text="Final_choice" />
+                                <Input id="Final_choice"  />
+                                <Label text="Is_deferred" />
+                                <Input  id="Is_deferred"  />
+                              <Label text="Application_status" />
+                                <Input  id="Application_status"  />
+                            </form:content>
+                        </form:SimpleForm>
+                    </Dialog>
+                </dependents>                                          
           <columns>
             <Column>
               <Text text="Course_id" />
@@ -85,7 +85,6 @@
           </columns>
           <items>
             <!-- <ColumnListItem> -->
-
             <ColumnListItem type="Active" id="item0">
               <cells>
                 <Text text="{Student_applications>Course_id}" />
@@ -96,8 +95,7 @@
                  <Text text="{Student_applications>Application_status}" />
                 <Button id="id6" icon="sap-icon://edit" press="onUpdate" /> <Button id="id7" icon="sap-icon://delete" tooltip="Delete" press="onDelete" />
              </cells>
-            </ColumnListItem>
-            
+            </ColumnListItem>            
           </items>
         </Table>  
 </mvc:View>

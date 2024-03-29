@@ -3,7 +3,6 @@
   xmlns="sap.m"
   xmlns:f="sap.f"
   controllerName="project1.controller.Member">
-
   <HBox>
     <!-- First Card -->
     <f:Card class="sapUiTinyMarginBegin sapUiTinyMarginTop sapUiTinyMarginBottom">
@@ -14,14 +13,11 @@
         </VBox>
       </f:content>
     </f:Card>
-
     <!-- Second Card -->
     <f:Card class="sapUiTinyMarginBegin sapUiTinyMarginTop sapUiTinyMarginBottom">
-      <f:content>
-      
+      <f:content>      
           <Title text="Card 2" level="H3" />
-          <!-- Add your content for the second card here -->
-       
+          <!-- Add your content for the second card here -->       
       </f:content>
     </f:Card>
   </HBox>

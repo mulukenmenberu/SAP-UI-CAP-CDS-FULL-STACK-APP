@@ -42,7 +42,5 @@ function (MessageToast, Controller, JSONModel, require) {
             MessageToast.show("The comparison micro chart is pressed.");
         }
     });
-
     return PageController;
-
 });

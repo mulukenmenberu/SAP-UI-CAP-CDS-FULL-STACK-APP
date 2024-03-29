@@ -37,13 +37,11 @@ sap.ui.define([
 
         return Controller.extend("project1.controller.Users", {
             
-            onInit: function () {
-             
+            onInit: function () {            
                
                 this._oTable = this.byId("studentsTables");
                 this._createReadOnlyTemplates();
                 this.rebindTable(this.oReadOnlyTemplate, "Navigation");
-
                 const token = sessionStorage.getItem('token')
                 if(token){
                     fetch(Config.baseUrl+"odata/v4/users/Users", {
@@ -51,8 +49,7 @@ sap.ui.define([
                           'Authorization': `Bearer ${token}`,
                           'Content-Type': 'application/json',
                         },
-                      })
-                    
+                      })                    
                     .then(response => response.json())
                     .then(data => {
                         // Create a JSONModel and set the data to the model
@@ -85,9 +82,7 @@ sap.ui.define([
                     ID_edit:"",
 
                 });
-                this.getView().setModel(oModel, "editModel");
-
-                
+                this.getView().setModel(oModel, "editModel");                
                 this.oEditableTemplate = new ColumnListItem({
                     cells: [
                         new Input({
@@ -119,7 +114,6 @@ sap.ui.define([
                  
                     ]
                 });
-
             },
             onSearch: function (oEvent) {
                 var oTable = this.getView().byId("studentsTables");
@@ -142,8 +136,7 @@ sap.ui.define([
                 }
             },
             
-            onLiveSearch: function (oEvent) {
-               
+            onLiveSearch: function (oEvent) {               
                 var oTable = this.getView().byId("studentsTables");
                 var oBinding = oTable.getBinding("items");
                 var sQuery = oEvent.getParameter("newValue");
@@ -161,20 +154,15 @@ sap.ui.define([
                     // If the search field is empty, remove the filter
                     oBinding.filter([]);
                 }
-            },
-            
-          
+            },                     
               onLogout: function () {
                 this.getOwnerComponent().getRouter().navTo("RouteLogin"); // not working 
-              },
-          
+              },          
               onToggleMenu: function () {
                 this.byId("navContainer").to(this.byId("menuPage"), "show");
-              },
-          
+              },          
               onMenuItemPress: function (oEvent) {
-                MessageToast.show("Menu Item Pressed: " + oEvent.getSource().getTitle());
-          
+                MessageToast.show("Menu Item Pressed: " + oEvent.getSource().getTitle());          
                 this.byId("navContainer").back();
               },
             onOpenAddDialog: function () {
@@ -186,7 +174,6 @@ sap.ui.define([
              },
              onOpenDetailDialog: function (oEvent) {
                 var oSelectedRow = oEvent.getSource().getBindingContext("customModel").getObject();
-
                 // Create a new JSONModel with the values from the selected row
                 var oModel = new JSONModel({
                     Planned_study_date_edit: oSelectedRow.Planned_study_date,
@@ -196,21 +183,16 @@ sap.ui.define([
                     Full_name_edit: oSelectedRow.Full_name,
                     ID_edit: oSelectedRow.ID,
                 });
-            
-                // Set the model for the dialog
+               // Set the model for the dialog
                 this.getView().setModel(oModel, "editModel");
-
-
                 var oDialog = this.getView().byId("studentDetailModal");
                 oDialog.setContentWidth("100%");
                 oDialog.setContentHeight("100%");
-
                 this.getView().byId("studentDetailModal").open();
              },
              onCancelDialog: function (oEvent) {
                 oEvent.getSource().getParent().close();
              },
-
            onCreate: function () {
             const idInput = this.byId("ID");
             if (idInput) {
@@ -219,7 +201,6 @@ sap.ui.define([
             } else {
                 console.error("Element with 'ID' not found.");
             }
-
             const idInputad = this.byId("ID");
             if (idInputad) {
                 const idValued = idInputad.getValue();
@@ -235,7 +216,6 @@ const formattedDate = plannedStudyDate.toISOString().split('T')[0];
     if (oSo !== "") {
         try {
             const endpoint = Config.baseUrl + "StudentServices/Students";
-
             // Assuming you have the createData object defined
             const createData = {
                 "ID": parseInt(this.byId("ID").getValue(), 10), 
@@ -246,7 +226,6 @@ const formattedDate = plannedStudyDate.toISOString().split('T')[0];
                 "Created_at": new Date(),
                 "Planned_study_date": formattedDate,
             };
-
             // Send the POST request
             fetch(endpoint, {
                 method: 'POST',

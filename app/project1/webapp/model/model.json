@@ -1,10 +1,10 @@
 {
 	"Userrecord": [{
 		"StudentDBID": "1239102",
-		"Name": "gashaw",
+		"Name": "gashaw taye",
 		"Sex": "male",
-		"MemberDate": "2022-00-00",
-		"country":"country 1",
+		"MemberDate": "03/26/2024",
+		"country":"CA",
 		"office":"office 1",
 		"Count":1,
 		"CS":1,
@@ -12,14 +12,15 @@
 		"DC":1,
 		"FC":1,
 		"LF":1,
+		"study_lvl":"Msc",
 		"color": "red",
 		"App_type": "Univ"
 	},  {
 		"StudentDBID": "1239106",
-		"Name": "minale",
+		"Name": "Minale Dilu",
 		"Sex": "male",
-		"MemberDate": "2022-00-00",
-		"country":"country 1",
+		"MemberDate": "12/01/2022",
+		"country":"CA",
 		"office":"office 2",
 		"Count":1,
 		"CS":1,
@@ -27,14 +28,15 @@
 		"DC":1,
 		"FC":1,
 		"LF":1,
+		"study_lvl":"Doctorate",
 		"color": "green",
 		"App_type": "Univ"
 	},  {
 		"StudentDBID": "1239109",
-		"Name": "belachew",
+		"Name": "Belachew Yazachew",
 		"Sex": "male",
-		"MemberDate": "0000-00-00",
-		"country":"country 1",
+		"MemberDate": "13/02/2023",
+		"country":"CA",
 		"office":"office 2",
 		"Count":2,
 		"CS":1,
@@ -42,13 +44,14 @@
 		"DC":1,
 		"FC":1,
 		"LF":0,
+		"study_lvl":"Doctorate",
 		"App_type": "Univ"
 	}, {
 		"StudentDBID": "1239112",
-		"Name": "gemechu",
+		"Name": "Gemechu Gemechu",
 		"Sex": "male",
-		"MemberDate": "2022-00-00",
-		"country":"country 2",
+		"MemberDate": "12/01/2022",
+		"country":"AU",
 		"office":"office 3",
 		"Count":7,
 		"CS":1,
@@ -56,13 +59,14 @@
 		"DC":1,
 		"FC":0,
 		"LF":0,
+		"study_lvl":"Msc",
 		"App_type": "Univ"
 	}, {
 		"StudentDBID": "1239113",
-		"Name": "zinabu",
+		"Name": "Zinabu Belay",
 		"Sex": "male",
-		"MemberDate": "2022-00-00",
-		"country":"country 2",
+		"MemberDate": "12/01/2022",
+		"country":"AU",
 		"office":"office 3",
 		"Count":7,
 		"CS":1,
@@ -70,13 +74,14 @@
 		"DC":1,
 		"FC":1,
 		"LF":1,
+		"study_lvl":"Degree",
 		"App_type": "Univ"
 	}, {
 		"StudentDBID": "1239114",
-		"Name": "megbaru",
+		"Name": "Megbaru Megby",
 		"Sex": "male",
-		"MemberDate": "0000-00-00",
-		"country":"country 2",
+		"MemberDate": "13/02/2023",
+		"country":"AU",
 		"office":"office 3",
 		"Count":2,
 		"CS":1,
@@ -84,13 +89,14 @@
 		"DC":1,
 		"FC":0,
 		"LF":0,
+		"study_lvl":"Doctorate",
 		"App_type": "Univ"
 	},  {
 		"StudentDBID": "1239117",
-		"Name": "belew",
+		"Name": "Belew Addis",
 		"Sex": "male",
-		"MemberDate": "2022-00-00",
-		"country":"country 2",
+		"MemberDate": "12/01/2022",
+		"country":"AU",
 		"office":"office 4",
 		"Count":3,
 		"CS":1,
@@ -98,13 +104,14 @@
 		"DC":0,
 		"FC":0,
 		"LF":0,
+		"study_lvl":"Doctorate",
 		"App_type": "Univ"
 	}, {
 		"StudentDBID": "1239118",
-		"Name": "setie",
+		"Name": "Setie Setargachew",
 		"Sex": "male",
-		"MemberDate": "2022-00-00",
-		"country":"country 2",
+		"MemberDate": "12/01/2022",
+		"country":"AU",
 		"office":"office 4",
 		"Count":6,
 		"CS":1,
@@ -112,13 +119,14 @@
 		"DC":1,
 		"FC":1,
 		"LF":0,
+		"study_lvl":"Msc",
 		"App_type": "Univ"
 	}, {
 		"StudentDBID": "473221",
-		"Name": "Abebe",
+		"Name": "Abebe Mulu",
 		"Sex": "male",
-		"MemberDate": "2022-00-00",
-		"country":"country 2",
+		"MemberDate": "12/01/2022",
+		"country":"AU",
 		"office":"office 4",
 		"Count":5,
 		"CS":1,
@@ -126,13 +134,14 @@
 		"DC":1,
 		"FC":1,
 		"LF":1,
+		"study_lvl":"Doctorate",
 		"App_type": "Univ"
 	},  {
 		"StudentDBID": "473223",
-		"Name": "mersha",
+		"Name": "Mersha Dibu",
 		"Sex": "male",
-		"MemberDate": "0000-00-00",
-		"country":"country 2",
+		"MemberDate": "13/02/2023",
+		"country":"AU",
 		"office":"office 5",
 		"Count":4,
 		"CS":1,
@@ -140,13 +149,14 @@
 		"DC":1,
 		"FC":0,
 		"LF":0,
+		"study_lvl":"Doctorate",
 		"App_type": "Univ"
 	},   {
 		"StudentDBID": "K473226",
-		"Name": "mizanu",
+		"Name": "Mizanu Yadergal",
 		"Sex": "male",
-		"MemberDate": "2022-00-00",
-		"country":"country 2",
+		"MemberDate": "12/01/2022",
+		"country":"AU",
 		"office":"office 5",
 		"Count":3,
 		"CS":1,
@@ -154,13 +164,14 @@
 		"DC":1,
 		"FC":1,
 		"LF":0,
+		"study_lvl":"Doctorate",
 		"App_type": "Univ"
 	}, {
 		"StudentDBID": "K473227",
-		"Name": "yadergal",
+		"Name": "yadergal Mitiku",
 		"Sex": "male",
-		"MemberDate": "2022-00-00",
-		"country":"country 2",
+		"MemberDate": "12/01/2022",
+		"country":"AU",
 		"office":"office 6",
 		"Count":2,
 		"CS":1,
@@ -168,13 +179,14 @@
 		"DC":1,
 		"FC":0,
 		"LF":0,
+		"study_lvl":"Doctorate",
 		"App_type": "Univ"
 	}, {
 		"StudentDBID": "K473228",
-		"Name": "taye",
+		"Name": "Taye Aychiluhim",
 		"Sex": "male",
-		"MemberDate": "0000-00-00",
-		"country":"country 3",
+		"MemberDate": "13/02/2023",
+		"country":"TW",
 		"office":"office 7",
 		"Count":3,
 		"CS":1,
@@ -182,13 +194,14 @@
 		"DC":0,
 		"FC":0,
 		"LF":0,
+		"study_lvl":"Doctorate",
 		"App_type": "Univ"
 	}, {
 		"StudentDBID": "K473229",
-		"Name": "amogne",
+		"Name": "Amogne Asegdew",
 		"Sex": "male",
-		"MemberDate": "2022-00-00",
-		"country":"country 3",
+		"MemberDate": "12/01/2022",
+		"country":"TW",
 		"office":"office 7",
 		"Count":4,
 		"CS":1,
@@ -196,13 +209,14 @@
 		"DC":0,
 		"FC":0,
 		"LF":0,
+		"study_lvl":"Doctorate",
 		"App_type": "Univ"
 	},  {
 		"StudentDBID": "22134T2",
-		"Name": "almaz",
+		"Name": "Almaz Ayana",
 		"Sex": "Female",
-		"MemberDate": "2022-00-00",
-		"country":"country 3",
+		"MemberDate": "12/01/2022",
+		"country":"TW",
 		"office":"office 7",
 		"Count":5,
 		"CS":1,
@@ -210,13 +224,14 @@
 		"DC":1,
 		"FC":1,
 		"LF":1,
+		"study_lvl":"Doctorate",
 		"App_type": "Univ"
 	},   {
 		"StudentDBID": "22134T7",
-		"Name": "mahi",
+		"Name": "Mahi Mekuriyaw",
 		"Sex": "Female",
-		"MemberDate": "2022-00-00",
-		"country":"country 3",
+		"MemberDate": "12/01/2022",
+		"country":"TW",
 		"office":"office 8",
 		"Count":6,
 		"CS":1,
@@ -224,13 +239,14 @@
 		"DC":1,
 		"FC":1,
 		"LF":1,
+		"study_lvl":"Doctorate",
 		"App_type": "college"
 	}, {
 		"StudentDBID": "22134T10",
-		"Name": "sewareg",
+		"Name": "Sewareg Melsese",
 		"Sex": "Female",
-		"MemberDate": "0000-00-00",
-		"country":"country 3",
+		"MemberDate": "13/02/2023",
+		"country":"TW",
 		"office":"office 8",
 		"Count":6,
 		"CS":1,
@@ -238,13 +254,14 @@
 		"DC":0,
 		"FC":0,
 		"LF":0,
+		"study_lvl":"Doctorate",
 		"App_type": "Univ"
 	}, {
 		"StudentDBID": "22134T11",
-		"Name": "senaite",
+		"Name": "Senaite Dilu",
 		"Sex": "Female",
-		"MemberDate": "2022-00-00",
-		"country":"country 3",
+		"MemberDate": "12/01/2022",
+		"country":"TW",
 		"office":"office 8",
 		"Count":5,
 		"CS":1,
@@ -252,13 +269,14 @@
 		"DC":0,
 		"FC":0,
 		"LF":0,
+		"study_lvl":"Doctorate",
 		"App_type": "college"
 	}, {
 		"StudentDBID": "22134T12",
-		"Name": "mintamir",
+		"Name": "Mintamir Admasu",
 		"Sex": "Female",
-		"MemberDate": "0000-00-00",
-		"country":"country 3",
+		"MemberDate": "13/02/2023",
+		"country":"TW",
 		"office":"office 9",
 		"Count":2,
 		"CS":0,
@@ -266,13 +284,14 @@
 		"DC":0,
 		"FC":0,
 		"LF":0,
+		"study_lvl":"Doctorate",
 		"App_type": "Univ"
 	}, {
 		"StudentDBID": "22134T13",
-		"Name": "mekdes",
+		"Name": "Mekdes Abate",
 		"Sex": "Female",
-		"MemberDate": "2022-00-00",
-		"country":"country 3",
+		"MemberDate": "12/01/2022",
+		"country":"TW",
 		"office":"office 9",
 		"Count":3,
 		"CS":1,
@@ -280,13 +299,14 @@
 		"DC":1,
 		"FC":1,
 		"LF":0,
+		"study_lvl":"Doctorate",
 		"App_type": "college"
 	}, {
 		"StudentDBID": "P1239824",
-		"Name": "Aster",
+		"Name": "Aster Awoke",
 		"Sex": "Female",
-		"MemberDate": "2022-00-00",
-		"country":"country 3",
+		"MemberDate": "12/01/2022",
+		"country":"TW",
 		"office":"office 9",
 		"Count":4,
 		"CS":1,
@@ -294,13 +314,14 @@
 		"DC":1,
 		"FC":0,
 		"LF":0,
+		"study_lvl":"Doctorate",
 		"App_type": "Univ"
 	}, {
 		"StudentDBID": "214121828",
-		"Name": "maritu",
+		"Name": "Maritu Legese",
 		"Sex": "Female",
-		"MemberDate": "0000-00-00",
-		"country":"country 3",
+		"MemberDate": "13/02/2023",
+		"country":"TW",
 		"office":"office 9",
 		"Count":1,
 		"CS":1,
@@ -308,13 +329,14 @@
 		"DC":1,
 		"FC":0,
 		"LF":0,
+		"study_lvl":"Doctorate",
 		"App_type": "Univ"
 	},{
-		"StudentDBID": "38800016",
-		"Name": "mulie",
+		"StudentDBID": "38820236",
+		"Name": "Mulie Menberu",
 		"Sex": "Male",
-		"MemberDate": "2022-00-00",
-		"country":"country 3",
+		"MemberDate": "12/01/2022",
+		"country":"TW",
 		"office":"office 9",
 		"Count":1,
 		"CS":1,
@@ -322,94 +344,83 @@
 		"DC":0,
 		"FC":0,
 		"LF":0,
+		"study_lvl":"Doctorate",
 		"App_type": "Univ"
 	}],
 	"NameCategory" : [{
-		"key" : "mulie",
-		"name" : "mulie"
+		"key" : "Mulie Menberu",
+		"name" : "Mulie Menberu"
 	}, {
-		"key" : "Abebe",
-		"name" : "Abebe"
+		"key" : "Mekdes Abate",
+		"name" : "Mekdes Abate"
 	}, {
-		"key" : "maritu",
-		"name" : "maritu"
+		"key" : "Maritu Legese",
+		"name" : "Maritu Legese"
 	}, {
-		"key" : "Aster",
-		"name" : "Aster"
-	}, {
-		"key" : "gashaw",
-		"name" : "gashaw"
-	},
+		"key" : "Aster Awoke",
+		"name" : "Aster Awoke"
+	}, 
+	
 	{
-		"key" : "mekdes",
-		"name" : "mekdes"
-	},
-	{
-		"key" : "mintamir",
-		"name" : "mintamir"
+		"key" : "Mintamir Admasu",
+		"name" : "Mintamir Admasu"
 	}, 
 	{
-		"key" : "senite",
-		"name" : "senite"
+		"key" : "Senaite Dilu",
+		"name" : "Senaite Dilu"
 	},
 	{
-		"key" : "sewareg",
-		"name" : "sewareg"
+		"key" : "Sewareg Melsese",
+		"name" : "Sewareg Melsese"
 	},
 	{
-		"key" : "mahi",
-		"name" : "mahi"
+		"key" : "Mahi Mekuriyaw",
+		"name" : "Mahi Mekuriyaw"
 	},
 	{
-		"key" : "almaz",
-		"name" : "almaz"
+		"key" : "Almaz Ayana",
+		"name" : "Almaz Ayana"
 	},
 	{
-		"key" : "taye",
-		"name" : "taye"
+		"key" : "gashaw taye",
+		"name" : "gashaw taye"
 	},
 	{
-		"key" : "amogne",
-		"name" : "amogne"
+		"key" : "Amogne Asegdew",
+		"name" : "Amogne Asegdew"
+	},
+
+	{
+		"key" : "yadergal Mitiku",
+		"name" : "yadergal Mitiku"
 	},
 	{
-		"key" : "mizanu",
-		"name" : "mizanu"
+		"key" : "Mersha Dibu",
+		"name" : "Mersha Dibu"
 	},
 	{
-		"key" : "yadergal",
-		"name" : "yadergal"
+		"key" : "Belew Addis",
+		"name" : "Belew Addis"
 	},
 	{
-		"key" : "mersha",
-		"name" : "mersha"
-	},
-	{
-		"key" : "belew",
-		"name" : "belew"
-	},
-	{
-		"key" : "setie",
+		"key" : "Setie",
 		"name" : "setie"
 	},
 	{
-		"key" : "zinabu",
-		"name" : "zinabu"
+		"key" : "Zinabu Belay",
+		"name" : "Zinabu Belay"
 	},
 	{
-		"key" : "megbaru",
-		"name" : "megbaru"
+		"key" : "Megbaru Megby",
+		"name" : "Megbaru Megby"
 	},
 	{
-		"key" : "gemechu",
-		"name" : "gemechu"
+		"key" : "Gemechu Gemechu",
+		"name" : "Gemechu Gemechu"
 	},
 	{
-		"key" : "minale",
-		"name" : "minale"
-	},{
-		"key" : "almaz",
-		"name" : "almaz"
+		"key" : "Almaz Ayana",
+		"name" : "Almaz Ayana"
 	}],
 	"SexCategories" : [{
 		"key" : "Female",
@@ -420,16 +431,16 @@
 		"name" : "male"
 	}],
 	"countryCategories" : [{
-		"key" : "country 1",
-		"name" : "country 1"
+		"key" : "CA",
+		"name" : "CA"
 	},
 	{
-		"key" : "country 2",
-		"name" : "country 2"
+		"key" : "AU",
+		"name" : "AU"
 	},
 	  {
-		"key" : "country 3",
-		"name" : "country 3"
+		"key" : "TW",
+		"name" : "TW"
 	}],
 	"officeCategories" : [{
 		"key" : "office 1",
@@ -470,12 +481,12 @@
 		"name" : "office 9"
 	}],
 	"dateCategories" : [{
-		"key" : "0000-00-00",
-		"name" : "0000-00-00"
+		"key" : "13/02/2023",
+		"name" : "13/02/2023"
 	},
 	  {
-		"key" : "2022-00-00",
-		"name" : "2022-00-00"
+		"key" : "12/01/2022",
+		"name" : "12/01/2022"
 	}],
 	"App_Category": [ {
 		"key" : "college",

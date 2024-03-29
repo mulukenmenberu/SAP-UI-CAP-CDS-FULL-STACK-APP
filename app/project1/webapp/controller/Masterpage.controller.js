@@ -15,19 +15,16 @@ sap.ui.define([
     'sap/m/Bar',
     'sap/m/Title',
     'sap/m/ResponsivePopover',
-    "project1/config/Config"
-    
+    "project1/config/Config"   
 
 ], function (Controller, JSONModel, Button, library,MessageBox,MessageToast,ColumnListItem,Input,Fragment,IconPool, Link, MessageItem, MessageView, Bar, Title,ResponsivePopover,Config) {
 	"use strict";
 
 	var CController = Controller.extend("project1.controller.Masterpage", {
-    onInit: function () {
-      
+    onInit: function () {      
       this._oTable = this.byId("table0");
       this._createReadOnlyTemplates();
       this.rebindTable(this.oReadOnlyTemplate, "Navigation");
-
       const token = sessionStorage.getItem('token')
       if(token){
       fetch(Config.baseUrl+"odata/v4/users/Users", {
@@ -59,9 +56,7 @@ sap.ui.define([
           ID_edit:"",
 
       });
-      this.getView().setModel(oModel, "editModel");
-
-      
+      this.getView().setModel(oModel, "editModel");      
       this.oEditableTemplate = new ColumnListItem({
           cells: [
               new Input({
@@ -97,16 +92,13 @@ sap.ui.define([
       this.oModel = new JSONModel();
 			this.oModel.loadData(sap.ui.require.toUrl("project1/model/model.json"), null, false);
 			this.getView().setModel(this.oModel);
-
 //message
-
 var that = this;
 var	oLink = new Link({
   text: "Show more information",
   href: "http://sap.com",
   target: "_blank"
 });
-
 var oMessageTemplate = new MessageItem({
   type: '{type}',
   title: '{title}',
@@ -116,7 +108,6 @@ var oMessageTemplate = new MessageItem({
   markupDescription: "{markupDescription}",
   link: oLink
 });
-
 var aMockMessages = [{
   type: 'Error',
   title: 'Error message',
@@ -150,9 +141,7 @@ var aMockMessages = [{
 
 var oModel = new JSONModel(),
   that = this;
-
 oModel.setData(aMockMessages);
-
 this.oMessageView = new MessageView({
     showDetailsPageHeader: false,
     itemSelect: function () {
@@ -174,7 +163,6 @@ var	oBackButton = new Button({
   });
 
 this.oMessageView.setModel(oModel);
-
 var oCloseButton =  new Button({
     text: "Close",
     press: function () {
@@ -196,8 +184,7 @@ this._oPopover = new ResponsivePopover({
   modal: true,
   content: [this.oMessageView],
   endButton:oCloseButton
-});
-     
+});     
 
 		},
 
@@ -205,7 +192,6 @@ this._oPopover = new ResponsivePopover({
       this.oMessageView.navigateBack();
       this._oPopover.openBy(oEvent.getSource());
     },
-
     formatColor: function (value) {
       // Your condition for setting the color
       if (value === 1) {
@@ -225,14 +211,11 @@ this._oPopover = new ResponsivePopover({
 			var item = oEvent.getParameter('item');
 			this.byId("pageContainer").to(this.getView().createId(item.getKey()));
 		},
-
 		onMenuButtonPress : function() {
 			var toolPage = this.byId("toolPage");
 
 			toolPage.setSideExpanded(!toolPage.getSideExpanded());
-		},
-
-      
+		},      
     onSearch: function (oEvent) {
       var oTable = this.getView().byId("table0");
       var oBinding = oTable.getBinding("items");
@@ -272,17 +255,14 @@ this._oPopover = new ResponsivePopover({
           // If the search field is empty, remove the filter
           oBinding.filter([]);
       }
-  },
-  
+  },  
 
     onLogout: function () {
       this.getOwnerComponent().getRouter().navTo("RouteLogin"); // not working 
     },
-
     onToggleMenu: function () {
       this.byId("navContainer").to(this.byId("menuPage"), "show");
     },
-
     onMenuItemPress: function (oEvent) {
       MessageToast.show("Menu Item Pressed: " + oEvent.getSource().getTitle());
 
@@ -295,14 +275,7 @@ this._oPopover = new ResponsivePopover({
       oDialog.open();
       // this.getView().byId("OpenDialog").open();
    },
-
-
-
-  //  switch:function(){
-  //     alert('switch buttun cliked')
-  //      },
-
-       livesearch:function(){
+   livesearch:function(){
        alert('search button cilked')
       },
       settings:function(){
@@ -316,11 +289,9 @@ this._oPopover = new ResponsivePopover({
        onProductSwitcherItemSelect: function (oEvent) {
         // Get the selected item
         var oSelectedItem = oEvent.getParameter("listItem");
-
         if (oSelectedItem) {
             // Retrieve the selected value
-            var sSelectedTitle = oSelectedItem.getTitle();
-           
+            var sSelectedTitle = oSelectedItem.getTitle();           
           if(sSelectedTitle==='Sign out')
             {
               this.avater(); 
@@ -351,10 +322,8 @@ this._oPopover = new ResponsivePopover({
     },
     
     logout: function(oRecord) {
-      // alert("You are successfully logedout");
-  
-      localStorage.removeItem("isLoggedIn");
-      
+      // alert("You are successfully logedout");  
+      localStorage.removeItem("isLoggedIn");      
       var oLoginController = window.loginController;
       if (oLoginController) {
           var oUsernameInput = oLoginController.byId("user"); // Replace with your actual ID
@@ -362,13 +331,11 @@ this._oPopover = new ResponsivePopover({
           oUsernameInput.setValue("");
           oPasswordInput.setValue("");
       }
-      this.getOwnerComponent().getRouter().navTo("RouteLogin");	
-       
+      this.getOwnerComponent().getRouter().navTo("RouteLogin");	       
     }
     ,
    onOpenDetailDialog: function (oEvent) {
       var oSelectedRow = oEvent.getSource().getBindingContext("customModel").getObject();
-
       // Create a new JSONModel with the values from the selected row
       var oModel = new JSONModel({
           Planned_study_date_edit: oSelectedRow.Planned_study_date,
@@ -377,16 +344,12 @@ this._oPopover = new ResponsivePopover({
           Gender_edit: oSelectedRow.Gender,
           Full_name_edit: oSelectedRow.Full_name,
           ID_edit: oSelectedRow.ID,
-      });
-  
+      });  
       // Set the model for the dialog
       this.getView().setModel(oModel, "editModel");
-
-
       var oDialog = this.getView().byId("studentDetailModal");
       oDialog.setContentWidth("100%");
       oDialog.setContentHeight("100%");
-
       this.getView().byId("studentDetailModal").open();
    },
    onCancelDialog: function (oEvent) {
@@ -404,15 +367,13 @@ this._oPopover = new ResponsivePopover({
               }         
               
               try{
-              const oContext = oBinding.create({
-              
+              const oContext = oBinding.create({              
                   "Full_name": this.byId("Full_name").getValue(),
                   "Gender": this.byId("Gender").getValue(),
                   "Office": this.byId("Office").getValue(),
                   "Advisor_ID": parseInt(this.byId("Advisor_ID").getValue(), 10),//this.byId("Advisor_ID").getValue(),
                   "Created_at": new Date(),
                   "Planned_study_date": formattedDate,  
-                  
               });
               oContext.created()
               .then(()=>{
@@ -423,7 +384,6 @@ this._oPopover = new ResponsivePopover({
               this.getView().byId("OpenDialog").close();
           }
 
-
           this.getView().byId("OpenDialog").close();
           MessageToast.show("Student registered successfulyl");
 
@@ -433,17 +393,13 @@ this._oPopover = new ResponsivePopover({
 
   },
   onSuccessfulPatch: function () {
-      var customModel = this.getView().getModel("customModel");
-    
+      var customModel = this.getView().getModel("customModel");    
       // Assuming "editModel" is your edit model instance
-      var editModel = this.getView().getModel("editModel");
-    
+      var editModel = this.getView().getModel("editModel");    
       // Retrieve the updated data from the editModel
-      var updatedData = editModel.getProperty("/ID_edit");
-    
+      var updatedData = editModel.getProperty("/ID_edit");    
       // Update the main model with the updated data
-      customModel.setProperty("customModel>/StudentWithAdvisor", updatedData);
-    
+      customModel.setProperty("customModel>/StudentWithAdvisor", updatedData);    
       // Refresh the bindings to update the UI
       customModel.refresh(); 
     },
@@ -461,20 +417,16 @@ this._oPopover = new ResponsivePopover({
               
               try{
                   const endpoint = Config.baseUrl+"StudentServices/Students";
-
                   // Assuming you have the updateData object defined as mentioned in your question
                   const updateData = {
                       "Full_name": this.byId("Full_name_edit").getValue(),
                       "Gender": this.byId("Gender_edit").getValue(),
                       "Office": this.byId("Office_edit").getValue(),
-                      "Advisor_ID": parseInt(this.byId("Advisor_edit").getSelectedKey(), 10),
-                
+                      "Advisor_ID": parseInt(this.byId("Advisor_edit").getSelectedKey(), 10),                
                   };
-                
-               
+                              
                   // You may want to replace 'yourStudentID' with the actual ID of the student you want to update
-                  const studentID = parseInt(this.byId("ID_edit").getValue(), 10)
-                  
+                  const studentID = parseInt(this.byId("ID_edit").getValue(), 10)                  
                   // Construct the full URL with the student ID
                   const fullURL = `${endpoint}/${studentID}`;
                   console.log("asasAs", parseInt(this.byId("Advisor_edit").getSelectedKey(), 10))
@@ -502,7 +454,6 @@ this._oPopover = new ResponsivePopover({
                       this.getView().byId("studentDetailModal").close();
                       MessageToast.show("Student Info Updated, refresh the page to get the changes");
                       // onSuccessfulPatch()
-
   
           }catch(e){
               this.getView().byId("OpenDialog").close();
@@ -511,18 +462,14 @@ this._oPopover = new ResponsivePopover({
       }else {
           MessageToast.show("Full Name cannot be blank");
       }
-
   },
   onDeleteStudent: async function () {
       try {
-          const endpoint = Config.baseUrl+"StudentServices/Students";
-  
+          const endpoint = Config.baseUrl+"StudentServices/Students";  
           // You may want to replace 'yourStudentID' with the actual ID of the student you want to delete
-          const studentID = parseInt(this.byId("ID_edit").getValue(), 10);
-  
+          const studentID = parseInt(this.byId("ID_edit").getValue(), 10);  
           // Construct the full URL with the student ID
-          const fullURL = `${endpoint}/${studentID}`;
-  
+          const fullURL = `${endpoint}/${studentID}`;  
           // Send the DELETE request
           const response = await fetch(fullURL, {
               method: 'DELETE',
@@ -536,18 +483,15 @@ this._oPopover = new ResponsivePopover({
           }
   
           // Handle the response data as needed
-          console.log('Delete successful');
-          
+          console.log('Delete successful');          
           // Close the dialog and show a success message
           this.getView().byId("studentDetailModal").close();
-          MessageToast.show("Student Deleted, refresh the page to get the changes");
-  
+          MessageToast.show("Student Deleted, refresh the page to get the changes");  
       } catch (error) {
           console.error('Error deleting student:', error);
           // Handle the error as needed
       }
-  },
-  
+  },  
 
   onEditMode: function(){
       this.byId("editModeButton").setVisible(false);
@@ -558,11 +502,9 @@ this._oPopover = new ResponsivePopover({
 
  },
  onDelete: function(){
-
   var oSelected = this.byId("table0").getSelectedItem();
   if(oSelected){
-      var oSalesOrder = oSelected.getBindingContext("customModel").getObject().ID;
-  
+      var oSalesOrder = oSelected.getBindingContext("customModel").getObject().ID;  
       oSelected.getBindingContext("customModel").delete("$auto").then(function () {
           MessageToast.show(oSalesOrder + " SuccessFully Deleted");
       }.bind(this), function (oError) {
@@ -570,11 +512,9 @@ this._oPopover = new ResponsivePopover({
       });
   } else {
       MessageToast.show("Please Select a Row to Delete");
-  }
-  
+  }  
 },
-rebindTable: function(oTemplate, sKeyboardMode) {
- 
+rebindTable: function(oTemplate, sKeyboardMode) { 
   const token = sessionStorage.getItem('token')
   if(token){
   fetch(Config.baseUrl+"StudentServices/StudentWithAdvisor", {
@@ -587,11 +527,9 @@ rebindTable: function(oTemplate, sKeyboardMode) {
   .then(data => {
       // Create a JSONModel and set the data to the model
       var oModel = new JSONModel(data);
-
       // Set the model on the table
       this._oTable.setModel(oModel, "customModel");
       console.log('Table Model:', this._oTable.getModel("customModel")); // Check if the model is set on the table
-
       // Bind items using the newly set model
       this._oTable.bindItems({
           path: "customModel>/value",
@@ -607,15 +545,13 @@ rebindTable: function(oTemplate, sKeyboardMode) {
 
 onInputChange: function(){
   this.refreshModel("customModel");
-
 },
 
 refreshModel: function (sModelName, sGroup){
   return new Promise((resolve,reject)=>{
       this.makeChangesAndSubmit.call(this,resolve,reject,
       sModelName,sGroup);
-  });
-  
+  });  
 },
 makeChangesAndSubmit: function (resolve, reject, sModelName,sGroup){
   const that = this;
@@ -638,8 +574,7 @@ onSave: function(){
   this.getView().byId("editModeButton").setVisible(true);
   this.getView().byId("saveButton").setVisible(false);
   this._oTable.setMode(sap.m.ListMode.None);
-  this.rebindTable(this.oReadOnlyTemplate, "Navigation");
-  
+  this.rebindTable(this.oReadOnlyTemplate, "Navigation");  
 },
 _createReadOnlyTemplates: function () {
   this.oReadOnlyTemplate = new sap.m.ColumnListItem({
@@ -678,7 +613,6 @@ switch: function () {
   // Handle product switcher pressed event
   var oView = this.getView();
   var oProductSwitcher = oView.byId("x"); // Replace with your actual ID
-
   if (oProductSwitcher) {
       if (!this._oNotificationSwitcherPopover) {
           Fragment.load({
@@ -698,23 +632,12 @@ switch: function () {
       console.error("Notfication switcher control not found.");
   }
 },
-
-
-
 // close pop up button
 onCloseButtonPress: function () {
   var oPopover = this.getView().byId("closepop"); // Replace "yourPopoverId" with the actual ID of your Popover
   oPopover.close();
-}
-
-
-
-
- 
-        
+}        
 	});
-
-
 	return CController;
 
 });

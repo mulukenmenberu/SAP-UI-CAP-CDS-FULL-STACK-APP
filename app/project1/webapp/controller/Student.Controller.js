@@ -12,16 +12,12 @@ sap.ui.define([
 
     function (Controller, MessageToast, ColumnListItem,Input, JSONModel,Config) {
         "use strict";
-
-        return Controller.extend("project1.controller.Student", {
-            
+        return Controller.extend("project1.controller.Student", {            
             onInit: function () {
-                // alert('helo gashu')
-               
+                // alert('helo gashu')               
                 this._oTable = this.byId("table0");
                 this._createReadOnlyTemplates();
                 this.rebindTable(this.oReadOnlyTemplate, "Navigation");
-
                 const token = sessionStorage.getItem('token')
                 if(token){
                 fetch(Config.baseUrl+"odata/v4/users/Users", {
@@ -29,8 +25,7 @@ sap.ui.define([
                       'Authorization': `Bearer ${token}`,
                       'Content-Type': 'application/json',
                     },
-                  })
-                
+                  })                
                 .then(response => response.json())
                 .then(data => {
                     // Create a JSONModel and set the data to the model
@@ -41,15 +36,13 @@ sap.ui.define([
                 .catch(error => {
                     console.error('Error fetching data:', error);
                 });
-
                 /************FETCH COURSE LIST ******************** */
                 fetch(Config.baseUrl+"odata/v4/school-course/School_courses", {
                     headers: {
                       'Authorization': `Bearer ${token}`,
                       'Content-Type': 'application/json',
                     },
-                  })
-                
+                  })                
                 .then(response => response.json())
                 .then(data => {
                     // Create a JSONModel and set the data to the model
@@ -60,16 +53,13 @@ sap.ui.define([
                 .catch(error => {
                     console.error('Error fetching data:', error);
                 });
-
                 // student application datasource
-
                 fetch(Config.baseUrl+"StudentAppServices/StudentWithApps", {
                     headers: {
                       'Authorization': `Bearer ${token}`,
                       'Content-Type': 'application/json',
                     },
-                  })
-                
+                  })                
                 .then(response => response.json())
                 .then(data => {
                     // Create a JSONModel and set the data to the model
@@ -80,20 +70,8 @@ sap.ui.define([
                 .catch(error => {
                     console.error('Error fetching data:', error);
                 });
-
                 /**************************** */
             }
-                // var oModel = new JSONModel({
-                //     Users: [
-                //         { UserId: "1", UserName: "User1" },
-                //         { UserId: "2", UserName: "User2" },
-                //         // Add more sample data as needed
-                //     ]
-                // });
-    
-                // // Set the model to the view
-                // this.getView().setModel(oModel, "userModel");
-
                 var oModel = new JSONModel({
                     Planned_study_date_edit: "",
                     Office_edit: "",
@@ -103,9 +81,7 @@ sap.ui.define([
                     ID_edit:"",
 
                 });
-                this.getView().setModel(oModel, "editModel");
-
-                
+                this.getView().setModel(oModel, "editModel");                
                 this.oEditableTemplate = new ColumnListItem({
                     cells: [
                         new Input({
@@ -137,7 +113,6 @@ sap.ui.define([
                  
                     ]
                 });
-
             },
             onSearch: function (oEvent) {
                 var oTable = this.getView().byId("table0");
@@ -151,8 +126,7 @@ sap.ui.define([
                             // Add more filters based on your needs
                         ],
                         and: false
-                    });
-       
+                    });       
                     oBinding.filter([oFilter]);
                 } else {
                     // If the search field is empty, remove the filter
@@ -160,8 +134,7 @@ sap.ui.define([
                 }
             },
             
-            onLiveSearch: function (oEvent) {
-               
+            onLiveSearch: function (oEvent) {               
                 var oTable = this.getView().byId("table0");
                 var oBinding = oTable.getBinding("items");
                 var sQuery = oEvent.getParameter("newValue");
@@ -174,7 +147,6 @@ sap.ui.define([
                     });
                     oBinding.filter([oFilter]);
                     console.log(oBinding)
-
                 } else {
                     // If the search field is empty, remove the filter
                     oBinding.filter([]);
@@ -184,15 +156,12 @@ sap.ui.define([
           
               onLogout: function () {
                 this.getOwnerComponent().getRouter().navTo("RouteLogin"); // not working 
-              },
-          
+              },          
               onToggleMenu: function () {
                 this.byId("navContainer").to(this.byId("menuPage"), "show");
-              },
-          
+              },          
               onMenuItemPress: function (oEvent) {
-                MessageToast.show("Menu Item Pressed: " + oEvent.getSource().getTitle());
-          
+                MessageToast.show("Menu Item Pressed: " + oEvent.getSource().getTitle());          
                 this.byId("navContainer").back();
               },
             onOpenAddDialog: function () {
@@ -208,27 +177,25 @@ sap.ui.define([
                   const token = sessionStorage.getItem('token')
                   if(token){
                   const studentID = 2; // Replace with your actual student ID
-
-fetch(Config.baseUrl + `StudentAppServices/StudentWithApps?id=${studentID}`, {
-    method: 'GET',
-    headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json',
-    },
-})
-    .then(response => response.json())
-    .then(data => {
-        // Create a JSONModel and set the data to the model
-        var oModel = new JSONModel(data);
-        console.log(data, "=======", oModel);
-        this.getView().setModel(oModel, "Student_applications");
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error);
-    });
+        fetch(Config.baseUrl + `StudentAppServices/StudentWithApps?id=${studentID}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Create a JSONModel and set the data to the model
+            var oModel = new JSONModel(data);
+            console.log(data, "=======", oModel);
+            this.getView().setModel(oModel, "Student_applications");
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
                   }
                 var oSelectedRow = oEvent.getSource().getBindingContext("customModel").getObject();
-
                 // Create a new JSONModel with the values from the selected row
                 var oModel = new JSONModel({
                     Planned_study_date_edit: oSelectedRow.Planned_study_date,
@@ -240,21 +207,15 @@ fetch(Config.baseUrl + `StudentAppServices/StudentWithApps?id=${studentID}`, {
                 });
                 // Set the model for the dialog
                 this.getView().setModel(oModel, "editModel");
-
-
                 var oDialog = this.getView().byId("studentDetailModal");
                 oDialog.setContentWidth("100%");
                 oDialog.setContentHeight("100%");
-
                 //  alert(oDialog)
-
                 this.getView().byId("studentDetailModal").open();
              },
              onCancelDialog: function (oEvent) {
                 oEvent.getSource().getParent().close();
-             },
-
-             
+             },             
              onCreate: function () {
                 var oSo = this.getView().byId("Full_name").getValue();
                 if (oSo !== "") {
@@ -264,30 +225,11 @@ fetch(Config.baseUrl + `StudentAppServices/StudentWithApps?id=${studentID}`, {
                         let formattedDate = ""
                         if (plannedStudyDate instanceof Date && !isNaN(plannedStudyDate)) {
                              formattedDate = plannedStudyDate.toISOString().split('T')[0];
-                        }         
+                        }        
                         
-                    //     try{
-                    //     const oContext = oBinding.create({
-                        
-                    //         "Full_name": this.byId("Full_name").getValue(),
-                    //         "Gender": this.byId("Gender").getValue(),
-                    //         "Office": this.byId("Office").getValue(),
-                    //         "Advisor_ID": parseInt(this.byId("Advisor_ID").getValue(), 10),//this.byId("Advisor_ID").getValue(),
-                    //         "Created_at": new Date(),
-                    //         "Planned_study_date": formattedDate,  
-                            
-                    //     });
-                    //     oContext.created()
-                    //     .then(()=>{
-                    //             // that._focusItem(oList, oContext);
-                    //             this.getView().byId("OpenDialog").close();
-                    //     });
-                    // }catch(e){
-                    //     this.getView().byId("OpenDialog").close();
-                    // }
+
       // Rest of your code...
       const endpoint = Config.baseUrl+"StudentServices/Students";
-
       // Assuming you have the updateData object defined as mentioned in your question
       const updateData = {
         "Full_name": this.byId("Full_name").getValue(),
@@ -298,17 +240,7 @@ fetch(Config.baseUrl + `StudentAppServices/StudentWithApps?id=${studentID}`, {
         "Planned_study_date": formattedDate,  
     
       };
-      // const updateData2 = {
-      //     "Student_ID": 10,
-      //     "Course_ID": 1,
-      //     "User_ID": 1,
-      //     "Start_date": "2023-01-01T00:00:00Z",
-      //     "Note": "Note",
-      //     "Final_choice": "finalCASDCFhoice",
-      //     "Is_deferred": "Is_deferred",
-      //     "Application_status": "Application_status",
-    
-      // };
+
       const fullURL = endpoint;
          const token = sessionStorage.getItem('token')
           if(token){
@@ -343,21 +275,16 @@ fetch(Config.baseUrl + `StudentAppServices/StudentWithApps?id=${studentID}`, {
 
                 }else {
                     MessageToast.show("Full Name cannot be blank");
-                }
-    
+                }    
             },
             onSuccessfulPatch: function () {
-                var customModel = this.getView().getModel("customModel");
-              
+                var customModel = this.getView().getModel("customModel");              
                 // Assuming "editModel" is your edit model instance
-                var editModel = this.getView().getModel("editModel");
-              
+                var editModel = this.getView().getModel("editModel");              
                 // Retrieve the updated data from the editModel
-                var updatedData = editModel.getProperty("/ID_edit");
-              
+                var updatedData = editModel.getProperty("/ID_edit");              
                 // Update the main model with the updated data
-                customModel.setProperty("customModel>/StudentWithAdvisor", updatedData);
-              
+                customModel.setProperty("customModel>/StudentWithAdvisor", updatedData);              
                 // Refresh the bindings to update the UI
                 customModel.refresh(); 
               },
@@ -375,7 +302,6 @@ fetch(Config.baseUrl + `StudentAppServices/StudentWithApps?id=${studentID}`, {
                         
                         try{
                             const endpoint = Config.baseUrl+"StudentServices/Students";
-
                             // Assuming you have the updateData object defined as mentioned in your question
                             const updateData = {
                                 "Full_name": this.byId("Full_name_edit").getValue(),
@@ -383,12 +309,9 @@ fetch(Config.baseUrl + `StudentAppServices/StudentWithApps?id=${studentID}`, {
                                 "Office": this.byId("Office_edit").getValue(),
                                 "Advisor_ID": parseInt(this.byId("Advisor_edit").getSelectedKey(), 10),
                           
-                            };
-                          
-                         
-                            // You may want to replace 'yourStudentID' with the actual ID of the student you want to update
-                            const studentID = parseInt(this.byId("ID_edit").getValue(), 10)
-                            
+                            };                       
+                          // You may want to replace 'yourStudentID' with the actual ID of the student you want to update
+                            const studentID = parseInt(this.byId("ID_edit").getValue(), 10)                            
                             // Construct the full URL with the student ID
                             const fullURL = `${endpoint}/${studentID}`;
                             console.log("asasAs", parseInt(this.byId("Advisor_edit").getSelectedKey(), 10))
@@ -416,7 +339,6 @@ fetch(Config.baseUrl + `StudentAppServices/StudentWithApps?id=${studentID}`, {
                                 this.getView().byId("studentDetailModal").close();
                                 MessageToast.show("Student Info Updated, refresh the page to get the changes");
                                 // onSuccessfulPatch()
-
             
                     }catch(e){
                         this.getView().byId("OpenDialog").close();
@@ -424,19 +346,15 @@ fetch(Config.baseUrl + `StudentAppServices/StudentWithApps?id=${studentID}`, {
   
                 }else {
                     MessageToast.show("Full Name cannot be blank");
-                }
-    
+                }    
             },
             onDeleteStudent: async function () {
                 try {
-                    const endpoint = Config.baseUrl+"StudentServices/Students";
-            
+                    const endpoint = Config.baseUrl+"StudentServices/Students";            
                     // You may want to replace 'yourStudentID' with the actual ID of the student you want to delete
-                    const studentID = parseInt(this.byId("ID_edit").getValue(), 10);
-            
+                    const studentID = parseInt(this.byId("ID_edit").getValue(), 10);            
                     // Construct the full URL with the student ID
-                    const fullURL = `${endpoint}/${studentID}`;
-            
+                    const fullURL = `${endpoint}/${studentID}`;            
                     // Send the DELETE request
                     const response = await fetch(fullURL, {
                         method: 'DELETE',
@@ -450,18 +368,15 @@ fetch(Config.baseUrl + `StudentAppServices/StudentWithApps?id=${studentID}`, {
                     }
             
                     // Handle the response data as needed
-                    console.log('Delete successful');
-                    
+                    console.log('Delete successful');                    
                     // Close the dialog and show a success message
                     this.getView().byId("studentDetailModal").close();
-                    MessageToast.show("Student Deleted, refresh the page to get the changes");
-            
+                    MessageToast.show("Student Deleted, refresh the page to get the changes");            
                 } catch (error) {
                     console.error('Error deleting student:', error);
                     // Handle the error as needed
                 }
-            },
-            
+            },         
 
             onEditMode: function(){
                 this.byId("editModeButton").setVisible(false);
@@ -469,14 +384,11 @@ fetch(Config.baseUrl + `StudentAppServices/StudentWithApps?id=${studentID}`, {
                 this.byId("deleteButton").setVisible(true);
                 this.rebindTable(this.oEditableTemplate, "Edit");
                 //this.rebindTable(this.oEditableTemplate, "Edit");
-
            },
            onDelete: function(){
-
             var oSelected = this.byId("table0").getSelectedItem();
             if(oSelected){
-                var oSalesOrder = oSelected.getBindingContext("customModel").getObject().ID;
-            
+                var oSalesOrder = oSelected.getBindingContext("customModel").getObject().ID;            
                 oSelected.getBindingContext("customModel").delete("$auto").then(function () {
                     MessageToast.show(oSalesOrder + " SuccessFully Deleted");
                 }.bind(this), function (oError) {
@@ -484,11 +396,9 @@ fetch(Config.baseUrl + `StudentAppServices/StudentWithApps?id=${studentID}`, {
                 });
             } else {
                 MessageToast.show("Please Select a Row to Delete");
-            }
-            
+            }            
         },
-        rebindTable: function(oTemplate, sKeyboardMode) {
-           
+        rebindTable: function(oTemplate, sKeyboardMode) {           
             const token = sessionStorage.getItem('token')
             if(token){
             fetch(Config.baseUrl+"StudentServices/StudentWithAdvisor", {
@@ -500,12 +410,10 @@ fetch(Config.baseUrl + `StudentAppServices/StudentWithApps?id=${studentID}`, {
             .then(response => response.json())
             .then(data => {
                 // Create a JSONModel and set the data to the model
-                var oModel = new JSONModel(data);
-        
+                var oModel = new JSONModel(data);        
                 // Set the model on the table
                 this._oTable.setModel(oModel, "customModel");
-                console.log('Table Model:', this._oTable.getModel("customModel")); // Check if the model is set on the table
-        
+                console.log('Table Model:', this._oTable.getModel("customModel")); // Check if the model is set on the table        
                 // Bind items using the newly set model
                 this._oTable.bindItems({
                     path: "customModel>/value",
@@ -521,19 +429,15 @@ fetch(Config.baseUrl + `StudentAppServices/StudentWithApps?id=${studentID}`, {
         
         onInputChange: function(){
             this.refreshModel("customModel");
-
         },
         
 refreshModel: function (sModelName, sGroup){
-
             return new Promise((resolve,reject)=>{
                 this.makeChangesAndSubmit.call(this,resolve,reject,
                 sModelName,sGroup);
-            });
-            
+            });            
         },
-        makeChangesAndSubmit: function (resolve, reject, sModelName,sGroup){
-           
+        makeChangesAndSubmit: function (resolve, reject, sModelName,sGroup){           
             const that = this;
             sModelName = "customModel";
             sGroup = "$auto";
@@ -554,8 +458,7 @@ refreshModel: function (sModelName, sGroup){
             this.getView().byId("editModeButton").setVisible(true);
             this.getView().byId("saveButton").setVisible(false);
             this._oTable.setMode(sap.m.ListMode.None);
-            this.rebindTable(this.oReadOnlyTemplate, "Navigation");
-            
+            this.rebindTable(this.oReadOnlyTemplate, "Navigation");            
         },
         _createReadOnlyTemplates: function () {
             // alert('gashu man')
@@ -590,7 +493,6 @@ refreshModel: function (sModelName, sGroup){
             ]
         });
     },
-
    
     onOpenAddDialog_app: function () {
         // alert('helo')
@@ -603,11 +505,9 @@ refreshModel: function (sModelName, sGroup){
      onCancelDialog_app: function (oEvent) {
         oEvent.getSource().getParent().close();
      },
-     onCreate_app:function(oEvent){
-        
+     onCreate_app:function(oEvent){        
         try{
         const that = this;  // Preserve the reference to the controller context
-
         // Use Promise to wait for the elements to be rendered
         const waitForRendering = new Promise(function(resolve) {
             // Check if the elements are already rendered
@@ -632,14 +532,12 @@ refreshModel: function (sModelName, sGroup){
             const Note = that.byId("Note").getValue();
             const finalChoice = that.byId("Final_choice").getValue();
             const Is_deferred = that.byId("Is_deferred").getValue();
-            const Application_status = that.byId("Application_status").getValue();
-    
+            const Application_status = that.byId("Application_status").getValue();    
             console.log("Student ID:", studentID);
             console.log("Final Choice:", finalChoice);
     
             // Rest of your code...
             const endpoint = Config.baseUrl+"odata/v4/apps/Student_applications";
-
             // Assuming you have the updateData object defined as mentioned in your question
             const updateData = {
                 "Student_ID": studentID,

@@ -7,14 +7,12 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("sap.m.sample.SplitApp.C", {
-
 		onInit: function () {
 			this.getSplitAppObj().setHomeIcon({
 				'phone': 'phone-icon.png',
 				'tablet': 'tablet-icon.png',
 				'icon': 'desktop.ico'
 			});
-
 			Device.orientation.attachHandler(this.onOrientationChange, this);
 		},
 
@@ -118,11 +116,9 @@ sap.ui.define([
 
 	   },
 	   onDelete: function(){
-
 		var oSelected = this.byId("table0").getSelectedItem();
 		if(oSelected){
-			var oSalesOrder = oSelected.getBindingContext("mainModel").getObject().soNumber;
-		
+			var oSalesOrder = oSelected.getBindingContext("mainModel").getObject().soNumber;		
 			oSelected.getBindingContext("mainModel").delete("$auto").then(function () {
 				MessageToast.show(oSalesOrder + " SuccessFully Deleted");
 			}.bind(this), function (oError) {

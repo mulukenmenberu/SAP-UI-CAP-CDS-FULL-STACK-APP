@@ -1,0 +1,95 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog id="settingsDialog" title="Settings" contentWidth="600px" contentHeight="400px">
+        <customHeader>
+            <Bar>
+            <contentLeft>
+                <FlexBox alignItems="Center" justifyContent="Start" >
+				 <core:Icon src="sap-icon://edit"  color="#4B92DB" tooltip="This is the tooltip follow up text." class="myTooltip" />
+				<Text text="Gashaw Taye" />
+			</FlexBox>
+                </contentLeft>
+              <contentRight>
+                <FlexBox alignItems="Center" justifyContent="Start">
+                <Text text="FOLLOW UP" class="callIcon4"/>
+                    <core:Icon src="sap-icon://add"  color="#4B92DB" tooltip="This is the tooltip follow up text." class="myTooltip" />
+                </FlexBox>
+                </contentRight>
+                <contentRight>
+                    <Button icon="sap-icon://decline" press="onCloseDialog" />
+                </contentRight>
+            </Bar>
+        </customHeader>
+        <content>
+            <IconTabBar id="tabContainer" select="handleTabSelect">
+                <items>
+                    <!-- First Tab -->
+            <IconTabFilter id="tab1" text="CIP">
+                <content>              
+                    <!-- Additional Content -->
+                    <Label text="The student intends to proceed with IDP" />
+                        <FlexBox alignItems="Start" justifyContent="SpaceAround">
+                        <!-- Left Side Radios -->
+                        <FlexBox alignItems="Center" justifyContent="Start">
+							<!-- <Text text="FOLLOW UP" class="callIcon4"/> -->
+                             <RadioButton text="Prospective student" groupName="leftGroup" class="callIcon4" />
+							  <core:Icon src="sap-icon://information"  color="#4B92DB" tooltip="This is prospective." class="myTooltip" />
+						</FlexBox>
+                        <!-- <RadioButton text="Prospective student" groupName="leftGroup" /> -->
+                        <FlexBox alignItems="Center" justifyContent="Start">
+							<!-- <Text text="FOLLOW UP" class="callIcon4"/> -->
+                             <RadioButton text="Yet to Decide" groupName="leftGroup" class="callIcon4" />
+							  <core:Icon src="sap-icon://information"  color="#4B92DB" tooltip="This is prospective." class="myTooltip" />
+						</FlexBox>                  
+                    </FlexBox>
+                        <FlexBox alignItems="Start" justifyContent="SpaceAround">    
+                        <FlexBox alignItems="Center" justifyContent="Start">
+							<!-- <Text text="FOLLOW UP" class="callIcon4"/> -->
+                             <RadioButton text="Future student" groupName="rightGroup" class="callIcon4" />
+							  <core:Icon src="sap-icon://information"  color="#4B92DB" tooltip="This is Future student tip." class="myTooltip" />
+						</FlexBox>                   
+                     <FlexBox alignItems="Center" justifyContent="Start">
+							<!-- <Text text="FOLLOW UP" class="callIcon4"/> -->
+                             <RadioButton text="Ready to apply" groupName="rightGroup" class="callIcon4" />
+							<core:Icon src="sap-icon://information"  color="#4B92DB" tooltip="This is ready to apply tip." class="myTooltip" />
+						 <!-- <core:Icon src="sap-icon://thumb-up"  color="#4B92DB" tooltip="This is the tooltip follow up text." class="myTooltip" /> -->
+                                </FlexBox>                    
+                              </FlexBox>
+                     <Label text="This student is not reachable" />
+                        <FlexBox alignItems="Start" justifyContent="SpaceAround">
+                        <!-- Left Side Radios -->
+                           <FlexBox alignItems="Center" justifyContent="Start">
+							<!-- <Text text="FOLLOW UP" class="callIcon4"/> -->
+                             <RadioButton text="wrong number" groupName="leftGroup" class="callIcon4" />
+							  <core:Icon src="sap-icon://information"  color="#4B92DB" tooltip="This is wrong number tip." class="myTooltip" />
+						</FlexBox>
+                        <!-- <RadioButton text="Prospective student" groupName="leftGroup" /> -->
+                        <FlexBox alignItems="Center" justifyContent="Start">
+							<!-- <Text text="FOLLOW UP" class="callIcon4"/> -->
+                             <RadioButton text="Not contactable" groupName="leftGroup" class="callIcon4" />
+							  <core:Icon src="sap-icon://information"  color="#4B92DB" tooltip="This is Not contactable tip." class="myTooltip" />
+						</FlexBox>                        
+                    </FlexBox>
+                </content>
+            </IconTabFilter>
+                    <!-- Second Tab -->
+                    <IconTabFilter id="tab2" text="AP">
+                        <content>
+                            <!-- Content for Tab 2 goes here -->
+                            <Label text="AP" />
+                        </content>
+                    </IconTabFilter>
+                    <!-- Third Tab -->
+                    <IconTabFilter id="tab3" text="NOTES">
+                        <content>
+                            <!-- Content for Tab 3 goes here -->
+                            <Label text="NOTES" />
+                        </content>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
+        <beginButton>
+            <Button text="ok" press="onCloseDialog" />
+        </beginButton>
+    </Dialog>
+</core:FragmentDefinition>

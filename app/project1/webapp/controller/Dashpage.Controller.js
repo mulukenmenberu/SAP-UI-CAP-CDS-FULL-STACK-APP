@@ -43,14 +43,10 @@
 
 	return Controller.extend("project1.controller.Dashpage", {
 		_themeHasBeenSet: false, // Add this flag
-		onInit: function () {
-
-			
-			
+		onInit: function () {		
 			var oModel = new JSONModel(sap.ui.require.toUrl("project1/model/data.json"));
 			this.getView().setModel(oModel);
 			this._setToggleButtonTooltip(!Device.system.desktop);
-
 			//message
 
 			var that = this;
@@ -103,9 +99,7 @@
 
 			var oModel = new JSONModel(),
 				that = this;
-
 			oModel.setData(aMockMessages);
-
 			this.oMessageView = new MessageView({
 					showDetailsPageHeader: false,
 					itemSelect: function () {
@@ -127,7 +121,6 @@
 				});
 
 			this.oMessageView.setModel(oModel);
-
 			var oCloseButton =  new Button({
 					text: "Close",
 					press: function () {
@@ -153,14 +146,12 @@
 				content: [this.oMessageView],
 				footer: oPopoverFooter,
 				placement: "Left",  // Set placement to Left
-			});
-		
+			});		
 		},
 
 		
 		onLiveSearch: function (oEvent) {
 			alert('this is search')
-
 			var oTable = this.getView().byId("table0");
 			var oBinding = oTable.getBinding("items");
 			var sQuery = oEvent.getParameter("newValue");
@@ -184,34 +175,27 @@
 			this.oMessageView.navigateBack();
 			this._oPopover.openBy(oEvent.getSource());
 			var oButton = oEvent.getSource();
-
 			// Retrieve the notification count from the custom data
-			var notificationCount = oButton.getCustomData()[0].getValue(); // Assuming it's the first custom data
-		
+			var notificationCount = oButton.getCustomData()[0].getValue(); // Assuming it's the first custom data		
 			// Update the icon with the notification count
-			oButton.setIcon("sap-icon://bell" + (notificationCount > 0 ? "-notification" : ""));
-		
+			oButton.setIcon("sap-icon://bell" + (notificationCount > 0 ? "-notification" : ""));		
 		},
 		  
 		// onButtonClick:function(){
 		// 	alert('you clicked me')
 		//   },
 
-	// profile drop dowen page 
-
-	
+	// profile drop dowen page 	
 		onItemSelect: function (oEvent) {
 			var oItem = oEvent.getParameter("item");
 			this.byId("pageContainer").to(this.getView().createId(oItem.getKey()));
 		},
 
 
-		switch: function () {
-			
+		switch: function () {			
 			// Handle product switcher pressed event
 			var oView = this.getView();
-			var oProductSwitcher = oView.byId("x"); // Replace with your actual ID
-		  
+			var oProductSwitcher = oView.byId("x"); // Replace with your actual ID		  
 			if (oProductSwitcher) {
 				if (!this._oNotificationSwitcherPopover) {
 					Fragment.load({
@@ -231,10 +215,7 @@
 				console.error("Notfication switcher control not found.");
 			}
 		  },
-		  // bellow is alternative profile dropdowen menu
-
-
-		
+		  // bellow is alternative profile dropdowen menu	
 		
 		handleUserNamePress: function (event) {
 			var oView = this.getView();
@@ -275,10 +256,8 @@
 		},
 
 		onSwitcherItemSelect: function (oEvent) {
-			// Get the selected item
-			
-			var oSelectedItem = oEvent.getParameter("listItem");
-	
+			// Get the selected item			
+			var oSelectedItem = oEvent.getParameter("listItem");	
 			if (oSelectedItem) {
 				// Retrieve the selected value
 				var sSelectedTitle = oSelectedItem.getTitle();
@@ -313,10 +292,8 @@
 		},
 		
 		logout: function(oRecord) {
-		  // alert("You are successfully logedout");
-	  
-		  localStorage.removeItem("isLoggedIn");
-		  
+		  // alert("You are successfully logedout");	  
+		  localStorage.removeItem("isLoggedIn");		  
 		  var oLoginController = window.loginController;
 		  if (oLoginController) {
 			  var oUsernameInput = oLoginController.byId("user"); // Replace with your actual ID
@@ -335,9 +312,7 @@
 		onSideNavButtonPress: function () {
 			var oToolPage = this.byId("toolPage");
 			var bSideExpanded = oToolPage.getSideExpanded();
-
 			this._setToggleButtonTooltip(bSideExpanded);
-
 			oToolPage.setSideExpanded(!oToolPage.getSideExpanded());
 		},
 
@@ -369,12 +344,11 @@
 			MessageToast.show('Profile  function will implement here')
 					},
 
-
-					onChangeTheme: function(oEvent) {
-						// alert('helo')
-						var selectedTheme = oEvent.getParameter("selectedItem").getKey();
-						sap.ui.getCore().applyTheme(selectedTheme);
-					},
+		onChangeTheme: function(oEvent) {
+			// alert('helo')
+			var selectedTheme = oEvent.getParameter("selectedItem").getKey();
+			sap.ui.getCore().applyTheme(selectedTheme);
+		},
 
 	});
 });

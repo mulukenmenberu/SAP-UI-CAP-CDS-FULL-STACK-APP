@@ -56,11 +56,7 @@ const oModel = new sap.ui.model.json.JSONModel({
 });
 
 this.getView().setModel(oModel);
-
-
-        // Sample data for ComboBoxes
-
-
+ // Sample data for ComboBoxes
 
       },
   
@@ -70,8 +66,7 @@ this.getView().setModel(oModel);
         var firstName = oModel.getProperty("/firstName");
         var lastName = oModel.getProperty("/lastName");
         var email = oModel.getProperty("/email");
-        var password = oModel.getProperty("/password");
-  
+        var password = oModel.getProperty("/password");  
         // Perform registration logic (you can replace this with your actual registration logic)
         if (firstName && lastName && email && password) {
           // Registration successful
@@ -84,7 +79,6 @@ this.getView().setModel(oModel);
       },onCreateNewLeadPress:function(){
         alert('Register clicked')
       }
-
       ,onSearchPress:function(){
         alert('Search clicked')
       }

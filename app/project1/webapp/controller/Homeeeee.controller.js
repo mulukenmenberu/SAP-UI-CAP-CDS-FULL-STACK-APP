@@ -15,12 +15,10 @@ sap.ui.define([
 
         return Controller.extend("project1.controller.Home", {
             
-            onInit: function () {
-               
+            onInit: function () {               
                 this._oTable = this.byId("table0");
                 this._createReadOnlyTemplates();
                 this.rebindTable(this.oReadOnlyTemplate, "Navigation");
-
                 const token = sessionStorage.getItem('token')
                 if(token){
                 fetch(Config.baseUrl+"odata/v4/users/Users", {
@@ -28,8 +26,7 @@ sap.ui.define([
                       'Authorization': `Bearer ${token}`,
                       'Content-Type': 'application/json',
                     },
-                  })
-                
+                  })                
                 .then(response => response.json())
                 .then(data => {
                     // Create a JSONModel and set the data to the model
@@ -42,17 +39,6 @@ sap.ui.define([
                 });
 
             }
-                // var oModel = new JSONModel({
-                //     Users: [
-                //         { UserId: "1", UserName: "User1" },
-                //         { UserId: "2", UserName: "User2" },
-                //         // Add more sample data as needed
-                //     ]
-                // });
-    
-                // // Set the model to the view
-                // this.getView().setModel(oModel, "userModel");
-
                 var oModel = new JSONModel({
                     Planned_study_date_edit: "",
                     Office_edit: "",
@@ -62,9 +48,7 @@ sap.ui.define([
                     ID_edit:"",
 
                 });
-                this.getView().setModel(oModel, "editModel");
-
-                
+                this.getView().setModel(oModel, "editModel");                
                 this.oEditableTemplate = new ColumnListItem({
                     cells: [
                         new Input({
@@ -137,17 +121,14 @@ sap.ui.define([
                     // If the search field is empty, remove the filter
                     oBinding.filter([]);
                 }
-            },
-            
+            },            
           
               onLogout: function () {
                 this.getOwnerComponent().getRouter().navTo("RouteLogin"); // not working 
-              },
-          
+              },          
               onToggleMenu: function () {
                 this.byId("navContainer").to(this.byId("menuPage"), "show");
-              },
-          
+              },          
               onMenuItemPress: function (oEvent) {
                 MessageToast.show("Menu Item Pressed: " + oEvent.getSource().getTitle());
           
@@ -175,12 +156,9 @@ sap.ui.define([
             
                 // Set the model for the dialog
                 this.getView().setModel(oModel, "editModel");
-
-
                 var oDialog = this.getView().byId("studentDetailModal");
                 oDialog.setContentWidth("100%");
                 oDialog.setContentHeight("100%");
-
                 this.getView().byId("studentDetailModal").open();
              },
              onCancelDialog: function (oEvent) {
@@ -227,17 +205,13 @@ sap.ui.define([
     
             },
             onSuccessfulPatch: function () {
-                var customModel = this.getView().getModel("customModel");
-              
+                var customModel = this.getView().getModel("customModel");              
                 // Assuming "editModel" is your edit model instance
-                var editModel = this.getView().getModel("editModel");
-              
+                var editModel = this.getView().getModel("editModel");              
                 // Retrieve the updated data from the editModel
-                var updatedData = editModel.getProperty("/ID_edit");
-              
+                var updatedData = editModel.getProperty("/ID_edit");              
                 // Update the main model with the updated data
-                customModel.setProperty("customModel>/StudentWithAdvisor", updatedData);
-              
+                customModel.setProperty("customModel>/StudentWithAdvisor", updatedData);              
                 // Refresh the bindings to update the UI
                 customModel.refresh(); 
               },
@@ -255,7 +229,6 @@ sap.ui.define([
                         
                         try{
                             const endpoint = Config.baseUrl+"StudentServices/Students";
-
                             // Assuming you have the updateData object defined as mentioned in your question
                             const updateData = {
                                 "Full_name": this.byId("Full_name_edit").getValue(),
@@ -263,12 +236,10 @@ sap.ui.define([
                                 "Office": this.byId("Office_edit").getValue(),
                                 "Advisor_ID": parseInt(this.byId("Advisor_edit").getSelectedKey(), 10),
                           
-                            };
-                          
+                            };                         
                          
                             // You may want to replace 'yourStudentID' with the actual ID of the student you want to update
-                            const studentID = parseInt(this.byId("ID_edit").getValue(), 10)
-                            
+                            const studentID = parseInt(this.byId("ID_edit").getValue(), 10)                            
                             // Construct the full URL with the student ID
                             const fullURL = `${endpoint}/${studentID}`;
                             console.log("asasAs", parseInt(this.byId("Advisor_edit").getSelectedKey(), 10))
@@ -296,7 +267,6 @@ sap.ui.define([
                                 this.getView().byId("studentDetailModal").close();
                                 MessageToast.show("Student Info Updated, refresh the page to get the changes");
                                 // onSuccessfulPatch()
-
             
                     }catch(e){
                         this.getView().byId("OpenDialog").close();
@@ -312,11 +282,9 @@ sap.ui.define([
                     const endpoint = Config.baseUrl+"StudentServices/Students";
             
                     // You may want to replace 'yourStudentID' with the actual ID of the student you want to delete
-                    const studentID = parseInt(this.byId("ID_edit").getValue(), 10);
-            
+                    const studentID = parseInt(this.byId("ID_edit").getValue(), 10);            
                     // Construct the full URL with the student ID
-                    const fullURL = `${endpoint}/${studentID}`;
-            
+                    const fullURL = `${endpoint}/${studentID}`;            
                     // Send the DELETE request
                     const response = await fetch(fullURL, {
                         method: 'DELETE',
@@ -355,8 +323,7 @@ sap.ui.define([
 
             var oSelected = this.byId("table0").getSelectedItem();
             if(oSelected){
-                var oSalesOrder = oSelected.getBindingContext("customModel").getObject().ID;
-            
+                var oSalesOrder = oSelected.getBindingContext("customModel").getObject().ID;            
                 oSelected.getBindingContext("customModel").delete("$auto").then(function () {
                     MessageToast.show(oSalesOrder + " SuccessFully Deleted");
                 }.bind(this), function (oError) {
@@ -384,8 +351,7 @@ sap.ui.define([
         
                 // Set the model on the table
                 this._oTable.setModel(oModel, "customModel");
-                console.log('Table Model:', this._oTable.getModel("customModel")); // Check if the model is set on the table
-        
+                console.log('Table Model:', this._oTable.getModel("customModel")); // Check if the model is set on the table        
                 // Bind items using the newly set model
                 this._oTable.bindItems({
                     path: "customModel>/value",
@@ -404,7 +370,7 @@ sap.ui.define([
 
         },
         
-refreshModel: function (sModelName, sGroup){
+       refreshModel: function (sModelName, sGroup){
             return new Promise((resolve,reject)=>{
                 this.makeChangesAndSubmit.call(this,resolve,reject,
                 sModelName,sGroup);
@@ -465,7 +431,7 @@ refreshModel: function (sModelName, sGroup){
                 })
     
             ]
-        });
-    },
+           });
+          },
         });
     });

@@ -18,7 +18,6 @@ sap.ui.define([
             onLoginClick: function(){
                 var username = this.getView().byId('username').getValue();
                 var pwd = this.getView().byId('pwd').getValue();
-
                 this._sendLoginRequest(username, pwd);
            
             },
@@ -48,20 +47,14 @@ sap.ui.define([
                         // this.getOwnerComponent().getRouter().navTo("Targetdash"); //when i got otp varification from mulie i will change to the first coomt line and remove this
                         const token = data.user.token
                         sessionStorage.setItem('token', token)
-
-
                                // Hide the login panel
                                var loginPanel = this.getView().byId("loginPanel");
-                               loginPanel.setVisible(false);
-       
+                               loginPanel.setVisible(false);       
                                // Show the OTP panel
                                var otpPanel = this.getView().byId("otpPanel");
                                otpPanel.setVisible(true);
-
                                var emailInput = otpPanel.byId("User");
                                emailInput.setValue(username);
-
-
                         // this.getOwnerComponent().getRouter().navTo("dashboard");
                     }else{
                         MessageToast.show('Invalid credentials');
@@ -75,7 +68,6 @@ sap.ui.define([
             onVerifyOtpClick: function(){
                 var User = this.getView().byId('username').getValue();
                 var Code = this.getView().byId('otpcode').getValue();
-
                 this._sendOtpVerificationRequest(User, Code);
            
             },

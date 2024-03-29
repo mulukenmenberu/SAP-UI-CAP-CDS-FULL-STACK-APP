@@ -5,9 +5,11 @@
 		xmlns:core="sap.ui.core"
 		xmlns="sap.m"
 		xmlns:f="sap.f"
+		xmlns:heading="project1.controls"
+		xmlns:custom="project1.controls"
 		xmlns:fb="sap.ui.comp.filterbar"
-		xmlns:svm="sap.ui.comp.smartvariants">
-			
+		xmlns:svm="sap.ui.comp.smartvariants">	 
+		<heading:heading border="5px dashed red" mario="gray" magic="Student Pipeline Management - SAP-BTP Demo"></heading:heading>
 		<f:DynamicPage headerExpanded="{/headerExpanded}">		
 			<f:title>			
 				<f:DynamicPageTitle>				
@@ -24,12 +26,11 @@
 			</f:title>
 			<f:header>
 				<f:DynamicPageHeader>
-					<f:content>
+					<f:content>		
 						<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
 							<fb:filterGroupItems>
 								<fb:FilterGroupItem name="Name" label="Student Name" groupName="Group1" visibleInFilterBar="true">
-									<fb:control>
-									
+									<fb:control>									
 										<MultiComboBox
 											name="Name"
 											selectionChange=".onSelectionChange"
@@ -109,7 +110,7 @@
 							</fb:filterGroupItems>
 						</fb:FilterBar>
 					</f:content>
-						<Button  text="copy" press="onCopyTextToClipboard"></Button>
+					<Button  text="copy" press="onCopyTextToClipboard"></Button>
 				</f:DynamicPageHeader>				
 			</f:header>
 			<f:content>
@@ -118,43 +119,40 @@
 					inset="false"
 					items="{
 						path: '/Userrecord'
-					}"
-					
-				>
+					}">
 					<columns>
-                    	<Column minScreenWidth="Tablet" width="10rem" demandPopin="true">
-							<Text text="Student DB Id"/>
+                    	<Column minScreenWidth="Tablet" width="12rem" demandPopin="true">
+						<Text text="Student DB Id"/>
 						</Column>
-						<Column minScreenWidth="Tablet" width="10rem" demandPopin="true">
-							<Text text="Student Name"/>
+						<Column minScreenWidth="Tablet" width="12rem" demandPopin="true">
+						<Text text="Student Name"/>
 						</Column>
 						<Column minScreenWidth="Tablet" width="8rem" demandPopin="true">
-							<Text text="Gender"/>
+						<Text text="Gender"/>
 						</Column>
-						<Column minScreenWidth="Tablet" width="10rem" demandPopin="true">
-							<Text text="App Type"/>
+						<Column minScreenWidth="Tablet" width="12rem" demandPopin="true">
+						<Text text="App Type"/>
 						</Column>
-                         <Column minScreenWidth="Tablet" width="10rem" demandPopin="true">
-							<Text text="Member Date"/>
+                         <Column minScreenWidth="Tablet" width="12rem" demandPopin="true">
+						<Text text="Member Date"/>
 						</Column>
-                        <Column minScreenWidth="Tablet" width="10rem" demandPopin="true">
-							<Text text="Country"/>
+                        <Column minScreenWidth="Tablet" width="12rem" demandPopin="true">
+						<Text text="Country"/>
 						</Column>
-                        <Column minScreenWidth="Tablet" width="8rem" demandPopin="true">
-							<Text text="Office"/>
+                        <Column minScreenWidth="Tablet" width="5rem" demandPopin="true">
+						<Text text="Office"/>
 						</Column>
-						   <Column minScreenWidth="Tablet" width="10rem" demandPopin="true">
-							<Text text="Count"/>
+						<Column minScreenWidth="Tablet" width="4rem" demandPopin="true">
+						<Text text="Count"/>
 						</Column>
                         <Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="Status"/>
-						</Column>                        
+						<Text text="Status(intake sample)"/>
+						</Column>							                      
 					</columns>
 					<items >
 						<ColumnListItem  vAlign="Middle" >
-							<cells  >
-                             <Link text="{StudentDBID}" press="onUserIdClick" />
-                              <!-- <Text text="{StudentDBID}" /> -->
+							<cells>
+                                <Link text="{StudentDBID}" press="onUserIdClick" />
 								<ObjectIdentifier  title="{Name}" />
 								<Text text="{Sex}" />
 								<Text text="{App_type}" />
@@ -162,50 +160,17 @@
                                  <Text text="{country}" />
                                   <Text text="{office}" />   
 								 <Text text="{Count}" />   
-									<HBox class="vBoxContainer" alignContent="Stretch">  
-
-										<!-- <Button text="CS" press="onpress_cs" type="{=(${CS} >= 1 ? 'Accept' : 'Default')}" />
-										<Button text="AP" press="onpress_cs" type="{=(${AP} >= 1 ? 'Accept' : 'Default')}" />
-										<Button text="DC" press="onpress_cs" type="{=(${DC} >= 1 ? 'Accept' : 'Default')}" />
-										<Button text="FC" press="onpress_cs" type="{=(${FC} >= 1 ? 'Accept' : 'Default')}" />
-										<Button text="LF" press="onpress_cs" type="{=(${LF} >= 1 ? 'Reject' : 'Default')}" /> -->
-
-
-         				    <VBox alignItems="Center"  class="iconContainer">
-								<core:Icon press="onpress_cs"  visible="true" hoverBackgroundColor="{= ${CS} === 1 ? '#005f28' : '#000000'}"   backgroundColor="{= ${CS} === 1 ? '#28a745' : '#6c757d'}"  class="iconSize"  /> <!-- Apply icon size class -->
-								<VBox class="textOverlay">
-								  <Text text="CS" class="textcolor" tooltip="CS"/>
-							   </VBox>
-							</VBox>
-							<VBox alignItems="Center" class="iconContainer">
-								<core:Icon press="onpress_AP"  hoverBackgroundColor="{= ${AP} === 1 ? '#005f28' : '#000000'}"  backgroundColor="{= ${AP} === 1 ? '#28a745' : '#6c757d'}" class="iconSize" /> <!-- Apply icon size class -->
-								<VBox class="textOverlay" >
-								   <Text text="AP"  class="textcolor" tooltip="AP"/>
-								</VBox>
-							</VBox>
-							<VBox alignItems="Center" class="iconContainer">
-								<core:Icon press="onpress_DC"   hoverBackgroundColor="{= ${DC} === 1 ? '#005f28' : '#000000'}" backgroundColor="{= ${DC} === 1 ? '#28a745' : '#6c757d'}" class="iconSize"  /> <!-- Apply icon size class -->
-								<VBox class="textOverlay">
-								  <Text text="DC" class="textcolor" tooltip="DC"/>
-							   </VBox>
-							</VBox>
-							<VBox alignItems="Center" class="iconContainer">
-								<core:Icon press="onpress_FC"  hoverBackgroundColor="{= ${FC} === 1 ? '#005f28' : '#000000'}" backgroundColor="{= ${FC} === 1 ? '#28a745' : '#6c757d'}"   class="iconSize" /> <!-- Apply icon size class -->
-								<VBox class="textOverlay" >
-								  <Text text="FC" class="textcolor" tooltip="FC"/>
-							    </VBox>
-						    </VBox>
-							<VBox alignItems="Center" class="iconContainer">
-								<core:Icon   press="onpress_LF"   hoverBackgroundColor="{= ${LF} === 1 ? '#701F28' : '#000000'}"  backgroundColor="{= ${LF} === 1 ? '#dc3545' : '#6c757d'}" class="iconSize"  /> <!-- Apply icon size class -->
-								<VBox class="textOverlay">
-								   <Text text="LF" class="textcolor" tooltip="LF" />
-							    </VBox>
-							</VBox>							 
-							</HBox>
-							</cells>
+								<HBox class="vBoxContainer" alignContent="Stretch">	
+								<custom:CustomColorButton text="CS"  color="{= ${CS} === 1 ? 'Green' : 'Grey'}" press="onsuperman_CS" class="hoverColor"/>
+								<custom:CustomColorButton text="AP" color="{= ${AP} === 1 ? 'Green' : 'Grey'}"  press="onsuperman_AP" class="hoverColor"/>
+								<custom:CustomColorButton text="DC" color="{= ${DC} === 1 ? 'Green' : 'Grey'}"  press="onsuperman_DC" class="hoverColor" />
+								<custom:CustomColorButton text="FC" color="{= ${FC} === 1 ? 'Green' : 'Grey'}"  press="onsuperman_FC" class="hoverColor"/>
+								<custom:CustomColorButton text="LF" color="{= ${LF} === 1 ? 'Red' : 'Grey'}"    press="onsuperman_LF" class="hoverColor"/>
+							    </HBox>			
+						</cells>
 						</ColumnListItem>
 					</items>
 				</Table>
-			</f:content>
+			</f:content>	
 		</f:DynamicPage>
 </mvc:View>

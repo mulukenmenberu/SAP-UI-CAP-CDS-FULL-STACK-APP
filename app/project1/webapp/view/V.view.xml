@@ -17,7 +17,6 @@
 			text="Reveal Grid"
 			press="onRevealGrid"
 			class="sapUiSmallMargin" />
-
 		<Panel headerText="Grid Container Properties">
 			<HBox alignItems="Center">
 				<Label width="8rem" class="sapUiSmallMarginBegin" text="Snap to Row:" />
@@ -45,7 +44,6 @@
 			<f:layoutXS>
 				<f:GridContainerSettings rowSize="70px" columnSize="70px" gap="8px" />
 			</f:layoutXS>
-
 			<GenericTile
 				press="onPress"
 				header="Sales Fulfillment Application Title"
@@ -57,13 +55,11 @@
 					<ImageContent src="sap-icon://home-share" />
 				</TileContent>
 			</GenericTile>
-
 			<w:Card manifest="test-resources/sap/f/demokit/sample/GridContainer/cardManifest.json">
 				<w:layoutData>
 					<f:GridContainerItemLayoutData minRows="3" columns="4" />
 				</w:layoutData>
 			</w:Card>
-
 			<GenericTile header="Manage Activity Master Data Type" subheader="Subtitle">
 				<layoutData>
 					<f:GridContainerItemLayoutData minRows="2" columns="2" />
@@ -72,7 +68,6 @@
 					<ImageContent src="sap-icon://activities" />
 				</TileContent>
 			</GenericTile>
-
 			<f:Card>
 				<f:layoutData>
 					<f:GridContainerItemLayoutData columns="4" />
@@ -116,13 +111,11 @@
 					</VBox>
 				</f:content>
 			</f:Card>
-
 			<Text text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat">
 				<layoutData>
 					<f:GridContainerItemLayoutData columns="4" />
 				</layoutData>
 			</Text>
-
 			<GenericTile header="Cumulative Totals" subheader="Subtitle">
 				<layoutData>
 					<f:GridContainerItemLayoutData minRows="2" columns="2" />
@@ -131,7 +124,6 @@
 					<NumericContent value="12" />
 				</TileContent>
 			</GenericTile>
-
 			<GenericTile header="Travel and Expenses" subheader="Access Concur">
 				<layoutData>
 					<f:GridContainerItemLayoutData minRows="2" columns="2" />
@@ -140,7 +132,6 @@
 					<ImageContent src="sap-icon://travel-expense" />
 				</TileContent>
 			</GenericTile>
-
 			<f:Card>
 				<f:layoutData>
 					<f:GridContainerItemLayoutData minRows="4" columns="4" />
@@ -165,7 +156,6 @@
 					</List>
 				</f:content>
 			</f:Card>
-
 			<GenericTile header="Success Map" subheader="Access Success Map">
 				<layoutData>
 					<f:GridContainerItemLayoutData minRows="2" columns="2" />
@@ -174,7 +164,6 @@
 					<ImageContent src="sap-icon://map-3" />
 				</TileContent>
 			</GenericTile>
-
 			<GenericTile header="My Team Calendar">
 				<layoutData>
 					<f:GridContainerItemLayoutData minRows="2" columns="2" />
@@ -183,7 +172,6 @@
 					<ImageContent src="sap-icon://check-availability" />
 				</TileContent>
 			</GenericTile>
-
 			<Text text="Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat">
 				<layoutData>
 					<f:GridContainerItemLayoutData columns="4" />

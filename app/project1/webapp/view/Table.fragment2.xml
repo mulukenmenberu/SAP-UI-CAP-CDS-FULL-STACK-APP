@@ -5,8 +5,7 @@
 	  xmlns:m="sap.m"
 	   displayBlock="true"
     xmlns:form="sap.ui.layout.form"
-     xmlns:core="sap.ui.core"
-  
+     xmlns:core="sap.ui.core"  
 	   xmlns:table="sap.ui.table">
 	    <m:App id="apptable">
             <m:pages>
@@ -31,7 +30,6 @@
 				<table:template>
 					<m:Label text="{Sales Manager}"/>
 				</table:template>
-
 			</table:Column>
 			<table:Column>
 				<m:Label text="App Type"/>

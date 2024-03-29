@@ -1,114 +1,279 @@
-<mvc:View 	controllerName="project1.controller.Table"
-	xmlns:core="sap.ui.core"
-	xmlns:mvc="sap.ui.core.mvc"
-	displayBlock="true"
-	xmlns:form="sap.ui.layout.form"
-	xmlns="sap.m"
-	xmlns:m="sap.m"
-	xmlns:table="sap.ui.table"
-	xmlns:l="sap.ui.layout"
-
->
-
-	
-	<table:Table selectionMode="None" rows="{/Rows}">
-		<table:columns>
-			<table:Column width="10rem">
-				<m:Label text="Student DB ID"/>
-				<table:template>
-					<m:Label text="{Supplier}"/>
-				</table:template>
-			</table:Column>
-			<table:Column width="10rem">
-				<m:Label text="Full Name"/>
-				<table:template>
-					<m:Label text="{Supplier ID}"/>
-				</table:template>
-			</table:Column>
-			<table:Column width="10rem">
-				<m:Label text="Member Date"/>
-				<table:template>
-					<m:Label text="{Sales Manager}"/>
-				</table:template>
-
-			</table:Column>
-			<table:Column width="10rem">
-				<m:Label text="App Type"/>
-				<table:template>
-					<m:Label text="{Product ID}"/>
-				</table:template>
-			</table:Column>
-			<table:Column width="10rem">
-				<m:Label text="Count"/>
-				<table:template>
-					<m:Label text="{Unit Price}"/>
-				</table:template>
-			</table:Column>
-			<table:Column width="10rem">
-				<m:Label text="Message"/>
-				<table:template>
-					<m:Label text="{Period}"/>
-				</table:template>
-			</table:Column>
-			<table:Column >
-				<m:Label text="Status"/>
-				<table:template>
-				
-				<HBox class="vBoxContainer">
-					<!-- <template:if Supplier="{= ${Supplier} === 1}">
-					<template:then>
-						<Text text="{Supplier}" tooltip="{Supplier}" wrapping="true" class="crmStatusOk" />
-					</template:then>
-					<template:else>
-						<Text text="{Supplier}" tooltip="{Supplier}" wrapping="true" class="crmDefault" />
-							</template:else>
-					</template:if> -->
-                        <items>
-						<ColumnListItem vAlign="Middle">
+<mvc:View
+		controllerName="project1.controller.DynamicPageListReport"
+		height="100%"
+		xmlns:mvc="sap.ui.core.mvc"
+		 displayBlock="true"
+		xmlns:core="sap.ui.core"
+		xmlns="sap.m"
+		xmlns:f="sap.f"
+			xmlns:l="sap.ui.layout"
+		xmlns:heading="project1.controls"
+		xmlns:custom="project1.controls"
+		xmlns:fb="sap.ui.comp.filterbar"
+		  xmlns:form="sap.ui.layout.form"
+		xmlns:svm="sap.ui.comp.smartvariants">	 
+        <!-- <Button text="Open Modal" press="onOpenModal" /> -->	
+				 <heading:heading border="5px dashed red" mario="gray" magic="Student Pipeline Management - SAP-BTP Demo"></heading:heading>
+		<f:DynamicPage headerExpanded="{/headerExpanded}">		
+			<f:title>			
+				<f:DynamicPageTitle>				
+					<f:heading>					
+						<svm:SmartVariantManagement id="svm" showExecuteOnSelection="true" />
+					</f:heading>					
+					<f:expandedContent>				
+						<Label id="expandedLabel" text="No filters active" />						
+					</f:expandedContent>
+					<f:snappedContent>
+						<Label id="snappedLabel" text="No filters active" />
+					</f:snappedContent>					
+				</f:DynamicPageTitle>
+			</f:title>
+			<f:header>
+				<f:DynamicPageHeader>
+					<f:content>		
+						<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
+							<fb:filterGroupItems>
+								<fb:FilterGroupItem name="Name" label="Student Name" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>									
+										<MultiComboBox
+											name="Name"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/NameCategory',
+												templateShareable: true
+											}">
+											<core:Item key="{key}" text="{name}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="Sex" label="Gender" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="Sex"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/SexCategories',
+												templateShareable: true
+											}">
+											<core:Item key="{key}" text="{name}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+								<fb:FilterGroupItem name="App_type" label="App Type" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="App_type"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/App_Category',
+												templateShareable: true
+											}">
+											<core:Item key="{key}" text="{name}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+                                <fb:FilterGroupItem name="MemberDate" label="Member Date" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="MemberDate"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/dateCategories',
+												templateShareable: true
+											}">
+											<core:Item key="{key}" text="{name}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+                                   <fb:FilterGroupItem name="country" label="Country" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="country"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/countryCategories',
+												templateShareable: true
+											}">
+											<core:Item key="{key}" text="{name}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+                                   <fb:FilterGroupItem name="office" label="Office" groupName="Group1" visibleInFilterBar="true">
+									<fb:control>
+										<MultiComboBox
+											name="office"
+											selectionChange=".onSelectionChange"
+											items="{
+												path: '/officeCategories',
+												templateShareable: true
+											}">
+											<core:Item key="{key}" text="{name}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterGroupItem>
+							</fb:filterGroupItems>
+						</fb:FilterBar>
+					</f:content>
+						<Button  text="copy" press="onCopyTextToClipboard"></Button>
+				</f:DynamicPageHeader>				
+			</f:header>
+			<f:content>
+			 <!-- <ScrollContainer height="800px" vertical="true"> -->
+				<Table  growing="true" growingThreshold="3"
+				backgroundDesign="Translucent"
+					id="table"
+					inset="false"
+					items="{
+						path: '/Userrecord'
+					}">
+					<columns>
+                    	<!-- <Column minScreenWidth="Tablet" width="10rem" demandPopin="true">
+							<Text text="Student DB Id"/>
+						</Column> -->
+						<Column minScreenWidth="Tablet" width="18rem" demandPopin="true">
+							<Text text="STUDENT INFORMATION"/>
+						</Column>
+						<Column minScreenWidth="Tablet" width="12rem" demandPopin="true">
+							<FlexBox alignItems="Center" justifyContent="Start">
+							<Text text="DESTINATION" class="spaceing"/>
+							 <core:Icon src="sap-icon://information"  color="black" tooltip="Student destination" class="myTooltip" />
+						</FlexBox>
+						</Column>
+						<Column minScreenWidth="Tablet" width="10rem" demandPopin="true">
+								<FlexBox alignItems="Center" justifyContent="Start">
+							<Text text="INTAKE" class="spaceing"/>
+							 <core:Icon src="sap-icon://information"  color="black" tooltip="Study plan date" class="myTooltip" />
+						</FlexBox>
+						</Column>
+                         <Column minScreenWidth="Tablet" width="10rem" demandPopin="true">
+								<FlexBox alignItems="Center" justifyContent="Start">
+							<Text text="LAST UPDATE" class="spaceing"/>
+							 <core:Icon src="sap-icon://information"  color="black" tooltip="Last interaction date" class="myTooltip" />
+						</FlexBox>
+						</Column>
+                        <Column minScreenWidth="Tablet" width="15rem" demandPopin="true">
+							<FlexBox alignItems="Center" justifyContent="Start">
+								<Text text="STAGE" class="spacing"/>
+								<core:Icon src="sap-icon://information" color="black" tooltip="New - New student is assigned to a counsellor&#10;CIP - Counselling In Progress - Counsellor is engaging with the student&#10;AP - Application Processing - Student application process initiated" class="myTooltip" />
+							</FlexBox>
+						</Column>
+                        <!-- <Column minScreenWidth="Tablet" width="5rem" demandPopin="true">
+							<Text text="Office"/>
+						</Column> -->
+						   <!-- <Column minScreenWidth="Tablet" width="4rem" demandPopin="true">
+							<Text text="Count"/>
+						</Column> -->
+                        <Column minScreenWidth="Tablet" demandPopin="true" width="8rem">
+								<FlexBox alignItems="Center" justifyContent="Start">
+							<Text text="FOLLOW UP" class="spaceing"/>
+							  <core:Icon src="sap-icon://information"  color="black" tooltip="Description for due dates" class="myTooltip" />
+						</FlexBox>
+							</Column> 
+							<Column minScreenWidth="Tablet" demandPopin="true" width="4rem" >
+							<Text text="NOTES"/>
+							</Column> 						                      
+					</columns>
+					<items >
+						<ColumnListItem  vAlign="Middle" >
 							<cells>
-								<ObjectIdentifier title="{Supplier}" text="{Supplier}" />
-								<Text text="{Supplier}" />
-								<Text text="{Supplier}" />
-							</cells>
+                          <FlexBox alignItems="Center" justifyContent="SpaceBetween">
+							<!-- <HBox>
+								<ObjectIdentifier title="{Name}" text="{StudentDBID}"  />
+						    	</HBox> -->
+							        <VBox>
+										<!-- Name -->
+										<Text text="{Name}" class="std_name"/>
+										
+										<!-- ID with underlining -->
+										<Text text="{StudentDBID}" class="std_id"/>
+										
+										<!-- Study Level with yellow background -->
+										<Text text="{study_lvl}"
+												class="std_lvl" />
+									</VBox>
+												<HBox>
+													<core:Icon src="sap-icon://call" class="callIcon" color="black" size="1.5rem" />
+													<core:Icon src="sap-icon://email" class="callIcon" color="black" size="1.5rem" />
+												</HBox>
+											</FlexBox>
+												<!-- <Panel width="7rem" height="5rem" backgroundDesign="Translucent" class="panelWithShadow panelWithCustomStyle"> -->
+										<!-- <FlexBox alignItems="Center" justifyContent="Start" class="flexBoxWithMargin"> -->
+											<Text text="{country}" class="country" />
+										<!-- </FlexBox> -->
+									<!-- </Panel> -->
+									<!-- <Text text="{country}" /> -->
+									<FlexBox alignItems="Center" justifyContent="Start" class="callIconc3">
+									<Text text="{MemberDate}" class="callIconc4"/>
+								</FlexBox>
+								<FlexBox alignItems="Center" justifyContent="Start" class="callIconc3">
+									<Text text="{MemberDate}" class="boldText"/>
+									<Text text="Ready to apply" class="callIconc4"/>
+								</FlexBox>			
+
+								<!-- <Text text="{Sex}" />
+								<Text text="{App_type}" />
+                                <Text text="{MemberDate}" />                                 
+                                  <Text text="{office}" />   
+								 <Text text="{Count}" />    -->				
+						 <HBox class="vBoxContainer" alignContent="Stretch">
+					    	 <!-- <VBox alignItems="Center" class="iconContainer2"> -->
+							<!-- <core:Icon press="onpress_AP" backgroundColor="{= ${CS} >= 1 ? '#000080' : '#FFFFFF'}" class="iconSize2"/> -->
+							<!-- <FlexBox class="textAndIconContainer2" alignItems="Center" backgroundDesign="Solid">
+								<Text text="NEW" class="textcolor2" tooltip="AP"/>
+								<core:Icon src="sap-icon://show" size="1rem" tooltip="Edit follow-up date"   color="white" />
+							</FlexBox> -->
+							<custom:CustomFlexBox class="textAndIconContainernew" alignItems="Center"
+							backgroundColor="{= ${CS} >= 1 ? '#000080' : '#000080'}">
+							<Text text="NEW" class="textcolor2" tooltip="AP"/>
+							</custom:CustomFlexBox>
+							<custom:CustomFlexBox class="textAndIconContainercip" alignItems="Center"
+							backgroundColor="{= ${CS} >= 1 ? '#000080' : '#FFFFFF'}">
+							<Text text="CIP" class="textcolor2" tooltip="AP"/>
+							<core:Icon src="sap-icon://show"  press="handleOpenDialog"  size="1rem" tooltip="View CIP" color="white" class="iconMargin" />
+						</custom:CustomFlexBox>
+							<custom:CustomFlexBox class="textAndIconContainerap" alignItems="Center"
+							backgroundColor="{= ${CS} >= 3 ? '#000080' : '#FFFFFF'}"
+							color="{= ${CS} >= 1 ? '#000080' : '#FFFFFF'}">							
+							<Text text="AP" class="textcolor3" tooltip="AP" />
+							<core:Icon src="sap-icon://edit" press="onOpenAddDialog" size="0.8rem" tooltip="Edit Stage" color="black" class="iconMargin" />
+						</custom:CustomFlexBox>
+							<!-- </core:Icon> -->
+						<!-- </VBox>	 -->							
+						   </HBox>
+							<FlexBox alignItems="Center" justifyContent="Center" >
+						       <custom:MemberDate value="{path: 'MemberDate'}" />
+								<!-- <Text text="{MemberDate}" /> -->								
+								<core:Icon src="sap-icon://edit" press="onOpenModal" size="1rem"  tooltip="Edit follow-up date" />
+								</FlexBox>
+							<!-- </custom:MemberDate> -->
+							<FlexBox alignItems="Center" justifyContent="Center" >
+							<!-- Your other cell content goes here -->
+							<core:Icon src="sap-icon://document-text" press="onOpenModal" class="size3" color="black" tooltip="View Notes" />
+						</FlexBox>
+						</cells>      
 						</ColumnListItem>
 					</items>
-	                          <VBox class="crmStatusOk">
-									<Text
-										text="CS"
-										class="overlayText"
-									/>
-								</VBox>
-
-
-								<VBox class="crmStatusOk">
-									<Text
-										text="AP"
-										class="overlayText"
-									/>
-								</VBox>
-								<VBox class="crmStatusOk">
-									<Text
-										text="DC"
-										class="overlayText"
-									/>
-								</VBox>
-								<VBox class="crmDefault">
-									<Text
-										text="FC"
-										class="overlayText"
-									/>
-								</VBox>
-								<VBox class="crmDefault" >
-									<Text
-										text="LF"
-										class="overlayText"
-									/>
-								</VBox>
-							</HBox>
-				</table:template>				
-			</table:Column>
-		</table:columns>
-	</table:Table>
+				</Table>				                      
+				 <!-- </ScrollContainer> -->
+			</f:content>			
+		</f:DynamicPage>
+<Dialog id="OpenDialog" title="Create New Student" afterClose=".onDialogClose">
+    <content>
+        <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+            <form:content>               
+                    <FlexBox class="btn_arrow" alignItems="Center">				
+                         <Text text="Edit due date" class="btn_arrow" tooltip="AP" />
+						   <core:Icon src="sap-icon://arrow-right" press="onOpenAddDialog" size="1.5rem" tooltip="Edit Stage" color="white" class="textcolor_arrow" />
+                     </FlexBox>
+                    <FlexBox class="btn_arrow" alignItems="Center">				
+                           <Text text="Mark as completed" class="btn_arrow" tooltip="AP" />
+						     <core:Icon src="sap-icon://arrow-right" press="onOpenAddDialog" size="1.5rem" tooltip="Edit Stage" color="white" class="textcolor_arrow" />
+                    </FlexBox>   
+            </form:content>
+        </form:SimpleForm>
+    </content>
+    <buttons>
+        <Button id="cancelCreate" text="Cancel" press="onDialogClose"/>
+    </buttons>
+</Dialog>
 </mvc:View>
-
-

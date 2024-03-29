@@ -5,14 +5,11 @@ sap.ui.define([
   
     return Controller.extend("project1.controller.Notification", {
       // Your controller logic for SubItem1 goes here
-      onInit: function () {
-     
+      onInit: function () {     
       },
       onwitcherItemSelect: function (oEvent) {
-        // Get the selected item
-        
-        var oSelectedItem = oEvent.getParameter("listItem");
-    
+        // Get the selected item        
+        var oSelectedItem = oEvent.getParameter("listItem");    
         if (oSelectedItem) {
           // Retrieve the selected value
           var sSelectedTitle = oSelectedItem.getTitle();
@@ -46,10 +43,8 @@ sap.ui.define([
       },
       
       logout: function(oRecord) {
-        // alert("You are successfully logedout");
-      
-        localStorage.removeItem("isLoggedIn");
-        
+        // alert("You are successfully logedout");      
+        localStorage.removeItem("isLoggedIn");        
         var oLoginController = window.loginController;
         if (oLoginController) {
           var oUsernameInput = oLoginController.byId("user"); // Replace with your actual ID

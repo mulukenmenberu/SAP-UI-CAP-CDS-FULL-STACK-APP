@@ -5,7 +5,6 @@
   xmlns:c="sap.ui.core"
   xmlns="sap.m"	
   controllerName="project1.controller.menu">
-
   <Table id="myTable" items="{/yourItems}">
     <columns>
       <Column>
@@ -17,7 +16,6 @@
         <cells>
           <FlexBox  alignItems="Center">
      <!-- <Button  text="Add" style="{= ${Status} === 'red'? 'red' : 'blue'}" /> -->
-
             <Image height="1.5rem"  src="{= ${Status} === 'red'? 'red.png' :${Status} === 'green'? 'green.png' : 'default.jpg'}" />            
           </FlexBox>
         </cells>

@@ -6,19 +6,8 @@
 	xmlns:tnt="sap.tnt"
     controllerName="project1.controller.Masterpage">
 	 <core:Fragment id="productSwitcherFragment" fragmentName="project1.view.Notification" type="XML"/>
-
 	<tnt:ToolPage id="toolPage">	
-	
 		<tnt:header>
-			<!-- <f:ShellBar title="Student Managment system"
-				secondTitle="IDP"
-				showMenuButton="true"
-				homeIcon="https://sapui5.hana.ondemand.com/1.120.1/resources/sap/ui/documentation/sdk/images/logo.png"
-				showCopilot="false"
-				showNotifications="true"
-				menuButtonPressed="onMenuButtonPress"
-				showProductSwitcher="true"
-				notificationsNumber="2"> -->
 				<f:ShellBar title="Student Managment system"
 				secondTitle="IDP"
 				id="yourParentControlId"
@@ -38,13 +27,9 @@
                 <MenuItem text="Flight booking" icon="sap-icon://flight" />
                 <MenuItem text="Car rental" icon="sap-icon://car-rental" />                    
             </Menu>                    
-        </f:menu>
-
-			
-				
-						
-				<f:profile>
-					<Avatar initials="switch" id="x" />					
+        </f:menu>		
+			<f:profile>
+			<Avatar initials="switch" id="x" />					
 				</f:profile>
 				<f:searchManager >
 					<f:SearchManager liveChange="livesearch"/>

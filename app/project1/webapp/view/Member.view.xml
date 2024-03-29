@@ -7,10 +7,8 @@
   controllerName="project1.controller.Member">
   <App>
     <pages>
-      <Page title="Lead Information">
-    
-      <Panel headerText="" class="sapUiDemoFlexBoxSizeAdjustments">
-      
+      <Page title="Lead Information">    
+      <Panel headerText="" class="sapUiDemoFlexBoxSizeAdjustments">      
 			<FlexBox alignItems="Start">
    <f:Card class="sapUiTinyMarginBegin sapUiTinyMarginTop sapUiTinyMarginBottom" width="300px">
       <f:content>
@@ -45,10 +43,8 @@
                   <VBox width="100%" class="sapUiTinyMargin">
                     <Label text="First Name:" />
                     <Input value="{/firstName}" />
-
                     <Label text="Native Name:" />
                     <Input value="{/nativeName}" />
-
                     <Label text="Email:" />
                     <Input value="{/email}" />
                   <Label text="Level of Interest:" />
@@ -70,14 +66,12 @@
                   <VBox width="100%" class="sapUiTinyMargin">
                     <Label text="Lead Date:" />
                     <DatePicker value="{/leadDate}" />
-
                     <Label text="Leave Type:" />
                      <ComboBox items="{/leadTypeItems}" selectedKey="{/leadType}">
                   <items>
                     <core:Item key="{key}" text="{text}" />
                   </items>
                 </ComboBox>
-
                     <Label text="Last Contact Status:" />
                   <ComboBox items="{/lastContactStatusItems}" selectedKey="{/lastContactStatus}">
                   <items>
@@ -103,21 +97,18 @@
                   <VBox width="100%" class="sapUiTinyMargin">
                     <Label text="Planned Leaving Date:" />
                     <DatePicker value="{/plannedLeavingDate}" />
-
                   <Label text="Initial Student Source:" />
                   <MultiComboBox items="{/initialStudentSourceItems}"  value="Not Selected" >
                   <items>
                     <core:Item key="{key}" text="{text}" />
                   </items>
                 </MultiComboBox>
-
                     <Label text="Failure Reason" />
                           <ComboBox items="{/failureReasonItems}" selectedKey="{/failureReason}">
                   <items>
                     <core:Item key="{key}" text="{text}" />
                   </items>
                 </ComboBox>
-
                     <Label text="ITLS English Course Statement" />
                       <MultiComboBox items="{/itlsEnglishItems}"   value="Not Selected">
                       <items>
@@ -137,8 +128,7 @@
           <Button text="Create New Lead" press="onCreateNewLeadPress" />
         </FlexBox>
 		</Panel>
-        <!-- Search and Create New Lead Button -->
-    
+        <!-- Search and Create New Lead Button -->    
       </Page>
     </pages>
   </App>

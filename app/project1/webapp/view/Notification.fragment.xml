@@ -10,7 +10,6 @@
         contentMinWidth="auto"
         initialFocus="list"
         afterClose="onPopoverClose">
-
         <VBox justifyContent="End" fitContainer="false" class="customWidth"> <!-- Apply customWidth class for styling -->
             <!-- <Button icon="sap-icon://decline" press="onCloseButtonPress" class="invisibleButton" /> -->
             <SideNavigation xmlns="sap.tnt" xmlns:core="sap.ui.core" expanded="true" selectedKey="{/selectedKey}" itemSelect="onItemSelect">
@@ -20,7 +19,6 @@
                     </NavigationList>
                 </fixedItem>
             </SideNavigation>
-
             <List
                 id="productSwitcherList"
                 mode="SingleSelectMaster"

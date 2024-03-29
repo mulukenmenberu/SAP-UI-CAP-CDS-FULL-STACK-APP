@@ -20,12 +20,10 @@ sap.ui.define([
 
 		statusFormatter: function(sStatus) {
 			var classes = "sapMText sapUiSelectable sapMTextBreakWord sapMTextMaxWidth cell-" + sStatus;
-
 			// Add classes for hiding the element based on some condition
 			if (sStatus === "someCondition") {
 				classes += " sapUiHidden sapUiForcedHidden";
 			}
-
 			return classes;
 		}
 	});
