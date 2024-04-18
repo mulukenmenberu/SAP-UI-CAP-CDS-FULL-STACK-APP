@@ -31,7 +31,7 @@
                     <Label text="Telephone:" />
                     <Input value="{/telephone}" />
                   </VBox>
-                     <layoutData>
+              <layoutData>
 						<FlexItemData growFactor="1" />
 					</layoutData>
         </FlexBox>
@@ -93,7 +93,7 @@
     </f:Card>
           <f:Card class="sapUiTinyMarginEnd sapUiTinyMarginTop sapUiTinyMarginBottom" width="300px">
                 <f:content>
-                      <FlexBox justifyContent="Center" alignItems="Start">
+                  <FlexBox justifyContent="Center" alignItems="Start">
                   <VBox width="100%" class="sapUiTinyMargin">
                     <Label text="Planned Leaving Date:" />
                     <DatePicker value="{/plannedLeavingDate}" />
@@ -104,7 +104,7 @@
                   </items>
                 </MultiComboBox>
                     <Label text="Failure Reason" />
-                          <ComboBox items="{/failureReasonItems}" selectedKey="{/failureReason}">
+                    <ComboBox items="{/failureReasonItems}" selectedKey="{/failureReason}">
                   <items>
                     <core:Item key="{key}" text="{text}" />
                   </items>

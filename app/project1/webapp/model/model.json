@@ -494,5 +494,16 @@
 	}, {
 		"key" : "Univ",
 		"name" : "Univ"
+	}],
+	"stage": [ {
+		"key" : "New",
+		"name" : "New"
+	}, {
+		"key" : "CIP",
+		"name" : "CIP"
+	},
+	{
+		"key" : "AP",
+		"name" : "AP"
 	}]
   }

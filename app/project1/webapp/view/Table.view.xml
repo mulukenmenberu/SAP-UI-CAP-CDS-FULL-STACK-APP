@@ -33,7 +33,7 @@
 					<f:content>		
 						<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
 							<fb:filterGroupItems>
-								<fb:FilterGroupItem name="Name" label="Student Name" groupName="Group1" visibleInFilterBar="true">
+								<fb:FilterGroupItem name="Name" label="Student Name"  groupName="Group1" visibleInFilterBar="true">
 									<fb:control>									
 										<MultiComboBox
 											name="Name"
@@ -46,7 +46,7 @@
 										</MultiComboBox>
 									</fb:control>
 								</fb:FilterGroupItem>
-								<fb:FilterGroupItem name="Sex" label="Gender" groupName="Group1" visibleInFilterBar="true">
+								<!-- <fb:FilterGroupItem name="Sex" label="Gender" groupName="Group1" visibleInFilterBar="true">
 									<fb:control>
 										<MultiComboBox
 											name="Sex"
@@ -58,7 +58,7 @@
 											<core:Item key="{key}" text="{name}"/>
 										</MultiComboBox>
 									</fb:control>
-								</fb:FilterGroupItem>
+								</fb:FilterGroupItem> -->
 								<fb:FilterGroupItem name="App_type" label="App Type" groupName="Group1" visibleInFilterBar="true">
 									<fb:control>
 										<MultiComboBox
@@ -72,7 +72,7 @@
 										</MultiComboBox>
 									</fb:control>
 								</fb:FilterGroupItem>
-                                <fb:FilterGroupItem name="MemberDate" label="Member Date" groupName="Group1" visibleInFilterBar="true">
+                                <fb:FilterGroupItem name="MemberDate" label="INTAKE" groupName="Group1" visibleInFilterBar="true">
 									<fb:control>
 										<MultiComboBox
 											name="MemberDate"
@@ -85,7 +85,7 @@
 										</MultiComboBox>
 									</fb:control>
 								</fb:FilterGroupItem>
-                                   <fb:FilterGroupItem name="country" label="Country" groupName="Group1" visibleInFilterBar="true">
+                                   <fb:FilterGroupItem name="country" label="DESTINATION" groupName="Group1" visibleInFilterBar="true">
 									<fb:control>
 										<MultiComboBox
 											name="country"
@@ -98,23 +98,31 @@
 										</MultiComboBox>
 									</fb:control>
 								</fb:FilterGroupItem>
-                                   <fb:FilterGroupItem name="office" label="Office" groupName="Group1" visibleInFilterBar="true">
+                                   <fb:FilterGroupItem name="office" label="stage" groupName="Group1" visibleInFilterBar="true">
 									<fb:control>
 										<MultiComboBox
 											name="office"
 											selectionChange=".onSelectionChange"
 											items="{
-												path: '/officeCategories',
+												path: '/stage',
 												templateShareable: true
 											}">
 											<core:Item key="{key}" text="{name}"/>
 										</MultiComboBox>
 									</fb:control>
-								</fb:FilterGroupItem>
+								</fb:FilterGroupItem> 
 							</fb:filterGroupItems>
 						</fb:FilterBar>
 					</f:content>
+					   <!-- <f:Card class="sapUiTinyMarginBegin sapUiTinyMarginTop sapUiTinyMarginBottom" width="100%"> -->
+                  <f:content>
+                     <FlexBox justifyContent="End" width="100%" alignItems="End">
+					 <!-- <VBox width="100%" > -->
 						<Button  text="copy" press="onCopyTextToClipboard"></Button>
+						<!-- </VBox> -->
+						  </FlexBox>
+						</f:content>
+					<!-- </f:Card> -->
 				</f:DynamicPageHeader>				
 			</f:header>
 			<f:content>

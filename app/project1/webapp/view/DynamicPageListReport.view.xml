@@ -8,7 +8,7 @@
 		xmlns:heading="project1.controls"
 		xmlns:custom="project1.controls"
 		xmlns:fb="sap.ui.comp.filterbar"
-		xmlns:svm="sap.ui.comp.smartvariants">	 
+		xmlns:svm="sap.ui.comp.smartvariants">	
 		<heading:heading border="5px dashed red" mario="gray" magic="Student Pipeline Management - SAP-BTP Demo"></heading:heading>
 		<f:DynamicPage headerExpanded="{/headerExpanded}">		
 			<f:title>			
