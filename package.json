@@ -1,42 +1,46 @@
 {
-  "name": "cap_tutorial",
-  "version": "1.0.0",
-  "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
-  "license": "UNLICENSED",
-  "private": true,
-  "dependencies": {
-    "@sap/cds": "^7",
-    "express": "^4.18.2",
-    "jsonwebtoken": "^9.0.2",
-    "nodemailer": "^6.9.7"
-  },
-  "devDependencies": {
-    "@cap-js/sqlite": "^1.4.0",
-    "@sap/cds-dk": "^7",
-    "@sap/ux-specification": "^1.120.0"
-  },
-  "scripts": {
-    "start": "cds-serve",
-    "watch-project1": "cds watch --open project1/webapp/index.html?sap-ui-xx-viewCache=false"
-  },
-  "cds": {
-    "requires": {
-      "db": {
-        "[development]": {
-          "kind": "sqlite",
-          "impl": "@cap-js/sqlite",
-          "credentials": {
-            "url": "db/db.sqlite"
-          },
-          "schema_evolution": "auto"
-        },
-        "[production]": {
-          "kind": "hana",
-          "impl": "@sap/cds-hana",
-          "deploy-format": "hdbtable"
+    "name": "cap_tutorial",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "repository": "<Add your repository here>",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@sap/cds": "^7",
+        "express": "^4.18.2",
+        "jsonwebtoken": "^9.0.2",
+        "nodemailer": "^6.9.7"
+    },
+    "devDependencies": {
+        "@cap-js/sqlite": "^1.4.0",
+        "@sap/cds-dk": "^7",
+        "@sap/ux-specification": "^1.120.0",
+        "rimraf": "^3.0.2"
+    },
+    "scripts": {
+        "start": "cds-serve",
+        "watch-project1": "cds watch --open project1/webapp/index.html?sap-ui-xx-viewCache=false",
+        "undeploy": "cf undeploy undefined --delete-services --delete-service-keys --delete-service-brokers",
+        "build": "rimraf resources mta_archives && mbt build --mtar archive",
+        "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+    },
+    "cds": {
+        "requires": {
+            "db": {
+                "[development]": {
+                    "kind": "sqlite",
+                    "impl": "@cap-js/sqlite",
+                    "credentials": {
+                        "url": "db/db.sqlite"
+                    },
+                    "schema_evolution": "auto"
+                },
+                "[production]": {
+                    "kind": "hana",
+                    "impl": "@sap/cds-hana",
+                    "deploy-format": "hdbtable"
+                }
+            }
         }
-      }
     }
-  }
 }
